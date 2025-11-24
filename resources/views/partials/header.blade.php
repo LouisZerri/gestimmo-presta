@@ -5,9 +5,9 @@
             <img src="{{ asset('images/logo3d.png') }}" alt="Logo" class="w-20 h-20">
             <div class="flex flex-col leading-none">
                 <span class="font-heading font-extrabold text-xl text-brand-blue tracking-tight">
-                    GEST'<span class="text-gray-800">IMMO</span>
+                    GEST'<span class="text-red-800">IMMO</span>
                 </span>
-                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Réseau National</span>
+                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">L'investissement en plus simple</span>
             </div>
         </a>
 
