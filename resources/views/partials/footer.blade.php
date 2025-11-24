@@ -1,8 +1,7 @@
 <footer class="bg-white border-t border-gray-200 pt-10 pb-8">
     <div class="max-w-7xl mx-auto px-4 mb-8 border-b border-gray-100 pb-8">
         <p class="text-[10px] text-gray-400 text-center leading-relaxed">
-            GEST'IMMO - SARL au capital de 1 000 € - Siège social : 35 rue Aliénor d'Aquitaine, 19360 Malemort - 
-            SIRET 990 877 417 00016 - RCS Brive B 990 877 417 - TVA FR42 990 877 417
+            Tous les conseillers GEST'IMMO sont des agents commerciaux indépendants de la SARL GEST'IMMO France immatriculés au RSAC, titulaires de la carte de démarchage immobilier pour le compte de la société GEST'IMMO France SARL. 
         </p>
     </div>
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">

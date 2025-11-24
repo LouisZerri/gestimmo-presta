@@ -157,7 +157,7 @@
             <div class="md:w-1/2 relative">
                 <div class="aspect-square bg-map-pattern rounded-full opacity-30 absolute inset-0 transform scale-110">
                 </div>
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                <img src="{{ asset('images/conseiller.png') }}"
                     class="relative z-10 rounded-2xl shadow-2xl w-4/5 mx-auto transform rotate-1 hover:rotate-0 transition duration-500"
                     alt="Conseillère GEST'IMMO">
             </div>
