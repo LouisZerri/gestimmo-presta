@@ -45,6 +45,58 @@
                     </ul>
                 </div>
 
+                {{-- Carte professionnelle et garanties --}}
+                <div class="bg-brand-blue/5 rounded-xl p-6 my-6 not-prose border border-brand-blue/10">
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-id-badge text-white"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Carte professionnelle</div>
+                            <p class="text-sm text-gray-600 mt-1">
+                                Transactions sur immeubles et fonds de commerce / Gestion Immobilière / Syndic de copropriété
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700 ml-13">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-certificate text-brand-blue mt-1 w-5"></i>
+                            <span><strong>N° CPI :</strong> CPI 1901 2025 000 000 011</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-landmark text-brand-blue mt-1 w-5"></i>
+                            <span><strong>Délivrée par :</strong> CCI de la Corrèze</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 rounded-xl p-6 my-6 not-prose border border-green-100">
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-white"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Garanties financières et assurances</div>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-green-500 mt-1 w-5"></i>
+                            <div>
+                                <strong>Garantie financière :</strong> 120 000 €<br>
+                                <span class="text-sm text-gray-500">GALIAN SMABTP – 89 rue La Boétie, 75008 Paris</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check-circle text-green-500 mt-1 w-5"></i>
+                            <div>
+                                <strong>Responsabilité Civile Professionnelle (RCP) :</strong><br>
+                                <span class="text-sm text-gray-500">GALIAN SMABTP – 89 rue La Boétie, 75008 Paris</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
                 <p><strong>Contact :</strong></p>
                 <div class="bg-brand-blue/5 rounded-xl p-6 my-6 not-prose border border-brand-blue/10">
                     <ul class="space-y-3 text-gray-700">
@@ -171,6 +223,13 @@
                 <p>
                     Vous pouvez paramétrer vos préférences via la bannière cookies affichée lors de votre première visite 
                     ou consulter notre <a href="{{ route('cookies') }}" class="text-brand-blue hover:underline">politique de cookies</a>.
+                </p>
+
+                {{-- 8. Médiation --}}
+                <h3>8. Médiation de la consommation</h3>
+                <p>
+                    Conformément aux articles L.616-1 et R.616-1 du Code de la consommation, en cas de litige, 
+                    le consommateur peut recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable du différend.
                 </p>
 
                 {{-- Date de mise à jour --}}
