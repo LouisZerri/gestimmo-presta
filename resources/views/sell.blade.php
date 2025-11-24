@@ -187,20 +187,20 @@
                 @php
                     $transactions = [
                         [
-                            'image' => 'photo-1512917774080-9991f1c4c750',
+                            'image' => 'photo-1687689961021-7b4690dffab6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                             'title' => 'Maison 120m² - Bordeaux',
                             'delai' => 'En 12 jours',
                             'info' => 'Au prix',
                         ],
                         [
-                            'image' => 'photo-1560448204-e02f11c3d0e2',
+                            'image' => 'photo-1571288174197-c81247980d90?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                             'title' => 'T2 Investisseur - Lyon',
                             'delai' => 'En 48h',
                             'info' => 'Sans visite',
                         ],
                         [
                             'image' =>
-                                'photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                                'photo-1546694004-ad3863947f3f?q=80&w=1121&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                             'title' => 'Immeuble de rapport - Lille',
                             'delai' => 'Offre ferme',
                             'info' => 'Rentabilité 8%',

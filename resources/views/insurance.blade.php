@@ -30,7 +30,7 @@
                 Assurez vos revenus locatifs contre les impayés, les dégradations et les frais de contentieux. La sérénité absolue pour le bailleur.
             </p>
             <ul class="space-y-3 text-sm text-gray-600 mb-8">
-                <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Remboursement illimité (durée/montant)</span></li>
+                <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Remboursement jusqu'à 96 000€</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Protection juridique incluse</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Pas de franchise</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Détériorations jusqu'à 10 000€</span></li>
@@ -94,7 +94,7 @@
         <div class="grid md:grid-cols-4 gap-6 text-center">
             @php
                 $stats = [
-                    ['value' => '-30%', 'label' => "d'économie moyenne sur votre PNO"],
+                    ['value' => '-30%', 'label' => "d'économie en moyenne"],
                     ['value' => '48h', 'label' => 'pour obtenir votre attestation'],
                     ['value' => '100%', 'label' => 'Digital & Zéro papier'],
                     ['value' => '24/7', 'label' => 'Service Sinistre dédié'],
