@@ -13,6 +13,9 @@
     <div class="relative z-10 max-w-4xl px-4">
         <h1 class="font-heading font-bold text-5xl text-white mb-4">Rejoignez la plus grande communauté d'entrepreneurs.</h1>
         <p class="text-xl text-blue-100 mb-6">Je deviens entrepreneur GEST'IMMO</p>
+        <button onclick="scrollToJoinForm('general')" class="bg-brand-accent text-brand-dark font-bold px-8 py-4 rounded-full hover:bg-yellow-400 transition shadow-lg transform hover:-translate-y-1">
+            Déposer ma candidature
+        </button>
     </div>
 </div>
 
@@ -41,12 +44,42 @@
         <div class="grid md:grid-cols-3 gap-8">
             @php
                 $avantages = [
-                    ['icon' => 'fa-chart-line', 'title' => '...avoir une rémunération exponentielle', 'desc' => "Jusqu'à 85% de commission sur vos ventes. Vous développez vos revenus grâce à votre performance."],
-                    ['icon' => 'fa-hands-helping', 'title' => "...être accompagné à chaque étape", 'desc' => "Un parrain, un gestionnaire dédié et des équipes expertes pour vous guider du lancement à la réussite."],
-                    ['icon' => 'fa-graduation-cap', 'title' => '...se former en continu', 'desc' => "Accès illimité à notre université en ligne et coaching terrain hebdomadaire. L'apprentissage ne s'arrête jamais."],
-                    ['icon' => 'fa-laptop-code', 'title' => "...s'appuyer sur des outils faits pour vous", 'desc' => "Prospection, estimation, signature électronique... Tout est conçu pour vous simplifier la vie."],
-                    ['icon' => 'fa-wallet', 'title' => '...entreprendre sans barrière financière', 'desc' => "Construisez votre activité sans mise de départ. Un modèle ouvert et accessible qui fait tomber les frontières."],
-                    ['icon' => 'fa-users', 'title' => '...créer sa propre équipe', 'desc' => "Développez votre organisation, formez d'autres entrepreneurs et générez des revenus récurrents."],
+                    [
+                        'icon' => 'fa-chart-line', 
+                        'title' => '...avoir une rémunération exponentielle', 
+                        'desc' => "Jusqu'à 85% de commission sur vos ventes. Vous développez vos revenus grâce à votre performance.",
+                        'topic' => 'remuneration'
+                    ],
+                    [
+                        'icon' => 'fa-hands-helping', 
+                        'title' => "...être accompagné à chaque étape", 
+                        'desc' => "Un parrain, un gestionnaire dédié et des équipes expertes pour vous guider du lancement à la réussite.",
+                        'topic' => 'accompagnement'
+                    ],
+                    [
+                        'icon' => 'fa-graduation-cap', 
+                        'title' => '...se former en continu', 
+                        'desc' => "Accès illimité à notre université en ligne et coaching terrain hebdomadaire. L'apprentissage ne s'arrête jamais.",
+                        'topic' => 'formation'
+                    ],
+                    [
+                        'icon' => 'fa-laptop-code', 
+                        'title' => "...s'appuyer sur des outils faits pour vous", 
+                        'desc' => "Prospection, estimation, signature électronique... Tout est conçu pour vous simplifier la vie.",
+                        'topic' => 'outils'
+                    ],
+                    [
+                        'icon' => 'fa-wallet', 
+                        'title' => '...entreprendre sans barrière financière', 
+                        'desc' => "Construisez votre activité sans mise de départ. Un modèle ouvert et accessible qui fait tomber les frontières.",
+                        'topic' => 'investissement'
+                    ],
+                    [
+                        'icon' => 'fa-users', 
+                        'title' => '...créer sa propre équipe', 
+                        'desc' => "Développez votre organisation, formez d'autres entrepreneurs et générez des revenus récurrents.",
+                        'topic' => 'equipe'
+                    ],
                 ];
             @endphp
             
@@ -57,7 +90,9 @@
                     </div>
                     <h3 class="font-heading font-bold text-xl text-brand-blue mb-3">{{ $avantage['title'] }}</h3>
                     <p class="text-sm text-gray-600 mb-4">{{ $avantage['desc'] }}</p>
-                    <a href="#" class="text-brand-blue text-xs font-bold hover:underline">En savoir plus &rarr;</a>
+                    <button onclick="scrollToJoinForm('{{ $avantage['topic'] }}')" class="text-brand-blue text-xs font-bold hover:underline cursor-pointer">
+                        En savoir plus &rarr;
+                    </button>
                 </div>
             @endforeach
         </div>
@@ -67,7 +102,7 @@
     <div class="bg-gray-100 rounded-3xl p-12 text-center">
         <h2 class="text-3xl font-heading font-bold text-gray-800 mb-4">Prêt à changer de vie ?</h2>
         <p class="mb-8 text-gray-600">Assistez à notre prochaine présentation en ligne (Webinaire de 30 min) pour découvrir le modèle.</p>
-        <button class="bg-brand-blue text-white font-bold px-8 py-4 rounded-full hover:bg-blue-800 transition shadow-xl">
+        <button onclick="scrollToJoinForm('webinaire')" class="bg-brand-blue text-white font-bold px-8 py-4 rounded-full hover:bg-blue-800 transition shadow-xl">
             M'inscrire au webinaire
         </button>
     </div>
@@ -106,6 +141,12 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        
+        <div class="text-center mt-10">
+            <button onclick="scrollToJoinForm('temoignage')" class="text-brand-blue font-bold hover:underline">
+                Je veux vivre la même expérience <i class="fas fa-arrow-right ml-2"></i>
+            </button>
         </div>
     </div>
 </div>
@@ -253,30 +294,54 @@
 
 @push('scripts')
 <script>
-    function scrollToJoinForm(situation) {
+    function scrollToJoinForm(topic) {
         const form = document.getElementById('join-contact');
         const situationSelect = document.getElementById('situation-select');
         const messageBox = document.getElementById('join-message');
+        
+        // Messages pré-remplis selon le sujet
+        const messages = {
+            // Situations
+            'reconversion': "Bonjour, je souhaite me reconvertir dans l'immobilier et rejoindre GEST'IMMO. Je suis motivé(e) et prêt(e) à m'investir dans cette nouvelle aventure.",
+            'agent_immobilier': "Bonjour, je suis actuellement agent immobilier et je souhaite rejoindre le réseau GEST'IMMO pour bénéficier de meilleures conditions et d'un accompagnement de qualité.",
+            'mandataire': "Bonjour, je suis mandataire immobilier et je souhaite changer de réseau pour rejoindre GEST'IMMO.",
+            'debutant': "Bonjour, je souhaite débuter dans l'immobilier avec GEST'IMMO. Je suis motivé(e) et prêt(e) à apprendre.",
+            
+            // Topics avantages
+            'remuneration': "Bonjour, je suis intéressé(e) par le modèle de rémunération GEST'IMMO (jusqu'à 85% de commission). Pouvez-vous m'en dire plus sur les conditions ?",
+            'accompagnement': "Bonjour, j'aimerais en savoir plus sur l'accompagnement proposé par GEST'IMMO (parrain, gestionnaire dédié, équipes expertes).",
+            'formation': "Bonjour, je suis intéressé(e) par le programme de formation GEST'IMMO (université en ligne, coaching terrain). Pouvez-vous me donner plus de détails ?",
+            'outils': "Bonjour, j'aimerais en savoir plus sur les outils mis à disposition par GEST'IMMO (prospection, estimation, signature électronique).",
+            'investissement': "Bonjour, je souhaite entreprendre sans apport financier initial. Pouvez-vous m'expliquer comment fonctionne le modèle GEST'IMMO ?",
+            'equipe': "Bonjour, je suis intéressé(e) par la possibilité de créer ma propre équipe chez GEST'IMMO. Comment fonctionnent les commissions de parrainage ?",
+            
+            // Autres
+            'webinaire': "Bonjour, je souhaite m'inscrire au prochain webinaire de présentation GEST'IMMO. Quelles sont les prochaines dates disponibles ?",
+            'temoignage': "Bonjour, j'ai lu les témoignages des conseillers GEST'IMMO et je suis très intéressé(e). Je souhaite en savoir plus pour rejoindre le réseau.",
+            'general': "Bonjour, je souhaite devenir conseiller GEST'IMMO et rejoindre votre réseau. Je suis disponible pour un entretien.",
+        };
+
+        // Situations à pré-sélectionner
+        const situationMapping = {
+            'reconversion': 'reconversion',
+            'agent_immobilier': 'agent_immobilier',
+            'mandataire': 'mandataire',
+            'debutant': 'debutant',
+        };
         
         if (form) {
             form.scrollIntoView({ behavior: 'smooth', block: 'center' });
             form.classList.add('ring-4', 'ring-brand-blue');
             setTimeout(() => form.classList.remove('ring-4', 'ring-brand-blue'), 1500);
             
-            // Pré-sélectionner la situation
-            if (situationSelect && situation) {
-                situationSelect.value = situation;
+            // Pré-sélectionner la situation si applicable
+            if (situationSelect && situationMapping[topic]) {
+                situationSelect.value = situationMapping[topic];
             }
             
-            // Pré-remplir le message selon la situation
-            if (messageBox && !messageBox.value) {
-                const messages = {
-                    'reconversion': "Bonjour, je souhaite me reconvertir dans l'immobilier et rejoindre GEST'IMMO. Je suis motivé(e) et prêt(e) à m'investir dans cette nouvelle aventure.",
-                    'agent_immobilier': "Bonjour, je suis actuellement agent immobilier et je souhaite rejoindre le réseau GEST'IMMO pour bénéficier de meilleures conditions et d'un accompagnement de qualité.",
-                    'mandataire': "Bonjour, je suis mandataire immobilier et je souhaite changer de réseau pour rejoindre GEST'IMMO.",
-                    'debutant': "Bonjour, je souhaite débuter dans l'immobilier avec GEST'IMMO. Je suis motivé(e) et prêt(e) à apprendre.",
-                };
-                messageBox.value = messages[situation] || '';
+            // Pré-remplir le message
+            if (messageBox) {
+                messageBox.value = messages[topic] || messages['general'];
                 messageBox.focus();
             }
         }
