@@ -12,7 +12,7 @@
                 Découvrez la valeur réelle de votre bien<br>auprès des investisseurs
             </h1>
             <p class="text-blue-100 text-lg mb-10 font-medium">
-                Comparez votre bien à +10 millions de données de marché et accédez à notre fichier de 50 000 acquéreurs
+                Comparez votre bien à +10 millions de données de marché et accédez à notre fichier de 500 acquéreurs
                 qualifiés.
             </p>
 
@@ -237,7 +237,7 @@
             <div class="flex flex-wrap justify-center gap-6">
                 <div
                     class="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 text-sm font-bold text-gray-600 flex items-center gap-3">
-                    <i class="fas fa-users text-brand-blue text-xl"></i> 50 000 Investisseurs
+                    <i class="fas fa-users text-brand-blue text-xl"></i> 500 Investisseurs
                 </div>
                 <div
                     class="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 text-sm font-bold text-gray-600 flex items-center gap-3">

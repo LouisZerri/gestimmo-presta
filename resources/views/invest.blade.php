@@ -240,7 +240,7 @@
 
                 <div>
                     <textarea id="invest-message" name="message" rows="3" placeholder="Précisez votre projet (Ville, Budget...)"
-                        class="w-full p-3 bg-gray-50 rounded-lg border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none resize-none @error('message') border-red-500 bg-red-50 @enderror">{{ old('message') }}</textarea>
+                        class="w-full p-3 bg-gray-50 rounded-lg border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none resize-none @error('message') border-red-500 bg-red-50 @enderror">{{ old('message', $message ?? '') }}</textarea>
                     @error('message')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -338,6 +338,20 @@
                 behavior: 'smooth',
                 block: 'center'
             });
+        @endif
+
+        @if (!empty($message))
+            document.getElementById('invest-contact')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+            const form = document.getElementById('invest-contact');
+            if (form) {
+                form.classList.add('ring-4', 'ring-brand-blue', 'ring-opacity-50');
+                setTimeout(() => {
+                    form.classList.remove('ring-4', 'ring-brand-blue', 'ring-opacity-50');
+                }, 2000);
+            }
         @endif
     </script>
 @endpush

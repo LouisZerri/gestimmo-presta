@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 class InvestController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $regions = [
             'Nouvelle-Aquitaine', 'Île-de-France', 'Auvergne-Rhône-Alpes',
@@ -18,7 +18,15 @@ class InvestController extends Controller
             'Pays de la Loire', 'Bretagne', 'Normandie'
         ];
         
-        return view('invest', compact('regions'));
+        // Récupérer la région pré-remplie depuis la query string
+        $region = $request->query('region', '');
+        $message = '';
+        
+        if ($region) {
+            $message = "Bonjour, je suis intéressé(e) par des opportunités d'investissement en région {$region}. Pouvez-vous me recontacter ?";
+        }
+        
+        return view('invest', compact('regions', 'message'));
     }
 
     public function submit(InvestContactRequest $request)
@@ -29,9 +37,20 @@ class InvestController extends Controller
             // Envoyer l'email
             Mail::to('contact@gestimmo-presta.fr')->send(new InvestContactMail($data));
             
+            // Log pour traçabilité
+            Log::info('Demande investissement reçue', [
+                'nom' => $data['nom'],
+                'email' => $data['email'],
+                'type_bien' => $data['type_bien'] ?? 'Non précisé',
+            ]);
+
             return back()->with('success', 'Votre demande a bien été envoyée ! Notre équipe vous recontactera dans les plus brefs délais.');
             
         } catch (\Exception $e) {
+            Log::error('Erreur envoi formulaire investissement', [
+                'error' => $e->getMessage(),
+                'data' => $request->except(['_token']),
+            ]);
             
             return back()
                 ->withInput()

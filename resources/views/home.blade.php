@@ -16,7 +16,7 @@
                     <span class="text-brand-accent">en toute confiance.</span>
                 </h1>
                 <p class="text-xl mb-10 text-white font-medium max-w-xl drop-shadow-md">
-                    Plus de 50 000 conseillers de proximité pour Vendre, Acheter, Louer et Gérer votre patrimoine.
+                    Plus de 500 conseillers de proximité pour Vendre, Acheter, Louer et Gérer votre patrimoine.
                 </p>
                 <div
                     class="bg-white p-4 rounded-xl shadow-floating flex flex-col md:flex-row gap-3 max-w-2xl transform hover:scale-[1.01] transition duration-300">
@@ -306,7 +306,7 @@
                 </div>
             </div>
             <div class="md:w-1/3 text-center md:text-right">
-                <a href="{{ route("advisors") }}"
+                <a href="{{ route('advisors') }}"
                     class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full shadow-xl hover:bg-gray-100 transition transform hover:-translate-y-1 text-lg inline-block w-full md:w-auto">
                     Devenir conseiller
                 </a>
@@ -314,10 +314,13 @@
         </div>
     </div>
 
-    {{-- LIENS RÉGIONS --}}
-    <div class="bg-gray-50 py-12 border-t border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h3 class="font-heading font-bold text-xl text-gray-800 mb-6">Où investir avec GEST'IMMO ?</h3>
+    {{-- SECTION RÉGIONS --}}
+    <div class="bg-white py-16 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="font-heading font-bold text-2xl text-gray-800">Investir dans toute la France</h2>
+                <p class="text-gray-500 mt-2">Découvrez nos opportunités région par région</p>
+            </div>
             <div class="flex flex-wrap justify-center gap-3">
                 @php
                     $regions = [
@@ -334,8 +337,8 @@
                     ];
                 @endphp
                 @foreach ($regions as $region)
-                    <a href="#"
-                        class="text-xs text-gray-500 hover:text-brand-blue hover:border-brand-blue transition bg-white px-4 py-2 rounded border border-gray-200">
+                    <a href="{{ route('invest') }}?region={{ urlencode($region) }}"
+                        class="px-4 py-2 bg-gray-100 hover:bg-brand-blue hover:text-white rounded-full text-sm font-medium text-gray-600 transition">
                         Investir en {{ $region }}
                     </a>
                 @endforeach
