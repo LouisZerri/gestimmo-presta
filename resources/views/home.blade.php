@@ -306,7 +306,7 @@
                 </div>
             </div>
             <div class="md:w-1/3 text-center md:text-right">
-                <a href="{{ route('advisors') }}"
+                <a href="{{ route('join') }}?source=conseiller"
                     class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full shadow-xl hover:bg-gray-100 transition transform hover:-translate-y-1 text-lg inline-block w-full md:w-auto">
                     Devenir conseiller
                 </a>

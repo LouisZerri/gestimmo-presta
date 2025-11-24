@@ -23,10 +23,10 @@
             Avec ou sans expérience dans l'immobilier, devenez indépendant avec GEST'IMMO
         </h2>
         <div class="flex flex-col md:flex-row justify-center gap-6">
-            <button class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1">
+            <button onclick="scrollToJoinForm('reconversion')" class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1">
                 Je veux changer de métier
             </button>
-            <button class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition shadow-lg transform hover:-translate-y-1">
+            <button onclick="scrollToJoinForm('agent_immobilier')" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition shadow-lg transform hover:-translate-y-1">
                 Je travaille dans l'immobilier
             </button>
         </div>
@@ -111,49 +111,138 @@
 </div>
 
 {{-- FORMULAIRE CANDIDATURE --}}
-<div class="bg-white py-20">
+<div class="bg-white py-20" id="join-form-section">
     <div class="max-w-2xl mx-auto px-4">
-        <div class="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
+        <div id="join-contact" class="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
             <div class="text-center mb-8">
                 <h3 class="text-2xl font-bold text-gray-800">Déposer ma candidature</h3>
                 <p class="text-gray-500">Recevez toutes les informations pour démarrer votre nouvelle carrière.</p>
             </div>
-            <form class="space-y-4" method="POST" action="#">
+
+            {{-- Message de succès --}}
+            @if(session('success'))
+                <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-start gap-3 animate-fade-in-up">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-check text-green-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-green-800">Candidature envoyée avec succès !</h4>
+                        <p class="text-green-700 text-sm">{{ session('success') }}</p>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Message d'erreur --}}
+            @if(session('error'))
+                <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-exclamation-triangle text-red-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-red-800">Une erreur est survenue</h4>
+                        <p class="text-red-700 text-sm">{{ session('error') }}</p>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Erreurs de validation --}}
+            @if($errors->any())
+                <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-exclamation-circle text-red-600"></i>
+                        <h4 class="font-bold text-red-800">Veuillez corriger les erreurs suivantes :</h4>
+                    </div>
+                    <ul class="list-disc list-inside text-red-700 text-sm space-y-1">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form class="space-y-4" method="POST" action="{{ route('join.submit') }}" id="join-form">
                 @csrf
                 <div class="grid grid-cols-2 gap-4">
-                    <input type="text" name="nom" placeholder="Nom" class="p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none">
-                    <input type="text" name="prenom" placeholder="Prénom" class="p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none">
+                    <div>
+                        <input type="text" name="nom" value="{{ old('nom') }}" placeholder="Nom *" required
+                               class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('nom') border-red-500 @enderror">
+                        @error('nom')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div>
+                        <input type="text" name="prenom" value="{{ old('prenom') }}" placeholder="Prénom *" required
+                               class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('prenom') border-red-500 @enderror">
+                        @error('prenom')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
                 </div>
-                <input type="email" name="email" placeholder="Email" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none">
-                <input type="tel" name="telephone" placeholder="Téléphone" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none">
-                <input type="text" name="ville" placeholder="Ville de résidence" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none">
+                <div>
+                    <input type="email" name="email" value="{{ old('email') }}" placeholder="Email *" required
+                           class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('email') border-red-500 @enderror">
+                    @error('email')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <input type="tel" name="telephone" value="{{ old('telephone') }}" placeholder="Téléphone *" required
+                           class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('telephone') border-red-500 @enderror">
+                    @error('telephone')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <input type="text" name="ville" value="{{ old('ville') }}" placeholder="Ville de résidence *" required
+                           class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('ville') border-red-500 @enderror">
+                    @error('ville')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
                 
                 <div class="relative">
-                    <select name="situation" class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none text-gray-600 appearance-none cursor-pointer">
-                        <option value="">Votre situation actuelle...</option>
-                        <option value="salarie">Salarié(e) en poste</option>
-                        <option value="recherche">En recherche d'emploi</option>
-                        <option value="independant">Indépendant / Freelance</option>
-                        <option value="immobilier">Déjà dans l'immobilier</option>
-                        <option value="autre">Autre</option>
+                    <select name="situation" id="situation-select" required
+                            class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none text-gray-600 appearance-none cursor-pointer transition @error('situation') border-red-500 @enderror">
+                        <option value="">Votre situation actuelle... *</option>
+                        <option value="agent_immobilier" {{ old('situation') == 'agent_immobilier' ? 'selected' : '' }}>Agent immobilier expérimenté</option>
+                        <option value="mandataire" {{ old('situation') == 'mandataire' ? 'selected' : '' }}>Mandataire en activité</option>
+                        <option value="reconversion" {{ old('situation') == 'reconversion' ? 'selected' : '' }}>En reconversion professionnelle</option>
+                        <option value="debutant" {{ old('situation') == 'debutant' ? 'selected' : '' }}>Débutant motivé</option>
+                        <option value="autre" {{ old('situation') == 'autre' ? 'selected' : '' }}>Autre profil</option>
                     </select>
                     <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
                         <i class="fas fa-chevron-down text-xs"></i>
                     </div>
+                    @error('situation')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 
-                <textarea name="motivation" rows="3" placeholder="Parlez-nous de votre motivation..." class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none"></textarea>
-                
-                <div class="flex items-start gap-3">
-                    <input type="checkbox" name="rgpd" id="rgpd" class="mt-1 h-4 w-4 text-brand-blue rounded border-gray-300 focus:ring-brand-blue">
-                    <label for="rgpd" class="text-xs text-gray-500">
-                        J'accepte de recevoir des informations de la part de GEST'IMMO et reconnais avoir pris connaissance de la 
-                        <a href="#" class="text-brand-blue hover:underline">politique de confidentialité</a>.
-                    </label>
+                <div>
+                    <textarea name="message" id="join-message" rows="3" 
+                              placeholder="Parlez-nous de votre motivation..."
+                              class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition resize-none @error('message') border-red-500 @enderror">{{ old('message', $message ?? '') }}</textarea>
+                    @error('message')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 
-                <button type="submit" class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5">
-                    Envoyer ma candidature
+                <p class="text-xs text-gray-400">
+                    <i class="fas fa-lock mr-1"></i> 
+                    Vos données sont protégées. Consultez notre <a href="{{ route('privacy') }}" class="text-brand-blue hover:underline">politique de confidentialité</a>.
+                </p>
+                
+                <button type="submit" id="submit-btn"
+                        class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <span id="btn-text">Envoyer ma candidature</span>
+                    <span id="btn-loading" class="hidden items-center gap-2">
+                        <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                        Envoi en cours...
+                    </span>
+                    <i class="fas fa-paper-plane" id="btn-icon"></i>
                 </button>
             </form>
         </div>
@@ -161,3 +250,65 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+    function scrollToJoinForm(situation) {
+        const form = document.getElementById('join-contact');
+        const situationSelect = document.getElementById('situation-select');
+        const messageBox = document.getElementById('join-message');
+        
+        if (form) {
+            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            form.classList.add('ring-4', 'ring-brand-blue');
+            setTimeout(() => form.classList.remove('ring-4', 'ring-brand-blue'), 1500);
+            
+            // Pré-sélectionner la situation
+            if (situationSelect && situation) {
+                situationSelect.value = situation;
+            }
+            
+            // Pré-remplir le message selon la situation
+            if (messageBox && !messageBox.value) {
+                const messages = {
+                    'reconversion': "Bonjour, je souhaite me reconvertir dans l'immobilier et rejoindre GEST'IMMO. Je suis motivé(e) et prêt(e) à m'investir dans cette nouvelle aventure.",
+                    'agent_immobilier': "Bonjour, je suis actuellement agent immobilier et je souhaite rejoindre le réseau GEST'IMMO pour bénéficier de meilleures conditions et d'un accompagnement de qualité.",
+                    'mandataire': "Bonjour, je suis mandataire immobilier et je souhaite changer de réseau pour rejoindre GEST'IMMO.",
+                    'debutant': "Bonjour, je souhaite débuter dans l'immobilier avec GEST'IMMO. Je suis motivé(e) et prêt(e) à apprendre.",
+                };
+                messageBox.value = messages[situation] || '';
+                messageBox.focus();
+            }
+        }
+    }
+
+    // Gestion du formulaire - loading state
+    document.getElementById('join-form')?.addEventListener('submit', function(e) {
+        const btn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+        const btnIcon = document.getElementById('btn-icon');
+        
+        btn.disabled = true;
+        btn.classList.add('opacity-75', 'cursor-not-allowed');
+        btnText.classList.add('hidden');
+        btnIcon.classList.add('hidden');
+        btnLoading.classList.remove('hidden');
+        btnLoading.classList.add('inline-flex');
+    });
+
+    // Scroll vers le formulaire si erreurs, succès ou message pré-rempli
+    @if(session('success') || session('error') || $errors->any() || !empty($message))
+        document.getElementById('join-form-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        @if(!empty($message))
+            const form = document.getElementById('join-contact');
+            if (form) {
+                form.classList.add('ring-4', 'ring-brand-blue', 'ring-opacity-50');
+                setTimeout(() => {
+                    form.classList.remove('ring-4', 'ring-brand-blue', 'ring-opacity-50');
+                }, 2000);
+            }
+        @endif
+    @endif
+</script>
+@endpush

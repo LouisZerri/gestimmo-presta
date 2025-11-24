@@ -26,7 +26,9 @@ Route::get('/assurances', [InsuranceController::class, 'index'])->name('insuranc
 Route::post('/assurances', [App\Http\Controllers\InsuranceController::class, 'submit'])->name('insurance.submit');
 
 Route::get('/conseillers', [AdvisorController::class, 'index'])->name('advisors');
+
 Route::get('/rejoindre', [JoinController::class, 'index'])->name('join');
+Route::post('/rejoindre', [App\Http\Controllers\JoinController::class, 'submit'])->name('join.submit');
 
 // Estimation
 Route::get('/estimer', [EstimationController::class, 'index'])->name('estimation');
