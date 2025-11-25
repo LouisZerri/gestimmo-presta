@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdvisorController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EstimationController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\InvestController;
@@ -17,6 +18,8 @@ Route::get('/investir', [InvestController::class, 'index'])->name('invest');
 Route::post('/investir', [InvestController::class, 'submit'])->name('invest.submit');
 
 Route::get('/vendre', [SellController::class, 'index'])->name('sell');
+
+Route::get('/aide', [FaqController::class, 'index'])->name('faq');
 
 // Gestion locative & Syndic
 Route::get('/gerer', [ManageController::class, 'index'])->name('manage');
