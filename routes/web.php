@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdvisorController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EstimationController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
@@ -32,6 +33,9 @@ Route::get('/conseillers', [AdvisorController::class, 'index'])->name('advisors'
 
 Route::get('/rejoindre', [JoinController::class, 'index'])->name('join');
 Route::post('/rejoindre', [App\Http\Controllers\JoinController::class, 'submit'])->name('join.submit');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 // Estimation
 Route::get('/estimer', [EstimationController::class, 'index'])->name('estimation');
