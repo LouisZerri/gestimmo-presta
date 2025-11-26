@@ -93,7 +93,7 @@
         <!-- Mentions Légales -->
         <div class="border-t border-gray-100 pt-8 pb-4">
             <p class="text-[9px] md:text-[10px] text-gray-400 text-center leading-relaxed max-w-5xl mx-auto mb-6">
-                Tous les conseillers GEST'IMMO sont des agents commerciaux indépendants de la SAS GEST'IMMO au capital de 100 000€ - SIRET 899 899 899 - RCS PARIS. Carte professionnelle CPI 7501 2021 000 000 000 délivrée par la CCI de Paris Ile-de-France. Garantie Financière GALIAN - 89 rue de la Boétie 75008 Paris. Montant garantie : 120 000 €. RCP MMA Entreprise.
+                Tous les conseillers GEST'IMMO sont des agents commerciaux indépendants de la SARL GEST'IMMO France immatriculés au RSAC, titulaires de la carte de démarchage immobilier pour le compte de la société GEST'IMMO France SARL. 
             </p>
             <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 pt-4 border-t border-gray-50">
                 <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4 md:mb-0 text-xs font-medium">
