@@ -69,7 +69,7 @@
                 <h3>Contact</h3>
                 <p>
                     Pour toute question concernant notre politique de cookies, vous pouvez nous contacter à l'adresse : 
-                    <a href="mailto:contact@gestimmo-presta.fr" class="text-brand-blue hover:underline">contact@gestimmo-presta.fr</a>
+                    <a href="mailto:gestimmo.presta@gmail.com" class="text-brand-blue hover:underline">gestimmo.presta@gmail.com</a>
                 </p>
 
                 <p class="text-sm text-gray-400 mt-8">

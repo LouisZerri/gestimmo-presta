@@ -24,7 +24,7 @@ class EstimationController extends Controller
             $data = $request->validated();
             
             // Envoyer l'email
-            Mail::to('contact@gestimmo-presta.fr')->send(new EstimationMail($data));
+            Mail::to('gestimmo.presta@gmail.com')->send(new EstimationMail($data));
             
             // Log pour traçabilité
             Log::info('Demande estimation reçue', [

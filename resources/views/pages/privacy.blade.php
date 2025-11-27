@@ -35,7 +35,7 @@
                     <ul class="space-y-2 text-gray-600 text-sm">
                         <li><i class="fas fa-map-marker-alt text-gray-400 mr-2 w-4"></i>35 rue Aliénor d'Aquitaine, 19360 Malemort, France</li>
                         <li><i class="fas fa-phone text-gray-400 mr-2 w-4"></i><a href="tel:0613250596" class="text-brand-blue hover:underline">06 13 25 05 96</a></li>
-                        <li><i class="fas fa-envelope text-gray-400 mr-2 w-4"></i><a href="mailto:contact@gestimmo-presta.fr" class="text-brand-blue hover:underline">contact@gestimmo-presta.fr</a></li>
+                        <li><i class="fas fa-envelope text-gray-400 mr-2 w-4"></i><a href="mailto:gestimmo.presta@gmail.com" class="text-brand-blue hover:underline">gestimmo.presta@gmail.com</a></li>
                     </ul>
                 </div>
 
@@ -268,8 +268,8 @@
                         Vous pouvez exercer vos droits à tout moment en nous contactant :
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="mailto:contact@gestimmo-presta.fr" class="inline-flex items-center justify-center gap-2 bg-white text-brand-blue font-bold px-5 py-3 rounded-lg hover:bg-gray-100 transition">
-                            <i class="fas fa-envelope"></i> contact@gestimmo-presta.fr
+                        <a href="mailto:gestimmo.presta@gmail.com" class="inline-flex items-center justify-center gap-2 bg-white text-brand-blue font-bold px-5 py-3 rounded-lg hover:bg-gray-100 transition">
+                            <i class="fas fa-envelope"></i> gestimmo.presta@gmail.com
                         </a>
                         <a href="tel:0613250596" class="inline-flex items-center justify-center gap-2 bg-white/20 text-white font-bold px-5 py-3 rounded-lg hover:bg-white/30 transition border border-white/30">
                             <i class="fas fa-phone"></i> 06 13 25 05 96

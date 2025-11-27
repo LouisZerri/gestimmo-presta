@@ -176,7 +176,7 @@
                             </div>
                             <div>
                                 <div class="text-xs text-gray-400 uppercase">Par email</div>
-                                <div class="font-bold">contact@gestimmo-presta.fr</div>
+                                <div class="font-bold">gestimmo.presta@gmail.com</div>
                             </div>
                         </div>
                     </div>

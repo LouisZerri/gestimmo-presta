@@ -27,7 +27,7 @@ class ManageController extends Controller
         try {
             $data = $request->validated();
             
-            Mail::to('contact@gestimmo-presta.fr')->send(new ManageContactMail($data));
+            Mail::to('gestimmo.presta@gmail.com')->send(new ManageContactMail($data));
             
             Log::info('Demande gestion reçue', [
                 'nom' => $data['nom'],

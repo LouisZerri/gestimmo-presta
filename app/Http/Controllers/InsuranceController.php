@@ -20,7 +20,7 @@ class InsuranceController extends Controller
         try {
             $data = $request->validated();
             
-            Mail::to('contact@gestimmo-presta.fr')->send(new InsuranceContactMail($data));
+            Mail::to('gestimmo.presta@gmail.com')->send(new InsuranceContactMail($data));
             
             Log::info('Demande assurance reçue', [
                 'nom' => $data['nom'],

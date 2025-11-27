@@ -124,7 +124,7 @@
                             </div>
                             <div>
                                 <div class="text-xs text-gray-400 uppercase tracking-wide">E-mail</div>
-                                <a href="mailto:contact@gestimmo-presta.fr" class="font-medium text-brand-blue hover:underline">contact@gestimmo-presta.fr</a>
+                                <a href="mailto:gestimmo.presta@gmail.com" class="font-medium text-brand-blue hover:underline">gestimmo.presta@gmail.com</a>
                             </div>
                         </li>
                     </ul>
@@ -209,7 +209,7 @@
                 </p>
                 <p>
                     Pour exercer vos droits, contactez-nous à : 
-                    <a href="mailto:contact@gestimmo-presta.fr" class="text-brand-blue hover:underline">contact@gestimmo-presta.fr</a>
+                    <a href="mailto:gestimmo.presta@gmail.com" class="text-brand-blue hover:underline">gestimmo.presta@gmail.com</a>
                 </p>
 
                 {{-- 7. Cookies --}}

@@ -39,7 +39,7 @@ class ContactController extends Controller
             }
 
             // Envoi de l'email avec les pièces jointes
-            Mail::to('contact@gestimmo-presta.fr')->send(
+            Mail::to('gestimmo.presta@gmail.com')->send(
                 new ContactTicket($validated, $ticketNumber, $attachmentPaths)
             );
 

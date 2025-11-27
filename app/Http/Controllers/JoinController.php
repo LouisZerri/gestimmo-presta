@@ -28,7 +28,7 @@ class JoinController extends Controller
         try {
             $data = $request->validated();
             
-            Mail::to('contact@gestimmo-presta.fr')->send(new JoinContactMail($data));
+            Mail::to('gestimmo.presta@gmail.com')->send(new JoinContactMail($data));
             
             Log::info('Candidature conseiller reçue', [
                 'nom' => $data['nom'],
