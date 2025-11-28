@@ -51,4 +51,6 @@ Route::get('/article/{article}', [ArticleController::class, 'show'])->name('arti
 Route::view('/cookies', 'pages.cookies')->name('cookies');
 Route::view('/mentions-legales', 'pages.legal')->name('legal');
 Route::view('/confidentialite', 'pages.privacy')->name('privacy');
+Route::view('/bareme-honoraires', 'pages.fees')->name('fees');
+
 

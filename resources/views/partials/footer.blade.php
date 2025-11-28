@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-gray-500 hover:text-brand-blue transition text-sm font-medium">
+                        <a href="{{ route('fees') }}" class="text-gray-500 hover:text-brand-blue transition text-sm font-medium">
                             Barème d'honoraires
                         </a>
                     </li>
