@@ -30,6 +30,7 @@ Route::get('/assurances', [InsuranceController::class, 'index'])->name('insuranc
 Route::post('/assurances', [App\Http\Controllers\InsuranceController::class, 'submit'])->name('insurance.submit');
 
 Route::get('/conseillers', [AdvisorController::class, 'index'])->name('advisors');
+Route::post('/conseillers', [AdvisorController::class, 'submit'])->name('advisors.submit');
 
 Route::get('/rejoindre', [JoinController::class, 'index'])->name('join');
 Route::post('/rejoindre', [App\Http\Controllers\JoinController::class, 'submit'])->name('join.submit');
