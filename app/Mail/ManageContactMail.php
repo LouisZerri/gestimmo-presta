@@ -14,11 +14,21 @@ class ManageContactMail extends Mailable
 
     public array $data;
 
+    /**
+     * Crée une nouvelle instance du mail avec les données du formulaire de gestion.
+     *
+     * @param array $data Données du formulaire de contact gestion.
+     */
     public function __construct(array $data)
     {
         $this->data = $data;
     }
 
+    /**
+     * Définit l'enveloppe du mail, y compris l'objet basé sur le type de demande et le reply-to.
+     *
+     * @return Envelope
+     */
     public function envelope(): Envelope
     {
         $subjects = [
@@ -35,6 +45,11 @@ class ManageContactMail extends Mailable
         );
     }
 
+    /**
+     * Définit le contenu du mail (vue à utiliser).
+     *
+     * @return Content
+     */
     public function content(): Content
     {
         return new Content(
@@ -42,6 +57,11 @@ class ManageContactMail extends Mailable
         );
     }
 
+    /**
+     * Retourne les pièces jointes éventuelles (aucune ici).
+     *
+     * @return array
+     */
     public function attachments(): array
     {
         return [];

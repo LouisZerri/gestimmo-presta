@@ -6,11 +6,21 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ManageContactRequest extends FormRequest
 {
+    /**
+     * Autorise toujours la requête (aucune logique d'autorisation spécifique ici).
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * Définit les règles de validation du formulaire de contact gestion.
+     *
+     * @return array
+     */
     public function rules(): array
     {
         return [
@@ -28,6 +38,11 @@ class ManageContactRequest extends FormRequest
         ];
     }
 
+    /**
+     * Définit les messages d'erreur personnalisés pour la validation du formulaire.
+     *
+     * @return array
+     */
     public function messages(): array
     {
         return [

@@ -8,11 +8,22 @@ use Illuminate\Support\Facades\Mail;
 
 class AdvisorController extends Controller
 {
+    /**
+     * Affiche la vue des conseillers.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('advisors');
     }
 
+    /**
+     * Traite la soumission du formulaire de contact conseiller.
+     *
+     * @param  \App\Http\Requests\AdvisorContactRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function submit(AdvisorContactRequest $request)
     {
         Mail::to('gestimmo.presta@gmail.com')->send(

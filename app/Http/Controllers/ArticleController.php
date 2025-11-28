@@ -6,7 +6,11 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    // Liste des articles (pour une future page blog)
+    /**
+     * Affiche la liste paginée des articles publiés.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $articles = Article::published()->paginate(9);
@@ -14,7 +18,12 @@ class ArticleController extends Controller
         return view('articles.index', compact('articles'));
     }
 
-    // Détail d'un article
+    /**
+     * Affiche un article en s'assurant qu'il est publié, et propose des articles liés.
+     *
+     * @param  \App\Models\Article  $article
+     * @return \Illuminate\View\View|\Illuminate\Http\Response
+     */
     public function show(Article $article)
     {
         // Vérifier que l'article est publié

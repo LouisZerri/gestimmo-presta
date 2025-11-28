@@ -6,6 +6,13 @@ use App\Models\Article;
 
 class HomeController extends Controller
 {
+    /**
+     * Affiche la page d'accueil avec :
+     * - Les 3 derniers articles publiés
+     * - La liste des régions principales (pour la recherche ou la navigation)
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         $articles = Article::published()->take(3)->get();

@@ -14,11 +14,21 @@ class InsuranceContactMail extends Mailable
 
     public array $data;
 
+    /**
+     * Crée une nouvelle instance du mail avec les données du formulaire assurance.
+     *
+     * @param array $data Données du formulaire de contact assurance.
+     */
     public function __construct(array $data)
     {
         $this->data = $data;
     }
 
+    /**
+     * Définit l'enveloppe du mail : objet et reply-to.
+     *
+     * @return Envelope
+     */
     public function envelope(): Envelope
     {
         $produits = implode(', ', $this->data['produits']);
@@ -29,6 +39,11 @@ class InsuranceContactMail extends Mailable
         );
     }
 
+    /**
+     * Définit le contenu du mail (la vue à utiliser pour l'email).
+     *
+     * @return Content
+     */
     public function content(): Content
     {
         return new Content(
@@ -36,6 +51,11 @@ class InsuranceContactMail extends Mailable
         );
     }
 
+    /**
+     * Retourne les pièces jointes éventuelles (aucune ici).
+     *
+     * @return array
+     */
     public function attachments(): array
     {
         return [];

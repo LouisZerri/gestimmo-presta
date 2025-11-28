@@ -1,56 +1,126 @@
 <?php
 
-use App\Http\Controllers\AdvisorController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\EstimationController;
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InsuranceController;
-use App\Http\Controllers\InvestController;
-use App\Http\Controllers\JoinController;
-use App\Http\Controllers\ManageController;
-use App\Http\Controllers\SellController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    AdvisorController,
+    ArticleController,
+    ContactController,
+    EstimationController,
+    FaqController,
+    HomeController,
+    InsuranceController,
+    InvestController,
+    JoinController,
+    ManageController,
+    SellController
+};
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+| Ici sont définies toutes les routes web de l’application.
+| Chaque route est commentée pour clarifier son usage.
+*/
+
+/**
+ * Accueil
+ */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/investir', [InvestController::class, 'index'])->name('invest');
-Route::post('/investir', [InvestController::class, 'submit'])->name('invest.submit');
+/**
+ * Section Investissement
+ */
+Route::prefix('investir')->group(function () {
+    // Affiche le formulaire d'investissement
+    Route::get('/', [InvestController::class, 'index'])->name('invest');
+    // Traite la soumission du formulaire d'investissement
+    Route::post('/', [InvestController::class, 'submit'])->name('invest.submit');
+});
 
+/**
+ * Section Vente
+ */
 Route::get('/vendre', [SellController::class, 'index'])->name('sell');
 
+/**
+ * FAQ (Foire aux questions)
+ */
 Route::get('/aide', [FaqController::class, 'index'])->name('faq');
 
-// Gestion locative & Syndic
-Route::get('/gerer', [ManageController::class, 'index'])->name('manage');
-Route::post('/gerer/contact', [App\Http\Controllers\ManageController::class, 'submit'])->name('manage.submit');
+/**
+ * Section Gestion (location, etc.)
+ */
+Route::prefix('gerer')->group(function () {
+    // Page de gestion
+    Route::get('/', [ManageController::class, 'index'])->name('manage');
+    // Soumission du formulaire de contact gestion
+    Route::post('/contact', [ManageController::class, 'submit'])->name('manage.submit');
+});
 
-Route::get('/assurances', [InsuranceController::class, 'index'])->name('insurance');
-Route::post('/assurances', [App\Http\Controllers\InsuranceController::class, 'submit'])->name('insurance.submit');
+/**
+ * Section Assurances
+ */
+Route::prefix('assurances')->group(function () {
+    // Page assurance
+    Route::get('/', [InsuranceController::class, 'index'])->name('insurance');
+    // Soumission du formulaire d'assurance
+    Route::post('/', [InsuranceController::class, 'submit'])->name('insurance.submit');
+});
 
-Route::get('/conseillers', [AdvisorController::class, 'index'])->name('advisors');
-Route::post('/conseillers', [AdvisorController::class, 'submit'])->name('advisors.submit');
+/**
+ * Section Conseillers
+ */
+Route::prefix('conseillers')->group(function () {
+    // Liste des conseillers
+    Route::get('/', [AdvisorController::class, 'index'])->name('advisors');
+    // Contact conseiller
+    Route::post('/', [AdvisorController::class, 'submit'])->name('advisors.submit');
+});
 
-Route::get('/rejoindre', [JoinController::class, 'index'])->name('join');
-Route::post('/rejoindre', [App\Http\Controllers\JoinController::class, 'submit'])->name('join.submit');
+/**
+ * Section Rejoindre
+ */
+Route::prefix('rejoindre')->group(function () {
+    // Page rejoindre
+    Route::get('/', [JoinController::class, 'index'])->name('join');
+    // Soumission du formulaire rejoindre
+    Route::post('/', [JoinController::class, 'submit'])->name('join.submit');
+});
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+/**
+ * Contact
+ */
+Route::prefix('contact')->group(function () {
+    // Page contact
+    Route::get('/', [ContactController::class, 'index'])->name('contact');
+    // Soumission du formulaire contact
+    Route::post('/', [ContactController::class, 'submit'])->name('contact.submit');
+});
 
-// Estimation
-Route::get('/estimer', [EstimationController::class, 'index'])->name('estimation');
-Route::post('/estimer', [EstimationController::class, 'submit'])->name('estimation.submit');
-Route::view('/estimer/confirmation', 'estimation-success')->name('estimation.success');
+/**
+ * Estimation bien immobilier
+ */
+Route::prefix('estimer')->group(function () {
+    // Formulaire d'estimation
+    Route::get('/', [EstimationController::class, 'index'])->name('estimation');
+    // Traitement du formulaire d'estimation
+    Route::post('/', [EstimationController::class, 'submit'])->name('estimation.submit');
+    // Page de confirmation d'estimation
+    Route::view('/confirmation', 'estimation-success')->name('estimation.success');
+});
 
-// Articles
+/**
+ * Articles de blog/actualités
+ */
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('articles.show');
 
-// Pages statiques
-Route::view('/cookies', 'pages.cookies')->name('cookies');
-Route::view('/mentions-legales', 'pages.legal')->name('legal');
-Route::view('/confidentialite', 'pages.privacy')->name('privacy');
-Route::view('/bareme-honoraires', 'pages.fees')->name('fees');
-
+/**
+ * Pages statiques légales et informations
+ */
+Route::view('/cookies', 'pages.cookies')->name('cookies'); // Politique cookies
+Route::view('/mentions-legales', 'pages.legal')->name('legal'); // Mentions légales
+Route::view('/confidentialite', 'pages.privacy')->name('privacy'); // Politique de confidentialité
+Route::view('/bareme-honoraires', 'pages.fees')->name('fees'); // Barème des honoraires
 

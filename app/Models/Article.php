@@ -29,7 +29,10 @@ class Article extends Model
         'published_at' => 'datetime',
     ];
 
-    // Génération automatique du slug
+    /**
+     * Boot method du modèle Article.
+     * Assigne un slug à partir du titre si absent, et définit published_at à la création si non fourni.
+     */
     protected static function boot()
     {
         parent::boot();
@@ -44,7 +47,12 @@ class Article extends Model
         });
     }
 
-    // Scope pour les articles publiés
+    /**
+     * Scope pour récupérer uniquement les articles publiés, ordonnés par date de publication décroissante.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     public function scopePublished($query)
     {
         return $query->where('is_published', true)
@@ -52,7 +60,12 @@ class Article extends Model
                      ->orderBy('published_at', 'desc');
     }
 
-    // Récupérer les articles liés (même catégorie, sauf l'actuel)
+    /**
+     * Récupère les articles liés appartenant à la même catégorie, exclus l'article courant.
+     *
+     * @param int $limit Nombre d'articles à retourner
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
     public function getRelatedArticles($limit = 2)
     {
         return static::published()
@@ -62,13 +75,21 @@ class Article extends Model
             ->get();
     }
 
-    // Route model binding par slug
+    /**
+     * Indique à Laravel d'utiliser le champ 'slug' comme identifiant dans les routes.
+     *
+     * @return string
+     */
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
-    // Formater la date
+    /**
+     * Retourne la date de publication formatée en français ('d F Y').
+     *
+     * @return string
+     */
     public function getFormattedDateAttribute()
     {
         return $this->published_at->translatedFormat('d F Y');

@@ -4,37 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InsuranceContactRequest;
 use App\Mail\InsuranceContactMail;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Log;
+
 
 class InsuranceController extends Controller
 {
+    /**
+     * Affiche la page de demande de devis d'assurance.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('insurance');
     }
 
+    /**
+     * Traite la soumission du formulaire de contact d'assurance :
+     * - Valide les données reçues,
+     * - Envoie un email avec les informations,
+     * - Redirige avec message de succès ou retourne un message d'erreur en cas d'échec.
+     *
+     * @param  \App\Http\Requests\InsuranceContactRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function submit(InsuranceContactRequest $request)
     {
         try {
             $data = $request->validated();
             
             Mail::to('gestimmo.presta@gmail.com')->send(new InsuranceContactMail($data));
-            
-            Log::info('Demande assurance reçue', [
-                'nom' => $data['nom'],
-                'email' => $data['email'],
-                'produits' => $data['produits'],
-            ]);
 
             return back()->with('success', 'Votre demande de devis a bien été envoyée ! Vous recevrez une proposition sous 48h.');
             
         } catch (\Exception $e) {
-            Log::error('Erreur envoi formulaire assurance', [
-                'error' => $e->getMessage(),
-                'data' => $request->except(['_token']),
-            ]);
             
             return back()
                 ->withInput()

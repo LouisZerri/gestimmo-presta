@@ -6,11 +6,21 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class JoinContactRequest extends FormRequest
 {
+    /**
+     * Autorise toujours la requête (aucune logique d'autorisation spécifique ici).
+     *
+     * @return bool
+     */
     public function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * Définit les règles de validation du formulaire de contact "Nous rejoindre".
+     *
+     * @return array
+     */
     public function rules(): array
     {
         return [
@@ -24,6 +34,11 @@ class JoinContactRequest extends FormRequest
         ];
     }
 
+    /**
+     * Définit les messages d'erreur personnalisés pour la validation du formulaire.
+     *
+     * @return array
+     */
     public function messages(): array
     {
         return [

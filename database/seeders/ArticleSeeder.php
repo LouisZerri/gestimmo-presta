@@ -7,6 +7,11 @@ use Illuminate\Database\Seeder;
 
 class ArticleSeeder extends Seeder
 {
+    /**
+     * Exécute le seeder pour insérer plusieurs articles fictifs dans la base de données.
+     *
+     * @return void
+     */
     public function run(): void
     {
         $articles = [
@@ -175,6 +180,7 @@ class ArticleSeeder extends Seeder
             ]
         ];
 
+        // Pour chaque article, créer une entrée correspondante en base de données.
         foreach ($articles as $article) {
             Article::create($article);
         }

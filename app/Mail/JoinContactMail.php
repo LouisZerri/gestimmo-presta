@@ -14,11 +14,21 @@ class JoinContactMail extends Mailable
 
     public array $data;
 
+    /**
+     * Crée une nouvelle instance du mail avec les données du formulaire de candidature conseiller.
+     *
+     * @param array $data Données du formulaire de contact conseiller.
+     */
     public function __construct(array $data)
     {
         $this->data = $data;
     }
 
+    /**
+     * Définit l'enveloppe du mail, y compris l'objet basé sur la situation et le reply-to.
+     *
+     * @return Envelope
+     */
     public function envelope(): Envelope
     {
         $situationLabels = [
@@ -37,6 +47,11 @@ class JoinContactMail extends Mailable
         );
     }
 
+    /**
+     * Définit le contenu du mail (la vue à utiliser).
+     *
+     * @return Content
+     */
     public function content(): Content
     {
         return new Content(
@@ -44,6 +59,11 @@ class JoinContactMail extends Mailable
         );
     }
 
+    /**
+     * Retourne les pièces jointes éventuelles (aucune ici).
+     *
+     * @return array
+     */
     public function attachments(): array
     {
         return [];

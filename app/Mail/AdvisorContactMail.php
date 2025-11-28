@@ -12,10 +12,20 @@ class AdvisorContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * Crée une nouvelle instance du mail avec les données du formulaire de contact.
+     *
+     * @param array $data Données du formulaire de contact.
+     */
     public function __construct(public array $data)
     {
     }
 
+    /**
+     * Définit l'objet du mail (envelope).
+     *
+     * @return Envelope
+     */
     public function envelope(): Envelope
     {
         return new Envelope(
@@ -23,6 +33,11 @@ class AdvisorContactMail extends Mailable
         );
     }
 
+    /**
+     * Définit le contenu du mail (vue à utiliser).
+     *
+     * @return Content
+     */
     public function content(): Content
     {
         return new Content(

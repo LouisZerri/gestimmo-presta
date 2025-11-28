@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\ContactTicket;
@@ -10,11 +9,26 @@ use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
+    /**
+     * Affiche la page de contact.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('contact');
     }
 
+    /**
+     * Traite la soumission du formulaire de contact :
+     * - Génère un numéro de ticket
+     * - Gère et stocke les pièces jointes
+     * - Envoie le mail de ticket avec les informations
+     * - Gère le succès ou l'échec avec messages appropriés
+     *
+     * @param  \App\Http\Requests\ContactRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function submit(ContactRequest $request)
     {
         $validated = $request->validated();
