@@ -9,7 +9,8 @@
                 <div class="flex items-center gap-2 mb-6">
                     <img src="{{ asset('images/logo3d.png') }}" alt="Logo" class="w-20 h-20">
                     <div class="flex flex-col leading-none">
-                        <span class="font-heading font-extrabold text-xl text-brand-blue tracking-tight">GEST'<span class="text-gray-800">IMMO</span></span>
+                        <span class="font-heading font-extrabold text-xl text-brand-blue tracking-tight">GEST'<span class="text-red-800">IMMO</span></span>
+                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">L'investissement en plus simple</span>
                     </div>
                 </div>
                 <p class="text-gray-500 text-sm leading-relaxed mb-6">Le premier réseau immobilier hybride qui réunit transaction, investissement et gestion.</p>

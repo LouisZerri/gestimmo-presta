@@ -124,7 +124,7 @@
                             </div>
                             <div>
                                 <div class="text-xs text-gray-400 uppercase tracking-wide">E-mail</div>
-                                <a href="mailto:gestimmo.presta@gmail.com" class="font-medium text-brand-blue hover:underline">gestimmo.presta@gmail.com</a>
+                                <a href="mailto:contact@gestimmo-presta.fr" class="font-medium text-brand-blue hover:underline">contact@gestimmo-presta.fr</a>
                             </div>
                         </li>
                     </ul>
