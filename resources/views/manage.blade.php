@@ -47,7 +47,7 @@
                                 fiscale</li>
                         </ul>
                         <button onclick="openManageModal('tarifs_unitaires')"
-                            class="w-full border border-gray-300 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-100 transition text-sm">
+                            class="w-full border border-gray-300 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-100 transition text-sm cursor-pointer">
                             Voir les tarifs unitaires
                         </button>
                     </div>
@@ -75,7 +75,7 @@
                                 client 24/7</li>
                         </ul>
                         <button onclick="openManageModal('gestion_complete')"
-                            class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition shadow-md text-sm">
+                            class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition shadow-md text-sm cursor-pointer">
                             Démarrer la gestion
                         </button>
                     </div>
@@ -146,7 +146,7 @@
 
                     <div class="text-right">
                         <button onclick="openManageModal('devis_syndic')"
-                            class="bg-brand-dark text-white font-bold px-6 py-3 rounded-lg hover:bg-gray-900 transition shadow-md text-sm">
+                            class="bg-brand-dark text-white font-bold px-6 py-3 rounded-lg hover:bg-gray-900 transition shadow-md text-sm cursor-pointer">
                             Demander un devis personnalisé
                         </button>
                     </div>
@@ -270,7 +270,7 @@
         class="fixed inset-0 z-[70] hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative overflow-hidden max-h-[90vh] overflow-y-auto">
             <button onclick="closeManageModal()"
-                class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-600 w-8 h-8 rounded-full flex items-center justify-center z-50 transition">
+                class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-600 w-8 h-8 rounded-full flex items-center justify-center z-50 transition cursor-pointer">
                 <i class="fas fa-times"></i>
             </button>
 
@@ -291,7 +291,7 @@
                     <h4 class="font-heading font-bold text-xl text-gray-800 mb-2">Demande envoyée !</h4>
                     <p class="text-gray-600 mb-6">Notre équipe vous recontactera dans les plus brefs délais.</p>
                     <button onclick="closeManageModal()"
-                        class="bg-brand-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-800 transition">
+                        class="bg-brand-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-800 transition cursor-pointer">
                         Fermer
                     </button>
                 </div>
@@ -363,7 +363,7 @@
                     </p>
 
                     <button type="submit" id="modal-submit-btn"
-                        class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md flex items-center justify-center gap-2">
+                        class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md flex items-center justify-center gap-2 cursor-pointer">
                         <span id="btn-text">Envoyer ma demande</span>
                         <span id="btn-loading" class="hidden items-center gap-2">
                             <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"

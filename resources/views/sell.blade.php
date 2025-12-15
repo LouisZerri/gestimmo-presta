@@ -26,7 +26,7 @@
                         class="w-full pl-12 pr-4 py-4 rounded-full text-gray-800 outline-none font-medium text-lg placeholder-gray-400">
                 </div>
                 <button type="submit"
-                    class="w-full md:w-auto bg-brand-accent hover:bg-yellow-500 text-brand-dark font-bold py-3 px-8 rounded-full shadow-md transition transform hover:-translate-y-0.5 uppercase tracking-wide text-sm m-1">
+                    class="w-full md:w-auto bg-brand-accent hover:bg-yellow-500 text-brand-dark font-bold py-3 px-8 rounded-full shadow-md transition transform hover:-translate-y-0.5 uppercase tracking-wide text-sm m-1 cursor-pointer">
                     Estimer maintenant
                 </button>
             </form>

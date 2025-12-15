@@ -37,7 +37,7 @@
                     </div>
                     <a href="{{ route('advisors') }}">
                         <button
-                            class="bg-brand-blue hover:bg-blue-800 text-white font-bold px-8 py-3 rounded-lg transition shadow-lg uppercase tracking-wide text-sm">
+                            class="bg-brand-blue hover:bg-blue-800 text-white font-bold px-8 py-3 rounded-lg transition shadow-lg uppercase tracking-wide text-sm cursor-pointer">
                             Rechercher
                         </button>
                     </a>

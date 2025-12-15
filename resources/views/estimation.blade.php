@@ -436,7 +436,7 @@
 
                 {{-- Bouton submit --}}
                 <button type="submit" 
-                        class="w-full bg-brand-accent text-brand-dark font-bold py-4 px-8 rounded-xl hover:bg-yellow-400 transition shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-3 text-lg"
+                        class="w-full bg-brand-accent text-brand-dark font-bold py-4 px-8 rounded-xl hover:bg-yellow-400 transition shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-3 text-lg cursor-pointer"
                         id="submit-btn">
                     <span id="btn-text">Recevoir mon estimation gratuite</span>
                     <span id="btn-loading" class="hidden items-center gap-2">

@@ -13,7 +13,7 @@
     <div class="relative z-10 max-w-4xl px-4">
         <h1 class="font-heading font-bold text-5xl text-white mb-4">Rejoignez la plus grande communauté d'entrepreneurs.</h1>
         <p class="text-xl text-blue-100 mb-6">Je deviens entrepreneur GEST'IMMO</p>
-        <button onclick="scrollToJoinForm('general')" class="bg-brand-accent text-brand-dark font-bold px-8 py-4 rounded-full hover:bg-yellow-400 transition shadow-lg transform hover:-translate-y-1">
+        <button onclick="scrollToJoinForm('general')" class="bg-brand-accent text-brand-dark font-bold px-8 py-4 rounded-full hover:bg-yellow-400 transition shadow-lg transform hover:-translate-y-1 cursor-pointer">
             Déposer ma candidature
         </button>
     </div>
@@ -26,10 +26,10 @@
             Avec ou sans expérience dans l'immobilier, devenez indépendant avec GEST'IMMO
         </h2>
         <div class="flex flex-col md:flex-row justify-center gap-6">
-            <button onclick="scrollToJoinForm('reconversion')" class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1">
+            <button onclick="scrollToJoinForm('reconversion')" class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1 cursor-pointer">
                 Je veux changer de métier
             </button>
-            <button onclick="scrollToJoinForm('agent_immobilier')" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition shadow-lg transform hover:-translate-y-1">
+            <button onclick="scrollToJoinForm('agent_immobilier')" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition shadow-lg transform hover:-translate-y-1 cursor-pointer">
                 Je travaille dans l'immobilier
             </button>
         </div>
@@ -102,7 +102,7 @@
     <div class="bg-gray-100 rounded-3xl p-12 text-center">
         <h2 class="text-3xl font-heading font-bold text-gray-800 mb-4">Prêt à changer de vie ?</h2>
         <p class="mb-8 text-gray-600">Assistez à notre prochaine présentation en ligne (Webinaire de 30 min) pour découvrir le modèle.</p>
-        <button onclick="scrollToJoinForm('webinaire')" class="bg-brand-blue text-white font-bold px-8 py-4 rounded-full hover:bg-blue-800 transition shadow-xl">
+        <button onclick="scrollToJoinForm('webinaire')" class="bg-brand-blue text-white font-bold px-8 py-4 rounded-full hover:bg-blue-800 transition shadow-xl cursor-pointer">
             M'inscrire au webinaire
         </button>
     </div>
@@ -144,7 +144,7 @@
         </div>
         
         <div class="text-center mt-10">
-            <button onclick="scrollToJoinForm('temoignage')" class="text-brand-blue font-bold hover:underline">
+            <button onclick="scrollToJoinForm('temoignage')" class="text-brand-blue font-bold hover:underline cursor-pointer">
                 Je veux vivre la même expérience <i class="fas fa-arrow-right ml-2"></i>
             </button>
         </div>
@@ -274,7 +274,7 @@
                 </p>
                 
                 <button type="submit" id="submit-btn"
-                        class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
                     <span id="btn-text">Envoyer ma candidature</span>
                     <span id="btn-loading" class="hidden items-center gap-2">
                         <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

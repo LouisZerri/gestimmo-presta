@@ -12,7 +12,7 @@
                 <input id="advisor-search-input" type="text" placeholder="Ville, code postal..."
                     class="w-full pl-14 pr-4 py-4 rounded-full border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none text-lg shadow-sm transition">
                 <button
-                    class="absolute right-2 top-2 bottom-2 bg-brand-blue text-white px-6 rounded-full font-bold hover:bg-blue-800 transition">
+                    class="absolute right-2 top-2 bottom-2 bg-brand-blue text-white px-6 rounded-full font-bold hover:bg-blue-800 transition cursor-pointer">
                     Chercher
                 </button>
             </div>
@@ -44,7 +44,7 @@
                         Complétez le formulaire pour être mis en relation immédiatement.
                     </p>
                     <button onclick="openContactModal()"
-                        class="bg-brand-blue text-white font-bold py-4 px-10 rounded-full hover:bg-blue-800 transition shadow-lg transform hover:-translate-y-1 flex items-center justify-center mx-auto gap-3">
+                        class="bg-brand-blue text-white font-bold py-4 px-10 rounded-full hover:bg-blue-800 transition shadow-lg transform hover:-translate-y-1 flex items-center justify-center mx-auto gap-3 cursor-pointer">
                         <span>Être recontacté</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
@@ -61,7 +61,7 @@
         class="fixed inset-0 z-[70] hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative overflow-hidden">
             <button onclick="closeContactModal()"
-                class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-600 w-8 h-8 rounded-full flex items-center justify-center z-50 transition">
+                class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-gray-600 w-8 h-8 rounded-full flex items-center justify-center z-50 transition cursor-pointer">
                 <i class="fas fa-times"></i>
             </button>
             <div class="bg-brand-blue p-6 text-center">
@@ -95,7 +95,7 @@
                     <textarea name="message" rows="3" placeholder="Précisez votre demande..."
                         class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none"></textarea>
                     <button type="submit"
-                        class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition shadow-md">
+                        class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition shadow-md cursor-pointer">
                         Envoyer ma demande
                     </button>
                 </form>

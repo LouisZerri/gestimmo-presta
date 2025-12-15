@@ -26,7 +26,7 @@
 
             @foreach ($types as $type)
                 <button onclick="selectInvestType('{{ $type['name'] }}')"
-                    class="bg-white p-6 rounded-xl shadow-card hover:shadow-hover border border-gray-100 text-center group transition transform hover:-translate-y-1">
+                    class="bg-white p-6 rounded-xl shadow-card hover:shadow-hover border border-gray-100 text-center group transition transform hover:-translate-y-1 cursor-pointer">
                     <i class="fas {{ $type['icon'] }} text-3xl text-brand-blue mb-3 group-hover:scale-110 transition"></i>
                     <div class="font-bold text-gray-800">{{ $type['name'] }}</div>
                 </button>
@@ -253,7 +253,7 @@
                 </p>
 
                 <button type="submit"
-                    class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+                    class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer"
                     id="submit-btn">
                     <span class="group-disabled:hidden">Envoyer ma demande</span>
                     <span class="hidden group-disabled:inline-flex items-center gap-2">

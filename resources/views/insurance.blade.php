@@ -35,7 +35,7 @@
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Pas de franchise</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Détériorations jusqu'à 10 000€</span></li>
             </ul>
-            <button onclick="scrollToInsuranceForm('GLI')" class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition mt-auto">
+            <button onclick="scrollToInsuranceForm('GLI')" class="w-full bg-brand-blue text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition mt-auto cursor-pointer">
                 Obtenir un devis GLI
             </button>
         </div>
@@ -56,7 +56,7 @@
                 <li class="flex items-start"><i class="fas fa-check text-gray-800 mt-1 mr-2"></i> <span>Vol & Vandalisme</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-gray-800 mt-1 mr-2"></i> <span>Tarif négocié GEST'IMMO</span></li>
             </ul>
-            <button onclick="scrollToInsuranceForm('PNO')" class="w-full border-2 border-gray-800 text-gray-800 font-bold py-3 rounded-lg hover:bg-gray-50 transition mt-auto">
+            <button onclick="scrollToInsuranceForm('PNO')" class="w-full border-2 border-gray-800 text-gray-800 font-bold py-3 rounded-lg hover:bg-gray-50 transition mt-auto cursor-pointer">
                 Obtenir un devis PNO
             </button>
         </div>
@@ -76,7 +76,7 @@
                 <li class="flex items-start"><i class="fas fa-check text-gray-500 mt-1 mr-2"></i> <span>Protection objets de valeur</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-gray-500 mt-1 mr-2"></i> <span>Garantie villégiature incluse</span></li>
             </ul>
-            <button onclick="scrollToInsuranceForm('MRI')" class="w-full border-2 border-gray-400 text-gray-600 font-bold py-3 rounded-lg hover:bg-gray-50 transition mt-auto">
+            <button onclick="scrollToInsuranceForm('MRI')" class="w-full border-2 border-gray-400 text-gray-600 font-bold py-3 rounded-lg hover:bg-gray-50 transition mt-auto cursor-pointer">
                 Obtenir un devis MRI
             </button>
         </div>
@@ -233,7 +233,7 @@
             </p>
 
             <button type="submit" id="submit-btn"
-                    class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    class="w-full bg-brand-blue text-white font-bold py-4 rounded-lg hover:bg-blue-800 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
                 <span id="btn-text">Recevoir mon devis personnalisé</span>
                 <span id="btn-loading" class="hidden items-center gap-2">
                     <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
