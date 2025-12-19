@@ -24,11 +24,11 @@
                 {{-- Boutons --}}
                 <div class="flex items-center gap-3 flex-shrink-0">
                     <button onclick="refuseCookies()"
-                        class="px-4 py-2 text-sm font-bold text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition">
+                        class="px-4 py-2 text-sm font-bold text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition cursor-pointer">
                         Refuser
                     </button>
                     <button onclick="acceptCookies()"
-                        class="px-6 py-2 bg-brand-blue text-white text-sm font-bold rounded-lg hover:bg-blue-800 transition shadow-md">
+                        class="px-6 py-2 bg-brand-blue text-white text-sm font-bold rounded-lg hover:bg-blue-800 transition shadow-md cursor-pointer">
                         Accepter
                     </button>
                 </div>
