@@ -1,28 +1,34 @@
 {{-- Bannière Cookie --}}
-<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] transform translate-y-full transition-transform duration-500">
+<div id="cookie-banner"
+    class="fixed bottom-0 left-0 right-0 z-[100] transform translate-y-full transition-transform duration-500">
     <div class="bg-white border-t border-gray-200 shadow-2xl">
         <div class="max-w-7xl mx-auto px-4 py-4">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                 {{-- Texte --}}
                 <div class="flex items-start gap-3 flex-grow">
-                    <div class="hidden sm:flex w-10 h-10 bg-brand-blue/10 rounded-full items-center justify-center flex-shrink-0">
+                    <div
+                        class="hidden sm:flex w-10 h-10 bg-brand-blue/10 rounded-full items-center justify-center flex-shrink-0">
                         <i class="fas fa-cookie-bite text-brand-blue"></i>
                     </div>
                     <div class="text-sm text-gray-600">
                         <p class="font-medium text-gray-800 mb-1">🍪 Ce site utilise des cookies</p>
                         <p>
-                            Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser les contenus.
-                            <a href="{{ route('cookies') ?? '#' }}" class="text-brand-blue hover:underline font-medium">En savoir plus</a>
+                            Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et
+                            personnaliser les contenus.
+                            <a href="{{ route('cookies') ?? '#' }}"
+                                class="text-brand-blue hover:underline font-medium">En savoir plus</a>
                         </p>
                     </div>
                 </div>
-                
+
                 {{-- Boutons --}}
                 <div class="flex items-center gap-3 flex-shrink-0">
-                    <button onclick="refuseCookies()" class="px-4 py-2 text-sm font-bold text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition">
+                    <button onclick="refuseCookies()"
+                        class="px-4 py-2 text-sm font-bold text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition">
                         Refuser
                     </button>
-                    <button onclick="acceptCookies()" class="px-6 py-2 bg-brand-blue text-white text-sm font-bold rounded-lg hover:bg-blue-800 transition shadow-md">
+                    <button onclick="acceptCookies()"
+                        class="px-6 py-2 bg-brand-blue text-white text-sm font-bold rounded-lg hover:bg-blue-800 transition shadow-md">
                         Accepter
                     </button>
                 </div>
@@ -33,8 +39,12 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Vérifier si l'utilisateur a déjà fait un choix
-        if (!getCookie('cookie_consent')) {
+        const consent = getCookie('cookie_consent');
+
+        // Si déjà accepté, mettre à jour le consentement GTM
+        if (consent === 'accepted') {
+            updateConsent(true);
+        } else if (!consent) {
             // Afficher la bannière après un court délai
             setTimeout(function() {
                 document.getElementById('cookie-banner').classList.remove('translate-y-full');
@@ -44,14 +54,21 @@
 
     function acceptCookies() {
         setCookie('cookie_consent', 'accepted', 365);
+        updateConsent(true);
         hideBanner();
-        // Ici vous pouvez activer vos scripts analytics (Google Analytics, etc.)
-        loadAnalytics();
     }
 
     function refuseCookies() {
         setCookie('cookie_consent', 'refused', 365);
+        updateConsent(false);
         hideBanner();
+    }
+
+    function updateConsent(granted) {
+        gtag('consent', 'update', {
+            'analytics_storage': granted ? 'granted' : 'denied',
+            'ad_storage': granted ? 'granted' : 'denied'
+        });
     }
 
     function hideBanner() {
@@ -77,18 +94,5 @@
             }
         }
         return null;
-    }
-
-    function loadAnalytics() {
-        // Exemple : charger Google Analytics après acceptation
-        // Décommentez et ajoutez votre ID GA si nécessaire
-        /*
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('send', 'pageview');
-        */
     }
 </script>
