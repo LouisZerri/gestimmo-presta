@@ -13,7 +13,7 @@
                 
                 {{-- 1. Éditeur du site --}}
                 <h3>1. Éditeur du site</h3>
-                <p>Le site <a href="https://www.gestimmo-presta.fr" class="text-brand-blue hover:underline">www.gestimmo-presta.fr</a> est édité par :</p>
+                <p>Le site <a href="https://www.gestimmo-france.fr" class="text-brand-blue hover:underline">www.gestimmo-france.fr</a> est édité par :</p>
                 
                 <div class="bg-gray-50 rounded-xl p-6 my-6 not-prose">
                     <div class="font-heading font-bold text-xl text-brand-blue mb-4">GEST'IMMO</div>
@@ -153,7 +153,7 @@
                 {{-- 4. Propriété intellectuelle --}}
                 <h3>4. Propriété intellectuelle</h3>
                 <p>
-                    Le contenu du site <a href="https://www.gestimmo-presta.fr" class="text-brand-blue hover:underline">www.gestimmo-presta.fr</a> 
+                    Le contenu du site <a href="https://www.gestimmo-france.fr" class="text-brand-blue hover:underline">www.gestimmo-france.fr</a> 
                     (textes, images, graphismes, logo, vidéos, icônes, sons, logiciels, etc.) est protégé par le droit d'auteur et la propriété intellectuelle.
                 </p>
                 <p>
@@ -164,7 +164,7 @@
                 {{-- 5. Responsabilité --}}
                 <h3>5. Responsabilité</h3>
                 <p>
-                    GEST'IMMO s'efforce de fournir sur le site <a href="https://www.gestimmo-presta.fr" class="text-brand-blue hover:underline">www.gestimmo-presta.fr</a> 
+                    GEST'IMMO s'efforce de fournir sur le site <a href="https://www.gestimmo-france.fr" class="text-brand-blue hover:underline">www.gestimmo-france.fr</a> 
                     des informations aussi précises que possible. Toutefois, il ne pourra être tenu responsable des omissions, inexactitudes ou carences dans la mise à jour.
                 </p>
                 <p>
@@ -214,7 +214,7 @@
 
                 {{-- 7. Cookies --}}
                 <h3>7. Cookies</h3>
-                <p>Le site <a href="https://www.gestimmo-presta.fr" class="text-brand-blue hover:underline">www.gestimmo-presta.fr</a> utilise des cookies pour :</p>
+                <p>Le site <a href="https://www.gestimmo-france.fr" class="text-brand-blue hover:underline">www.gestimmo-france.fr</a> utilise des cookies pour :</p>
                 <ul>
                     <li>Assurer son bon fonctionnement</li>
                     <li>Mesurer l'audience et analyser la fréquentation</li>

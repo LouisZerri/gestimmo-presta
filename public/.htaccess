@@ -6,8 +6,8 @@
     RewriteEngine On
 
     # Forcer www
-    RewriteCond %{HTTP_HOST} ^gestimmo-presta\.fr [NC]
-    RewriteRule ^(.*)$ https://www.gestimmo-presta.fr/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^gestimmo-france\.fr [NC]
+    RewriteRule ^(.*)$ https://www.gestimmo-france.fr/$1 [L,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
