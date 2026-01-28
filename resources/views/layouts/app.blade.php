@@ -57,7 +57,7 @@
     @include('partials.header')
 
     {{-- MAIN CONTENT --}}
-    <main class="pt-20 flex-grow">
+    <main class="pt-16 sm:pt-20 flex-grow">
         @yield('content')
     </main>
 

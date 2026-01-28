@@ -5,31 +5,31 @@
 @section('content')
 
 {{-- HERO --}}
-<div class="relative h-[550px] flex items-center justify-center text-center">
-    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-         class="absolute inset-0 w-full h-full object-cover" 
+<div class="relative min-h-[400px] sm:min-h-[450px] md:min-h-[550px] flex items-center justify-center text-center py-12 md:py-0">
+    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+         class="absolute inset-0 w-full h-full object-cover"
          alt="Communauté GEST'IMMO">
     <div class="absolute inset-0 bg-gradient-to-b from-brand-blue/80 to-brand-blue/90"></div>
     <div class="relative z-10 max-w-4xl px-4">
-        <h1 class="font-heading font-bold text-5xl text-white mb-4">Rejoignez la plus grande communauté d'entrepreneurs.</h1>
-        <p class="text-xl text-blue-100 mb-6">Je deviens entrepreneur GEST'IMMO</p>
-        <button onclick="scrollToJoinForm('general')" class="bg-brand-accent text-brand-dark font-bold px-8 py-4 rounded-full hover:bg-yellow-400 transition shadow-lg transform hover:-translate-y-1 cursor-pointer">
+        <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-3 sm:mb-4">Rejoignez la plus grande communauté d'entrepreneurs.</h1>
+        <p class="text-base sm:text-lg md:text-xl text-blue-100 mb-4 sm:mb-6">Je deviens entrepreneur GEST'IMMO</p>
+        <button onclick="scrollToJoinForm('general')" class="bg-brand-accent text-brand-dark font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-yellow-400 transition shadow-lg transform hover:-translate-y-1 cursor-pointer text-sm sm:text-base">
             Déposer ma candidature
         </button>
     </div>
 </div>
 
 {{-- BANDEAU CTA --}}
-<div class="bg-brand-blue py-16 mt-10">
+<div class="bg-brand-blue py-10 sm:py-12 md:py-16 mt-6 sm:mt-8 md:mt-10">
     <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-white font-heading font-bold text-2xl mb-8">
+        <h2 class="text-white font-heading font-bold text-xl sm:text-2xl mb-6 sm:mb-8">
             Avec ou sans expérience dans l'immobilier, devenez indépendant avec GEST'IMMO
         </h2>
-        <div class="flex flex-col md:flex-row justify-center gap-6">
-            <button onclick="scrollToJoinForm('reconversion')" class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1 cursor-pointer">
+        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 md:gap-6">
+            <button onclick="scrollToJoinForm('reconversion')" class="bg-white text-brand-blue font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-gray-100 transition shadow-lg transform hover:-translate-y-1 cursor-pointer text-sm sm:text-base">
                 Je veux changer de métier
             </button>
-            <button onclick="scrollToJoinForm('agent_immobilier')" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition shadow-lg transform hover:-translate-y-1 cursor-pointer">
+            <button onclick="scrollToJoinForm('agent_immobilier')" class="bg-transparent border-2 border-white text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white/10 transition shadow-lg transform hover:-translate-y-1 cursor-pointer text-sm sm:text-base">
                 Je travaille dans l'immobilier
             </button>
         </div>
@@ -37,11 +37,11 @@
 </div>
 
 {{-- AVANTAGES --}}
-<div class="max-w-7xl mx-auto px-4 py-20">
-    <div class="mb-20">
-        <h2 class="text-center font-heading font-bold text-3xl text-gray-800 mb-12">Être entrepreneur chez GEST'IMMO, c'est...</h2>
-        
-        <div class="grid md:grid-cols-3 gap-8">
+<div class="max-w-7xl mx-auto px-4 py-12 sm:py-16 md:py-20">
+    <div class="mb-12 sm:mb-16 md:mb-20">
+        <h2 class="text-center font-heading font-bold text-2xl sm:text-3xl text-gray-800 mb-8 sm:mb-12">Être entrepreneur chez GEST'IMMO, c'est...</h2>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
             @php
                 $avantages = [
                     [
@@ -84,12 +84,12 @@
             @endphp
             
             @foreach($avantages as $avantage)
-                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-brand-blue group hover:-translate-y-1 transition duration-300">
-                    <div class="bg-brand-blue text-white w-12 h-12 rounded-lg flex items-center justify-center mb-6 text-xl font-bold">
+                <div class="bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-lg border-t-4 border-brand-blue group hover:-translate-y-1 transition duration-300 text-center sm:text-left">
+                    <div class="bg-brand-blue text-white w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-4 sm:mb-6 text-lg sm:text-xl font-bold mx-auto sm:mx-0">
                         <i class="fas {{ $avantage['icon'] }}"></i>
                     </div>
-                    <h3 class="font-heading font-bold text-xl text-brand-blue mb-3">{{ $avantage['title'] }}</h3>
-                    <p class="text-sm text-gray-600 mb-4">{{ $avantage['desc'] }}</p>
+                    <h3 class="font-heading font-bold text-lg sm:text-xl text-brand-blue mb-2 sm:mb-3">{{ $avantage['title'] }}</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">{{ $avantage['desc'] }}</p>
                     <button onclick="scrollToJoinForm('{{ $avantage['topic'] }}')" class="text-brand-blue text-xs font-bold hover:underline cursor-pointer">
                         En savoir plus &rarr;
                     </button>
@@ -99,24 +99,24 @@
     </div>
 
     {{-- CTA WEBINAIRE --}}
-    <div class="bg-gray-100 rounded-3xl p-12 text-center">
-        <h2 class="text-3xl font-heading font-bold text-gray-800 mb-4">Prêt à changer de vie ?</h2>
-        <p class="mb-8 text-gray-600">Assistez à notre prochaine présentation en ligne (Webinaire de 30 min) pour découvrir le modèle.</p>
-        <button onclick="scrollToJoinForm('webinaire')" class="bg-brand-blue text-white font-bold px-8 py-4 rounded-full hover:bg-blue-800 transition shadow-xl cursor-pointer">
+    <div class="bg-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center">
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-gray-800 mb-3 sm:mb-4">Prêt à changer de vie ?</h2>
+        <p class="mb-6 sm:mb-8 text-gray-600 text-sm sm:text-base">Assistez à notre prochaine présentation en ligne (Webinaire de 30 min) pour découvrir le modèle.</p>
+        <button onclick="scrollToJoinForm('webinaire')" class="bg-brand-blue text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-blue-800 transition shadow-xl cursor-pointer text-sm sm:text-base">
             M'inscrire au webinaire
         </button>
     </div>
 </div>
 
 {{-- SECTION TÉMOIGNAGES --}}
-<div class="bg-brand-light py-16 border-t border-gray-200">
+<div class="bg-brand-light py-10 sm:py-12 md:py-16 border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center mb-12">
+        <div class="text-center mb-8 sm:mb-12">
             <span class="text-brand-blue font-bold uppercase tracking-wider text-xs">Témoignages</span>
-            <h2 class="font-heading font-bold text-3xl text-gray-800 mt-2">Ils ont rejoint GEST'IMMO</h2>
+            <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800 mt-2">Ils ont rejoint GEST'IMMO</h2>
         </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             @php
                 $temoignages = [
                     ['initials' => 'SL', 'color' => 'bg-brand-blue', 'name' => 'Sophie L.', 'role' => 'Ex-Comptable', 'since' => 'Conseillère depuis 2023', 'text' => "J'ai quitté mon CDI à 42 ans pour rejoindre GEST'IMMO. Meilleure décision de ma vie. En 18 mois, j'ai doublé mon ancien salaire en travaillant à mon rythme."],
@@ -152,12 +152,12 @@
 </div>
 
 {{-- FORMULAIRE CANDIDATURE --}}
-<div class="bg-white py-20" id="join-form-section">
+<div class="bg-white py-12 sm:py-16 md:py-20" id="join-form-section">
     <div class="max-w-2xl mx-auto px-4">
-        <div id="join-contact" class="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-gray-800">Déposer ma candidature</h3>
-                <p class="text-gray-500">Recevez toutes les informations pour démarrer votre nouvelle carrière.</p>
+        <div id="join-contact" class="bg-white p-5 sm:p-8 md:p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
+            <div class="text-center mb-6 sm:mb-8">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800">Déposer ma candidature</h3>
+                <p class="text-gray-500 text-sm sm:text-base">Recevez toutes les informations pour démarrer votre nouvelle carrière.</p>
             </div>
 
             {{-- Message de succès --}}
@@ -201,19 +201,19 @@
                 </div>
             @endif
 
-            <form class="space-y-4" method="POST" action="{{ route('join.submit') }}" id="join-form">
+            <form class="space-y-3 sm:space-y-4" method="POST" action="{{ route('join.submit') }}" id="join-form">
                 @csrf
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                         <input type="text" name="nom" value="{{ old('nom') }}" placeholder="Nom *" required
-                               class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('nom') border-red-500 @enderror">
+                               class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition text-sm sm:text-base @error('nom') border-red-500 @enderror">
                         @error('nom')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div>
                         <input type="text" name="prenom" value="{{ old('prenom') }}" placeholder="Prénom *" required
-                               class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('prenom') border-red-500 @enderror">
+                               class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition text-sm sm:text-base @error('prenom') border-red-500 @enderror">
                         @error('prenom')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror

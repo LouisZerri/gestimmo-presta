@@ -1,13 +1,13 @@
-<nav class="bg-white border-b border-gray-200 fixed w-full z-50 h-20 shadow-sm">
+<nav class="bg-white border-b border-gray-200 fixed w-full z-50 h-16 sm:h-20 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
         {{-- LOGO --}}
-        <a href="{{ route('home') }}" class="flex items-center gap-2">
-            <img src="{{ asset('images/logo3d.png') }}" alt="Logo" class="w-20 h-20">
+        <a href="{{ route('home') }}" class="flex items-center gap-1 sm:gap-2">
+            <img src="{{ asset('images/logo3d.png') }}" alt="Logo" class="w-14 h-14 sm:w-20 sm:h-20">
             <div class="flex flex-col leading-none">
-                <span class="font-heading font-extrabold text-xl text-brand-blue tracking-tight">
+                <span class="font-heading font-extrabold text-lg sm:text-xl text-brand-blue tracking-tight">
                     GEST'<span class="text-red-800">IMMO</span>
                 </span>
-                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">L'investissement en plus simple</span>
+                <span class="text-[8px] sm:text-[9px] font-bold text-gray-400 uppercase tracking-widest hidden xs:block">L'investissement en plus simple</span>
             </div>
         </a>
 
@@ -38,8 +38,8 @@
 
     {{-- MOBILE MENU --}}
     <div id="mobile-menu"
-        class="lg:hidden hidden bg-white border-b border-gray-200 absolute w-full top-20 left-0 shadow-xl">
-        <div class="flex flex-col p-4 space-y-3">
+        class="lg:hidden hidden bg-white border-b border-gray-200 absolute w-full top-16 sm:top-20 left-0 shadow-xl max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div class="flex flex-col p-4 space-y-2 sm:space-y-3">
             <a href="{{ route('home') }}" class="text-left font-bold text-gray-700 py-2">ACCUEIL</a>
             <a href="{{ route('invest') }}" class="text-left font-bold text-gray-700 py-2">INVESTIR</a>
             <a href="{{ route('sell') }}" class="text-left font-bold text-gray-700 py-2">VENDRE</a>

@@ -5,31 +5,31 @@
 @section('content')
 
 {{-- HERO --}}
-<div class="bg-brand-blue text-white py-20 text-center">
-    <h1 class="font-heading font-bold text-4xl mb-4">
-        <i class="fas fa-shield-alt mr-3"></i>Assurances Immobilières
+<div class="bg-brand-blue text-white py-12 sm:py-16 md:py-20 text-center px-4">
+    <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
+        <i class="fas fa-shield-alt mr-2 sm:mr-3"></i>Assurances Immobilières
     </h1>
-    <p class="text-blue-100 text-lg max-w-2xl mx-auto">
-        Garantie Loyers Impayés (GLI), Propriétaire Non Occupant (PNO), Multirisque Habitation (MRI).<br>
+    <p class="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto">
+        Garantie Loyers Impayés (GLI), Propriétaire Non Occupant (PNO), Multirisque Habitation (MRI).<br class="hidden sm:block">
         La protection complète de votre patrimoine.
     </p>
 </div>
 
-<div class="max-w-7xl mx-auto px-4 py-16">
-    
+<div class="max-w-7xl mx-auto px-4 py-10 sm:py-12 md:py-16">
+
     {{-- CARTES ASSURANCES --}}
-    <div class="grid md:grid-cols-3 gap-8 mb-20">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 md:mb-20">
         
         {{-- Carte GLI --}}
-        <div class="bg-white rounded-2xl shadow-card hover:shadow-floating transition border-t-4 border-brand-blue p-8 flex flex-col">
-            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-3xl mb-6">
+        <div class="bg-white rounded-2xl shadow-card hover:shadow-floating transition border-t-4 border-brand-blue p-5 sm:p-6 md:p-8 flex flex-col">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6">
                 <i class="fas fa-file-invoice-dollar"></i>
             </div>
-            <h3 class="font-heading font-bold text-2xl text-gray-800 mb-2">Garantie Loyers Impayés (GLI)</h3>
-            <p class="text-gray-500 text-sm mb-6 min-h-[60px]">
+            <h3 class="font-heading font-bold text-xl sm:text-2xl text-gray-800 mb-2">Garantie Loyers Impayés (GLI)</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6 min-h-[50px] sm:min-h-[60px]">
                 Assurez vos revenus locatifs contre les impayés, les dégradations et les frais de contentieux. La sérénité absolue pour le bailleur.
             </p>
-            <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 mb-6 sm:mb-8">
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Remboursement jusqu'à 96 000€</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Protection juridique incluse</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-brand-blue mt-1 mr-2"></i> <span>Pas de franchise</span></li>
@@ -41,16 +41,16 @@
         </div>
 
         {{-- Carte PNO --}}
-        <div class="bg-white rounded-2xl shadow-card hover:shadow-floating transition border-t-4 border-gray-800 p-8 relative overflow-hidden flex flex-col">
-            <div class="absolute top-0 right-0 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase">Obligatoire</div>
-            <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 text-3xl mb-6">
+        <div class="bg-white rounded-2xl shadow-card hover:shadow-floating transition border-t-4 border-gray-800 p-5 sm:p-6 md:p-8 relative overflow-hidden flex flex-col">
+            <div class="absolute top-0 right-0 bg-brand-accent text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-bl-lg uppercase">Obligatoire</div>
+            <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 text-2xl sm:text-3xl mb-4 sm:mb-6">
                 <i class="fas fa-house-user"></i>
             </div>
-            <h3 class="font-heading font-bold text-2xl text-gray-800 mb-2">Propriétaire Non Occupant (PNO)</h3>
-            <p class="text-gray-500 text-sm mb-6 min-h-[60px]">
+            <h3 class="font-heading font-bold text-xl sm:text-2xl text-gray-800 mb-2">Propriétaire Non Occupant (PNO)</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6 min-h-[50px] sm:min-h-[60px]">
                 L'assurance indispensable (et obligatoire en copro) pour couvrir le logement vacant ou compléter l'assurance du locataire.
             </p>
-            <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 mb-6 sm:mb-8">
                 <li class="flex items-start"><i class="fas fa-check text-gray-800 mt-1 mr-2"></i> <span>Responsabilité Civile bailleur</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-gray-800 mt-1 mr-2"></i> <span>Dégâts des eaux & Incendie</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-gray-800 mt-1 mr-2"></i> <span>Vol & Vandalisme</span></li>
@@ -62,15 +62,15 @@
         </div>
 
         {{-- Carte Multirisque --}}
-        <div class="bg-white rounded-2xl shadow-card hover:shadow-floating transition border-t-4 border-gray-400 p-8 flex flex-col">
-            <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-500 text-3xl mb-6">
+        <div class="bg-white rounded-2xl shadow-card hover:shadow-floating transition border-t-4 border-gray-400 p-5 sm:p-6 md:p-8 flex flex-col sm:col-span-2 md:col-span-1">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gray-50 rounded-full flex items-center justify-center text-gray-500 text-2xl sm:text-3xl mb-4 sm:mb-6">
                 <i class="fas fa-umbrella"></i>
             </div>
-            <h3 class="font-heading font-bold text-2xl text-gray-800 mb-2">Multirisque Habitation (MRI)</h3>
-            <p class="text-gray-500 text-sm mb-6 min-h-[60px]">
+            <h3 class="font-heading font-bold text-xl sm:text-2xl text-gray-800 mb-2">Multirisque Habitation (MRI)</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6 min-h-[50px] sm:min-h-[60px]">
                 Pour votre résidence principale ou pour vos locataires. Une couverture optimale au meilleur prix.
             </p>
-            <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 mb-6 sm:mb-8">
                 <li class="flex items-start"><i class="fas fa-check text-gray-500 mt-1 mr-2"></i> <span>Rééquipement à neuf</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-gray-500 mt-1 mr-2"></i> <span>Assistance 24h/24 et 7j/7</span></li>
                 <li class="flex items-start"><i class="fas fa-check text-gray-500 mt-1 mr-2"></i> <span>Protection objets de valeur</span></li>
@@ -83,15 +83,15 @@
     </div>
 
     {{-- ARGUMENTAIRE --}}
-    <div class="bg-brand-light rounded-3xl p-10 mb-20">
-        <div class="text-center max-w-3xl mx-auto mb-10">
-            <h2 class="font-heading font-bold text-3xl text-gray-800 mb-4">Pourquoi passer par GEST'IMMO Assurances ?</h2>
-            <p class="text-gray-600">
-                En tant que réseau national, nous négocions des tarifs de groupe inaccessibles aux particuliers. 
+    <div class="bg-brand-light rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 mb-12 sm:mb-16 md:mb-20">
+        <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800 mb-3 sm:mb-4">Pourquoi passer par GEST'IMMO Assurances ?</h2>
+            <p class="text-gray-600 text-sm sm:text-base">
+                En tant que réseau national, nous négocions des tarifs de groupe inaccessibles aux particuliers.
                 Vous bénéficiez des garanties des plus grands assureurs (AXA, Allianz, Generali) à prix coûtant.
             </p>
         </div>
-        <div class="grid md:grid-cols-4 gap-6 text-center">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
             @php
                 $stats = [
                     ['value' => '-30%', 'label' => "d'économie en moyenne"],
@@ -103,18 +103,18 @@
             
             @foreach($stats as $stat)
                 <div>
-                    <div class="font-extrabold text-4xl text-brand-blue mb-2">{{ $stat['value'] }}</div>
-                    <div class="text-sm font-bold text-gray-600">{{ $stat['label'] }}</div>
+                    <div class="font-extrabold text-2xl sm:text-3xl md:text-4xl text-brand-blue mb-1 sm:mb-2">{{ $stat['value'] }}</div>
+                    <div class="text-xs sm:text-sm font-bold text-gray-600">{{ $stat['label'] }}</div>
                 </div>
             @endforeach
         </div>
     </div>
 
     {{-- FORMULAIRE DE CONTACT --}}
-    <div id="insurance-contact" class="max-w-2xl mx-auto bg-white p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
-        <div class="text-center mb-8">
-            <h3 class="text-2xl font-bold text-gray-800">Demander un devis gratuit</h3>
-            <p class="text-gray-500">Sans engagement. Réponse sous 24h ouvrées.</p>
+    <div id="insurance-contact" class="max-w-2xl mx-auto bg-white p-5 sm:p-8 md:p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
+        <div class="text-center mb-6 sm:mb-8">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-800">Demander un devis gratuit</h3>
+            <p class="text-gray-500 text-sm sm:text-base">Sans engagement. Réponse sous 24h ouvrées.</p>
         </div>
 
         {{-- Message de succès --}}
@@ -158,19 +158,19 @@
             </div>
         @endif
 
-        <form class="space-y-4" method="POST" action="{{ route('insurance.submit') }}" id="insurance-form">
+        <form class="space-y-3 sm:space-y-4" method="POST" action="{{ route('insurance.submit') }}" id="insurance-form">
             @csrf
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                     <input type="text" name="nom" value="{{ old('nom') }}" placeholder="Nom *" required
-                           class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('nom') border-red-500 @enderror">
+                           class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition text-sm sm:text-base @error('nom') border-red-500 @enderror">
                     @error('nom')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
                     <input type="text" name="prenom" value="{{ old('prenom') }}" placeholder="Prénom *" required
-                           class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition @error('prenom') border-red-500 @enderror">
+                           class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition text-sm sm:text-base @error('prenom') border-red-500 @enderror">
                     @error('prenom')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
@@ -191,9 +191,9 @@
                 @enderror
             </div>
             
-            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                <label class="block font-bold text-gray-700 mb-3 text-sm">Produit(s) souhaité(s) * :</label>
-                <div class="flex flex-wrap gap-4">
+            <div class="bg-blue-50 p-3 sm:p-4 rounded-lg border border-blue-100">
+                <label class="block font-bold text-gray-700 mb-2 sm:mb-3 text-xs sm:text-sm">Produit(s) souhaité(s) * :</label>
+                <div class="flex flex-wrap gap-2 sm:gap-4">
                     <label class="flex items-center cursor-pointer hover:bg-blue-100 p-2 rounded transition">
                         <input type="checkbox" id="check-gli" name="produits[]" value="GLI" 
                                class="form-checkbox h-5 w-5 text-brand-blue rounded focus:ring-blue-500 border-gray-300"

@@ -4,32 +4,32 @@
 
 @section('content')
 <!-- Hero Recherche FAQ (Style Zendesk) -->
-<div class="bg-brand-blue text-white py-20 text-center relative overflow-hidden">
+<div class="bg-brand-blue text-white py-12 sm:py-16 md:py-20 text-center relative overflow-hidden">
     <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
     <div class="max-w-4xl mx-auto px-4 relative z-10">
-        <h1 class="font-heading font-bold text-3xl md:text-5xl mb-6">Comment pouvons-nous vous aider ?</h1>
+        <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6">Comment pouvons-nous vous aider ?</h1>
         <div class="relative max-w-2xl mx-auto">
-            <i class="fas fa-search absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
-            <input 
-                type="text" 
+            <i class="fas fa-search absolute left-4 sm:left-6 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg sm:text-xl"></i>
+            <input
+                type="text"
                 id="faq-search"
-                placeholder="Recherchez une réponse (ex: mandat, honoraires, formation...)" 
-                class="w-full pl-16 pr-6 py-5 rounded-full border-none outline-none text-gray-800 text-lg shadow-2xl transition focus:ring-4 focus:ring-blue-400/30"
+                placeholder="Recherchez une réponse..."
+                class="w-full pl-12 sm:pl-16 pr-4 sm:pr-6 py-4 sm:py-5 rounded-full border-none outline-none text-gray-800 text-base sm:text-lg shadow-2xl transition focus:ring-4 focus:ring-blue-400/30"
             >
         </div>
     </div>
 </div>
 
-<div class="max-w-7xl mx-auto px-4 py-16">
+<div class="max-w-7xl mx-auto px-4 py-10 sm:py-12 md:py-16">
     <!-- Navigation par Catégories (Cartes) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 mb-12 sm:mb-16 md:mb-20">
         <!-- Carte Vendeur -->
-        <div class="bg-white p-8 rounded-2xl shadow-card hover:shadow-hover border border-gray-100 transition group cursor-pointer" onclick="switchFaqTab('seller')">
-            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+        <div class="bg-white p-5 sm:p-6 md:p-8 rounded-2xl shadow-card hover:shadow-hover border border-gray-100 transition group cursor-pointer text-center sm:text-left" onclick="switchFaqTab('seller')">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-50 rounded-xl sm:rounded-2xl flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300 mx-auto sm:mx-0">
                 <i class="fas fa-home"></i>
             </div>
-            <h3 class="font-heading font-bold text-xl text-gray-900 mb-4">Je vends un bien</h3>
-            <ul class="space-y-3 text-sm text-gray-600">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-gray-900 mb-3 sm:mb-4">Je vends un bien</h3>
+            <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li class="hover:text-brand-blue flex items-center">
                     <i class="fas fa-chevron-right text-xs mr-2 text-gray-300"></i> Comment estimer mon bien ?
                 </li>
@@ -43,12 +43,12 @@
         </div>
 
         <!-- Carte Acheteur / Locataire -->
-        <div class="bg-white p-8 rounded-2xl shadow-card hover:shadow-hover border border-gray-100 transition group cursor-pointer" onclick="switchFaqTab('buyer')">
-            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+        <div class="bg-white p-5 sm:p-6 md:p-8 rounded-2xl shadow-card hover:shadow-hover border border-gray-100 transition group cursor-pointer text-center sm:text-left" onclick="switchFaqTab('buyer')">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-50 rounded-xl sm:rounded-2xl flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300 mx-auto sm:mx-0">
                 <i class="fas fa-key"></i>
             </div>
-            <h3 class="font-heading font-bold text-xl text-gray-900 mb-4">J'achète ou je loue</h3>
-            <ul class="space-y-3 text-sm text-gray-600">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-gray-900 mb-3 sm:mb-4">J'achète ou je loue</h3>
+            <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li class="hover:text-brand-blue flex items-center">
                     <i class="fas fa-chevron-right text-xs mr-2 text-gray-300"></i> Faire une offre d'achat
                 </li>
@@ -62,12 +62,12 @@
         </div>
 
         <!-- Carte Réseau / Recrutement -->
-        <div class="bg-white p-8 rounded-2xl shadow-card hover:shadow-hover border border-gray-100 transition group cursor-pointer" onclick="switchFaqTab('career')">
-            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+        <div class="bg-white p-5 sm:p-6 md:p-8 rounded-2xl shadow-card hover:shadow-hover border border-gray-100 transition group cursor-pointer sm:col-span-2 md:col-span-1 text-center sm:text-left" onclick="switchFaqTab('career')">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-50 rounded-xl sm:rounded-2xl flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300 mx-auto sm:mx-0">
                 <i class="fas fa-users"></i>
             </div>
-            <h3 class="font-heading font-bold text-xl text-gray-900 mb-4">Je rejoins le réseau</h3>
-            <ul class="space-y-3 text-sm text-gray-600">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-gray-900 mb-3 sm:mb-4">Je rejoins le réseau</h3>
+            <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600">
                 <li class="hover:text-brand-blue flex items-center">
                     <i class="fas fa-chevron-right text-xs mr-2 text-gray-300"></i> Quel statut juridique choisir ?
                 </li>
@@ -82,12 +82,12 @@
     </div>
 
     <!-- Articles en vedette & Support -->
-    <div class="grid md:grid-cols-3 gap-12">
-        <div class="md:col-span-2">
-            <h2 class="font-heading font-bold text-2xl text-gray-800 mb-6">Réponses à vos questions</h2>
-            
+    <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div class="md:col-span-2 order-2 md:order-1">
+            <h2 class="font-heading font-bold text-xl sm:text-2xl text-gray-800 mb-4 sm:mb-6">Réponses à vos questions</h2>
+
             <!-- Onglets FAQ -->
-            <div class="flex space-x-4 mb-6 overflow-x-auto pb-2 border-b border-gray-100">
+            <div class="flex space-x-2 sm:space-x-4 mb-4 sm:mb-6 overflow-x-auto pb-2 border-b border-gray-100 -mx-4 px-4 sm:mx-0 sm:px-0">
                 <button onclick="switchFaqTab('seller')" id="faq-tab-seller" class="faq-tab-btn active px-4 py-2 text-brand-blue font-bold border-b-2 border-brand-blue transition whitespace-nowrap">
                     Je vends
                 </button>
@@ -152,15 +152,15 @@
         </div>
 
         <!-- Bloc Support (Reste à droite) -->
-        <div class="md:col-span-1">
-            <div class="bg-gray-900 rounded-2xl p-8 text-white h-full relative overflow-hidden flex flex-col justify-center">
+        <div class="md:col-span-1 order-1 md:order-2">
+            <div class="bg-gray-900 rounded-2xl p-5 sm:p-6 md:p-8 text-white h-full relative overflow-hidden flex flex-col justify-center">
                 <div class="relative z-10">
-                    <h3 class="font-heading font-bold text-2xl mb-4">Besoin d'aide supplémentaire ?</h3>
-                    <p class="text-gray-300 mb-8 text-sm leading-relaxed">
+                    <h3 class="font-heading font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Besoin d'aide supplémentaire ?</h3>
+                    <p class="text-gray-300 mb-6 sm:mb-8 text-xs sm:text-sm leading-relaxed">
                         Si vous ne trouvez pas la réponse à votre question, notre équipe support est disponible pour vous guider.
                     </p>
-                    
-                    <div class="space-y-4">
+
+                    <div class="space-y-3 sm:space-y-4">
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center mr-4 text-brand-cyan">
                                 <i class="fas fa-phone-alt"></i>

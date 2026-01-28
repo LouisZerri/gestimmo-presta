@@ -5,28 +5,28 @@
 @section('content')
 
     {{-- HERO HEADER BLEU --}}
-    <div class="bg-brand-blue text-white pt-20 pb-24 relative overflow-hidden">
+    <div class="bg-brand-blue text-white pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-20 md:pb-24 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <h1 class="font-heading font-extrabold text-3xl md:text-5xl mb-6">
-                Découvrez la valeur réelle de votre bien<br>auprès des investisseurs
+            <h1 class="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6">
+                Découvrez la valeur réelle de votre bien<br class="hidden sm:block">auprès des investisseurs
             </h1>
-            <p class="text-blue-100 text-lg mb-10 font-medium">
+            <p class="text-blue-100 text-base sm:text-lg mb-6 sm:mb-8 md:mb-10 font-medium">
                 Comparez votre bien à +10 millions de données de marché et accédez à notre fichier de 500 acquéreurs
                 qualifiés.
             </p>
 
             {{-- Formulaire Estimation --}}
             <form action="{{ route('estimation') }}" method="GET"
-                class="bg-white p-2 rounded-full shadow-2xl max-w-2xl mx-auto flex flex-col md:flex-row items-center transform hover:scale-[1.01] transition duration-300">
-                <div class="flex-grow w-full md:w-auto relative">
+                class="bg-white p-2 rounded-2xl sm:rounded-full shadow-2xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center transform hover:scale-[1.01] transition duration-300 gap-2 sm:gap-0">
+                <div class="flex-grow w-full sm:w-auto relative">
                     <i
-                        class="fas fa-map-marker-alt absolute left-5 top-1/2 transform -translate-y-1/2 text-brand-blue text-xl"></i>
+                        class="fas fa-map-marker-alt absolute left-4 sm:left-5 top-1/2 transform -translate-y-1/2 text-brand-blue text-lg sm:text-xl"></i>
                     <input type="text" name="adresse" placeholder="Saisissez l'adresse du bien à estimer..."
-                        class="w-full pl-12 pr-4 py-4 rounded-full text-gray-800 outline-none font-medium text-lg placeholder-gray-400">
+                        class="w-full pl-10 sm:pl-12 pr-4 py-3 sm:py-4 rounded-xl sm:rounded-full text-gray-800 outline-none font-medium text-base sm:text-lg placeholder-gray-400">
                 </div>
                 <button type="submit"
-                    class="w-full md:w-auto bg-brand-accent hover:bg-yellow-500 text-brand-dark font-bold py-3 px-8 rounded-full shadow-md transition transform hover:-translate-y-0.5 uppercase tracking-wide text-sm m-1 cursor-pointer">
+                    class="w-full sm:w-auto bg-brand-accent hover:bg-yellow-500 text-brand-dark font-bold py-3 px-6 sm:px-8 rounded-xl sm:rounded-full shadow-md transition transform hover:-translate-y-0.5 uppercase tracking-wide text-xs sm:text-sm m-0 sm:m-1 cursor-pointer">
                     Estimer maintenant
                 </button>
             </form>
@@ -36,9 +36,9 @@
     </div>
 
     {{-- BARRE DE RÉASSURANCE --}}
-    <div class="bg-white py-12 border-b border-gray-100">
+    <div class="bg-white py-8 sm:py-10 md:py-12 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-center">
                 @php
                     $reassurances = [
                         [
@@ -65,11 +65,11 @@
                 @foreach ($reassurances as $item)
                     <div class="flex flex-col items-center group">
                         <div
-                            class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-4 group-hover:bg-brand-blue group-hover:text-white transition duration-300 shadow-sm">
+                            class="w-14 h-14 sm:w-16 sm:h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-xl sm:text-2xl mb-3 sm:mb-4 group-hover:bg-brand-blue group-hover:text-white transition duration-300 shadow-sm">
                             <i class="fas {{ $item['icon'] }}"></i>
                         </div>
-                        <h3 class="font-heading font-bold text-gray-800 mb-2">{{ $item['title'] }}</h3>
-                        <p class="text-sm text-gray-500 px-4">{{ $item['desc'] }}</p>
+                        <h3 class="font-heading font-bold text-gray-800 mb-2 text-sm sm:text-base">{{ $item['title'] }}</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 px-2 sm:px-4">{{ $item['desc'] }}</p>
                     </div>
                 @endforeach
             </div>
@@ -77,24 +77,24 @@
     </div>
 
     {{-- BLOC RECHERCHE CONSEILLER --}}
-    <div class="bg-white py-16 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
+    <div class="bg-white py-10 sm:py-12 md:py-16 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="md:w-1/2 text-center md:text-left">
                 <span class="text-brand-blue font-bold uppercase tracking-wider text-xs">Expertise Locale</span>
-                <h2 class="font-heading font-bold text-3xl text-gray-900 mt-2 mb-4">Vendez mieux avec un expert de votre
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 mt-2 mb-3 sm:mb-4">Vendez mieux avec un expert de votre
                     quartier</h2>
-                <p class="text-gray-600 mb-8 leading-relaxed">
+                <p class="text-gray-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                     Une estimation en ligne est un bon début, mais elle ne remplace pas l'œil d'un expert.
                     Nos conseillers connaissent chaque rue, chaque école et les futurs projets d'urbanisme pour valoriser
                     les atouts uniques de votre bien auprès des acheteurs.
                 </p>
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-sm">
-                    <label class="block font-bold text-gray-700 mb-3">Trouver un conseiller pour vendre</label>
-                    <div class="flex gap-2">
+                <div class="bg-gray-50 p-5 sm:p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm">
+                    <label class="block font-bold text-gray-700 mb-3 text-sm sm:text-base">Trouver un conseiller pour vendre</label>
+                    <div class="flex flex-col sm:flex-row gap-2">
                         <input type="text" placeholder="Code postal ou ville (ex: Lyon...)"
-                            class="flex-grow p-4 rounded-lg border border-gray-300 focus:border-brand-blue outline-none bg-white">
+                            class="flex-grow p-3 sm:p-4 rounded-lg border border-gray-300 focus:border-brand-blue outline-none bg-white text-sm sm:text-base">
                         <a href="{{ route('advisors') }}"
-                            class="bg-brand-blue text-white px-6 rounded-lg font-bold hover:bg-blue-800 transition flex items-center justify-center">
+                            class="bg-brand-blue text-white px-6 py-3 sm:py-0 rounded-lg font-bold hover:bg-blue-800 transition flex items-center justify-center">
                             <i class="fas fa-search text-xl"></i>
                         </a>
                     </div>
@@ -110,10 +110,10 @@
     </div>
 
     {{-- AVIS CLIENTS --}}
-    <div class="bg-brand-light py-16">
+    <div class="bg-brand-light py-10 sm:py-12 md:py-16">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-heading font-bold text-3xl text-gray-800">Ils ont vendu avec GEST'IMMO</h2>
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800">Ils ont vendu avec GEST'IMMO</h2>
                 <div class="flex items-center justify-center gap-2 mt-2">
                     <span class="text-yellow-400 text-xl">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 @php
                     $avis = [
                         [
@@ -178,12 +178,12 @@
     </div>
 
     {{-- DERNIÈRES TRANSACTIONS --}}
-    <div class="py-16 bg-white">
+    <div class="py-10 sm:py-12 md:py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-heading font-bold text-3xl text-gray-800">Nos dernières transactions</h2>
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800">Nos dernières transactions</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 @php
                     $transactions = [
                         [
@@ -230,11 +230,11 @@
     </div>
 
     {{-- RÉASSURANCE FINALE --}}
-    <div class="bg-brand-light py-12 border-t border-gray-200">
+    <div class="bg-brand-light py-8 sm:py-10 md:py-12 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="font-heading font-bold text-2xl text-gray-800 mb-8">Choisissez le N°1 de la transaction
+            <h2 class="font-heading font-bold text-xl sm:text-2xl text-gray-800 mb-6 sm:mb-8">Choisissez le N°1 de la transaction
                 d'investissement</h2>
-            <div class="flex flex-wrap justify-center gap-6">
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
                 <div
                     class="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200 text-sm font-bold text-gray-600 flex items-center gap-3">
                     <i class="fas fa-users text-brand-blue text-xl"></i> 500 Investisseurs

@@ -5,12 +5,12 @@
 @section('content')
 
     {{-- EN-TÊTE --}}
-    <div class="bg-brand-light py-20">
+    <div class="bg-brand-light py-12 sm:py-16 md:py-20">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-brand-blue font-bold uppercase tracking-wider text-sm">Sérénité</span>
-                <h1 class="font-heading font-bold text-4xl mt-2 mb-4">Gestion Immobilière & Syndic</h1>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+            <div class="text-center mb-10 sm:mb-12 md:mb-16">
+                <span class="text-brand-blue font-bold uppercase tracking-wider text-xs sm:text-sm">Sérénité</span>
+                <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mt-2 mb-3 sm:mb-4">Gestion Immobilière & Syndic</h1>
+                <p class="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
                     Que vous soyez bailleur ou copropriétaire, nous avons la solution pour valoriser et protéger votre
                     patrimoine.
                 </p>
@@ -18,25 +18,25 @@
 
             {{-- BLOC GESTION LOCATIVE --}}
             <div
-                class="bg-white rounded-3xl shadow-xl overflow-hidden mb-16 border border-gray-100 flex flex-col md:flex-row">
-                <div class="md:w-1/3 bg-brand-blue p-10 text-white flex flex-col justify-center relative overflow-hidden">
+                class="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden mb-10 sm:mb-12 md:mb-16 border border-gray-100 flex flex-col md:flex-row">
+                <div class="md:w-1/3 bg-brand-blue p-6 sm:p-8 md:p-10 text-white flex flex-col justify-center relative overflow-hidden">
                     <div class="relative z-10">
-                        <i class="fas fa-key text-5xl mb-6 text-brand-accent"></i>
-                        <h2 class="font-heading font-bold text-3xl mb-2">Gestion Locative</h2>
-                        <p class="text-blue-100 text-sm leading-relaxed">
+                        <i class="fas fa-key text-4xl sm:text-5xl mb-4 sm:mb-6 text-brand-accent"></i>
+                        <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-2">Gestion Locative</h2>
+                        <p class="text-blue-100 text-xs sm:text-sm leading-relaxed">
                             Libérez-vous des contraintes. Nous gérons tout, de la recherche du locataire à l'encaissement
                             des loyers.
                         </p>
                     </div>
                     <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
                 </div>
-                <div class="md:w-2/3 p-10 grid md:grid-cols-2 gap-8">
+                <div class="md:w-2/3 p-5 sm:p-8 md:p-10 grid sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
                     {{-- Missions à la Carte --}}
-                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-md transition">
-                        <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
-                            <span class="w-2 h-8 bg-gray-400 rounded-full"></span>Missions à la Carte
+                    <div class="bg-gray-50 p-5 sm:p-6 rounded-xl border border-gray-100 hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+                            <span class="w-2 h-6 sm:h-8 bg-gray-400 rounded-full"></span>Missions à la Carte
                         </h3>
-                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                        <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
                             <li class="flex items-center"><i class="fas fa-check text-gray-400 mr-3"></i> Recherche
                                 Locataire & Solvabilité</li>
                             <li class="flex items-center"><i class="fas fa-check text-gray-400 mr-3"></i> Rédaction Bail &
@@ -54,16 +54,16 @@
 
                     {{-- Gestion Complète --}}
                     <div
-                        class="bg-white p-6 rounded-xl border-2 border-brand-blue shadow-lg relative transform md:-translate-y-4">
+                        class="bg-white p-5 sm:p-6 rounded-xl border-2 border-brand-blue shadow-lg relative sm:transform sm:-translate-y-2 md:-translate-y-4">
                         <div
-                            class="absolute top-0 right-0 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
+                            class="absolute top-0 right-0 bg-brand-accent text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-bl-lg uppercase tracking-wider">
                             Recommandé</div>
-                        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                            <span class="w-2 h-8 bg-brand-blue rounded-full"></span>Gestion Complète
+                        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2 text-sm sm:text-base">
+                            <span class="w-2 h-6 sm:h-8 bg-brand-blue rounded-full"></span>Gestion Complète
                         </h3>
-                        <div class="text-3xl font-bold text-brand-blue mb-4">5% <span
-                                class="text-sm text-gray-400 font-normal">/ mois</span></div>
-                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                        <div class="text-2xl sm:text-3xl font-bold text-brand-blue mb-3 sm:mb-4">5% <span
+                                class="text-xs sm:text-sm text-gray-400 font-normal">/ mois</span></div>
+                        <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
                             <li class="flex items-center"><i class="fas fa-check-circle text-brand-blue mr-3"></i>
                                 <strong>Tout inclus</strong> (Bail, EDL, Quittances...)
                             </li>
@@ -83,28 +83,28 @@
             </div>
 
             {{-- BLOC SYNDIC --}}
-            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
-                <div class="md:w-1/3 bg-brand-dark p-10 text-white flex flex-col justify-center relative overflow-hidden">
+            <div class="bg-white rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
+                <div class="md:w-1/3 bg-brand-dark p-6 sm:p-8 md:p-10 text-white flex flex-col justify-center relative overflow-hidden">
                     <div class="relative z-10">
-                        <i class="fas fa-building text-5xl mb-6 text-gray-400"></i>
-                        <h2 class="font-heading font-bold text-3xl mb-2">Syndic</h2>
-                        <p class="text-gray-400 text-sm leading-relaxed">
+                        <i class="fas fa-building text-4xl sm:text-5xl mb-4 sm:mb-6 text-gray-400"></i>
+                        <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-2">Syndic</h2>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">
                             Pour les petites et moyennes copropriétés. Une gestion transparente et réactive, enfin.
                         </p>
                     </div>
                     <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white opacity-5 rounded-full"></div>
                 </div>
 
-                <div class="md:w-2/3 p-10 flex flex-col justify-center relative">
+                <div class="md:w-2/3 p-5 sm:p-8 md:p-10 flex flex-col justify-center relative">
                     <span
-                        class="absolute top-6 right-6 bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">Flexible</span>
-                    <div class="mb-8">
-                        <h3 class="font-bold text-gray-800 text-xl mb-1">Le Syndic à la Carte</h3>
-                        <p class="text-gray-500 text-sm">Idéal pour les syndics bénévoles qui veulent se décharger de
+                        class="absolute top-4 sm:top-6 right-4 sm:right-6 bg-gray-100 text-gray-600 text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 rounded-full">Flexible</span>
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="font-bold text-gray-800 text-lg sm:text-xl mb-1">Le Syndic à la Carte</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm">Idéal pour les syndics bénévoles qui veulent se décharger de
                             l'administratif et du juridique.</p>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-y-8 gap-x-6 mb-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 sm:gap-y-8 gap-x-4 sm:gap-x-6 mb-6 sm:mb-8">
                         @php
                             $services = [
                                 [
@@ -131,14 +131,14 @@
                         @endphp
 
                         @foreach ($services as $service)
-                            <div class="flex gap-4">
+                            <div class="flex gap-3 sm:gap-4">
                                 <div
-                                    class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue flex-shrink-0">
+                                    class="w-9 h-9 sm:w-10 sm:h-10 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue flex-shrink-0 text-sm sm:text-base">
                                     <i class="fas {{ $service['icon'] }}"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800 text-sm">{{ $service['title'] }}</h4>
-                                    <p class="text-xs text-gray-500 leading-tight mt-1">{{ $service['desc'] }}</p>
+                                    <h4 class="font-bold text-gray-800 text-xs sm:text-sm">{{ $service['title'] }}</h4>
+                                    <p class="text-[10px] sm:text-xs text-gray-500 leading-tight mt-1">{{ $service['desc'] }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -156,10 +156,10 @@
     </div>
 
     {{-- AVIS CLIENTS GESTION --}}
-    <div class="bg-white py-16 border-b border-gray-100">
+    <div class="bg-white py-10 sm:py-12 md:py-16 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-heading font-bold text-3xl text-gray-800">Propriétaires heureux, patrimoine sécurisé</h2>
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800">Propriétaires heureux, patrimoine sécurisé</h2>
                 <div class="flex items-center justify-center gap-2 mt-2">
                     <span class="text-yellow-400 text-lg">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
@@ -169,7 +169,7 @@
                     <span class="text-gray-400 text-sm">(Avis certifiés bailleurs)</span>
                 </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 @php
                     $avisGestion = [
                         [
@@ -301,14 +301,14 @@
                     @csrf
                     <input type="hidden" name="type_demande" id="type_demande">
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <div>
                             <input type="text" name="nom" placeholder="Nom *" required
-                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition">
+                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition text-sm sm:text-base">
                         </div>
                         <div>
                             <input type="text" name="prenom" placeholder="Prénom *" required
-                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition">
+                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition text-sm sm:text-base">
                         </div>
                     </div>
 
@@ -323,9 +323,9 @@
                         <input type="text" name="adresse_bien" placeholder="Adresse du bien"
                             class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition">
 
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                             <select name="type_bien"
-                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition appearance-none cursor-pointer">
+                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition appearance-none cursor-pointer text-sm sm:text-base">
                                 <option value="">Type de bien...</option>
                                 <option value="Appartement">Appartement</option>
                                 <option value="Maison">Maison</option>
@@ -334,7 +334,7 @@
                                 <option value="Local commercial">Local commercial</option>
                             </select>
                             <input type="number" name="surface" placeholder="Surface (m²)"
-                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition">
+                                class="w-full p-3 bg-gray-50 rounded-lg border focus:border-brand-blue outline-none transition text-sm sm:text-base">
                         </div>
 
                         <div class="relative">

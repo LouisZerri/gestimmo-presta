@@ -5,15 +5,15 @@
 @section('content')
 
     {{-- HERO --}}
-    <div class="bg-brand-blue text-white py-20 text-center">
-        <h1 class="font-heading font-bold text-4xl mb-4">Construisez votre patrimoine</h1>
-        <p class="text-blue-100 text-lg max-w-2xl mx-auto">Un accompagnement de A à Z, quel que soit votre projet.</p>
+    <div class="bg-brand-blue text-white py-12 sm:py-16 md:py-20 text-center px-4">
+        <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">Construisez votre patrimoine</h1>
+        <p class="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto">Un accompagnement de A à Z, quel que soit votre projet.</p>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 py-16">
+    <div class="max-w-7xl mx-auto px-4 py-10 sm:py-12 md:py-16">
         {{-- TYPES DE BIENS --}}
-        <h2 class="text-center font-heading font-bold text-3xl text-gray-800 mb-12">Quel est votre projet ?</h2>
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-20">
+        <h2 class="text-center font-heading font-bold text-2xl sm:text-3xl text-gray-800 mb-8 sm:mb-12">Quel est votre projet ?</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 mb-12 sm:mb-16 md:mb-20">
             @php
                 $types = [
                     ['name' => 'Appartement', 'icon' => 'fa-building'],
@@ -26,26 +26,26 @@
 
             @foreach ($types as $type)
                 <button onclick="selectInvestType('{{ $type['name'] }}')"
-                    class="bg-white p-6 rounded-xl shadow-card hover:shadow-hover border border-gray-100 text-center group transition transform hover:-translate-y-1 cursor-pointer">
-                    <i class="fas {{ $type['icon'] }} text-3xl text-brand-blue mb-3 group-hover:scale-110 transition"></i>
-                    <div class="font-bold text-gray-800">{{ $type['name'] }}</div>
+                    class="bg-white p-4 sm:p-6 rounded-xl shadow-card hover:shadow-hover border border-gray-100 text-center group transition transform hover:-translate-y-1 cursor-pointer">
+                    <i class="fas {{ $type['icon'] }} text-2xl sm:text-3xl text-brand-blue mb-2 sm:mb-3 group-hover:scale-110 transition"></i>
+                    <div class="font-bold text-gray-800 text-sm sm:text-base">{{ $type['name'] }}</div>
                 </button>
             @endforeach
         </div>
 
         {{-- ÉTUDE DE PROJET --}}
-        <div class="bg-white py-10 mb-20">
-            <div class="flex items-center gap-4 mb-12 border-b border-gray-100 pb-4">
-                <div class="text-4xl text-brand-blue"><i class="fas fa-search-location"></i></div>
+        <div class="bg-white py-6 sm:py-10 mb-12 sm:mb-16 md:mb-20">
+            <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 sm:mb-12 border-b border-gray-100 pb-4 text-center sm:text-left">
+                <div class="text-3xl sm:text-4xl text-brand-blue"><i class="fas fa-search-location"></i></div>
                 <div>
-                    <h2 class="font-heading font-bold text-2xl text-brand-blue uppercase">ÉTUDE DE PROJET</h2>
-                    <p class="text-sm text-gray-500">Nous vous accompagnons lors de votre parcours de recherche de votre
+                    <h2 class="font-heading font-bold text-xl sm:text-2xl text-brand-blue uppercase">ÉTUDE DE PROJET</h2>
+                    <p class="text-xs sm:text-sm text-gray-500">Nous vous accompagnons lors de votre parcours de recherche de votre
                         investissement locatif</p>
                 </div>
             </div>
 
             {{-- ÉTAPES 1-4 --}}
-            <div class="relative grid md:grid-cols-4 gap-8 mb-24">
+            <div class="relative grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 md:mb-24">
                 <div
                     class="hidden md:block absolute top-10 left-0 w-full border-t-2 border-dashed border-brand-blue/30 -z-0">
                 </div>
@@ -76,30 +76,30 @@
                 @endphp
 
                 @foreach ($etapes1 as $etape)
-                    <div class="text-center bg-white relative z-10 px-2">
+                    <div class="text-center bg-white relative z-10 px-1 sm:px-2">
                         <div
-                            class="w-20 h-20 mx-auto bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg border-4 border-white">
+                            class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mx-auto bg-brand-blue text-white rounded-full flex items-center justify-center text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 shadow-lg border-2 sm:border-4 border-white">
                             {{ $etape['num'] }}
                         </div>
-                        <h3 class="font-bold text-brand-blue uppercase mb-2 text-base">{{ $etape['title'] }}</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">{{ $etape['desc'] }}</p>
+                        <h3 class="font-bold text-brand-blue uppercase mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">{{ $etape['title'] }}</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-600 leading-relaxed">{{ $etape['desc'] }}</p>
                     </div>
                 @endforeach
             </div>
 
             {{-- ACQUISITION --}}
             <div
-                class="flex flex-col md:flex-row items-center justify-end gap-4 mb-12 text-right border-b border-gray-100 pb-4">
-                <div class="md:order-1">
-                    <h2 class="font-heading font-bold text-2xl text-brand-blue uppercase">ACQUISITION</h2>
-                    <p class="text-sm text-gray-500">Nous sécurisons et planifions toutes les étapes de votre acquisition
+                class="flex flex-col sm:flex-row items-center justify-end gap-3 sm:gap-4 mb-8 sm:mb-12 text-center sm:text-right border-b border-gray-100 pb-4">
+                <div class="sm:order-1">
+                    <h2 class="font-heading font-bold text-xl sm:text-2xl text-brand-blue uppercase">ACQUISITION</h2>
+                    <p class="text-xs sm:text-sm text-gray-500">Nous sécurisons et planifions toutes les étapes de votre acquisition
                     </p>
                 </div>
-                <div class="text-4xl text-brand-blue md:order-2"><i class="fas fa-handshake"></i></div>
+                <div class="text-3xl sm:text-4xl text-brand-blue sm:order-2"><i class="fas fa-handshake"></i></div>
             </div>
 
             {{-- ÉTAPES 5-7 --}}
-            <div class="relative grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="relative grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
                 <div
                     class="hidden md:block absolute top-10 left-0 w-full border-t-2 border-dashed border-brand-blue/30 -z-0">
                 </div>
@@ -127,21 +127,21 @@
                 @foreach ($etapes2 as $etape)
                     <div class="text-center bg-white relative z-10 px-2">
                         <div
-                            class="w-20 h-20 mx-auto bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg border-4 border-white">
+                            class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mx-auto bg-brand-blue text-white rounded-full flex items-center justify-center text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 shadow-lg border-2 sm:border-4 border-white">
                             {{ $etape['num'] }}
                         </div>
-                        <h3 class="font-bold text-brand-blue uppercase mb-2 text-base">{{ $etape['title'] }}</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">{{ $etape['desc'] }}</p>
+                        <h3 class="font-bold text-brand-blue uppercase mb-1 sm:mb-2 text-xs sm:text-sm md:text-base">{{ $etape['title'] }}</h3>
+                        <p class="text-[10px] sm:text-xs text-gray-600 leading-relaxed">{{ $etape['desc'] }}</p>
                     </div>
                 @endforeach
             </div>
         </div>
 
         {{-- FORMULAIRE DE CONTACT --}}
-        <div id="invest-contact" class="max-w-2xl mx-auto bg-white p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-gray-800">Démarrer mon projet</h3>
-                <p class="text-gray-500">Remplissez ce formulaire pour être recontacté par un expert investissement.</p>
+        <div id="invest-contact" class="max-w-2xl mx-auto bg-white p-5 sm:p-8 md:p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
+            <div class="text-center mb-6 sm:mb-8">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-800">Démarrer mon projet</h3>
+                <p class="text-gray-500 text-sm sm:text-base">Remplissez ce formulaire pour être recontacté par un expert investissement.</p>
             </div>
 
             {{-- Message de succès --}}
@@ -186,20 +186,20 @@
                 </div>
             @endif
 
-            <form class="space-y-4" method="POST" action="{{ route('invest.submit') }}" id="invest-form">
+            <form class="space-y-3 sm:space-y-4" method="POST" action="{{ route('invest.submit') }}" id="invest-form">
                 @csrf
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
                         <input type="text" name="nom" value="{{ old('nom') }}" placeholder="Nom *"
-                            class="w-full p-3 bg-gray-50 rounded-lg border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none @error('nom') border-red-500 bg-red-50 @enderror">
+                            class="w-full p-3 bg-gray-50 rounded-lg border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm sm:text-base @error('nom') border-red-500 bg-red-50 @enderror">
                         @error('nom')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div>
                         <input type="text" name="prenom" value="{{ old('prenom') }}" placeholder="Prénom *"
-                            class="w-full p-3 bg-gray-50 rounded-lg border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none @error('prenom') border-red-500 bg-red-50 @enderror">
+                            class="w-full p-3 bg-gray-50 rounded-lg border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm sm:text-base @error('prenom') border-red-500 bg-red-50 @enderror">
                         @error('prenom')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -272,9 +272,9 @@
         </div>
 
         {{-- LIENS RÉGIONS --}}
-        <div class="mt-20 pt-10 border-t border-gray-200 text-center">
-            <h3 class="font-heading font-bold text-xl text-gray-800 mb-6">Où investir avec GEST'IMMO ?</h3>
-            <div class="flex flex-wrap justify-center gap-3">
+        <div class="mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-10 border-t border-gray-200 text-center">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-gray-800 mb-4 sm:mb-6">Où investir avec GEST'IMMO ?</h3>
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
                 @foreach ($regions as $region)
                     <a href="#" onclick="goToInvestForm('{{ $region }}')"
                         class="text-xs text-gray-500 hover:text-brand-blue hover:border-brand-blue transition bg-white px-4 py-2 rounded border border-gray-200">

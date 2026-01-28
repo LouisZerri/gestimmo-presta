@@ -1,20 +1,20 @@
 <!-- FOOTER -->
-<footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+<footer class="bg-white border-t border-gray-200 pt-10 sm:pt-12 md:pt-16 pb-8">
     <div class="max-w-7xl mx-auto px-4">
-        
+
         <!-- NOUVELLE SECTION : LIENS PRINCIPAUX -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-12">
             <!-- Colonne Logo/Info -->
-            <div class="col-span-1 md:col-span-1">
-                <div class="flex items-center gap-2 mb-6">
-                    <img src="{{ asset('images/logo3d.png') }}" alt="Logo" class="w-20 h-20">
+            <div class="col-span-2 sm:col-span-2 md:col-span-1">
+                <div class="flex items-center gap-2 mb-4 sm:mb-6">
+                    <img src="{{ asset('images/logo3d.png') }}" alt="Logo" class="w-16 h-16 sm:w-20 sm:h-20">
                     <div class="flex flex-col leading-none">
-                        <span class="font-heading font-extrabold text-xl text-brand-blue tracking-tight">GEST'<span class="text-red-800">IMMO</span></span>
-                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">L'investissement en plus simple</span>
+                        <span class="font-heading font-extrabold text-lg sm:text-xl text-brand-blue tracking-tight">GEST'<span class="text-red-800">IMMO</span></span>
+                        <span class="text-[8px] sm:text-[9px] font-bold text-gray-400 uppercase tracking-widest">L'investissement en plus simple</span>
                     </div>
                 </div>
-                <p class="text-gray-500 text-sm leading-relaxed mb-6">Le premier réseau immobilier hybride qui réunit transaction, investissement et gestion.</p>
-                <div class="flex gap-4">
+                <p class="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">Le premier réseau immobilier hybride qui réunit transaction, investissement et gestion.</p>
+                <div class="flex gap-3 sm:gap-4">
                     <a href="https://www.facebook.com/share/19je7E8Fiw/?mibextid=wwXIfr" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition">
                         <i class="fab fa-facebook-f"></i>
                     </a>
@@ -29,7 +29,7 @@
 
             <!-- Colonne À propos (AVEC LIEN FAQ ACTIF) -->
             <div>
-                <h4 class="font-heading font-bold text-gray-900 text-lg mb-6">À propos de GEST'IMMO</h4>
+                <h4 class="font-heading font-bold text-gray-900 text-base sm:text-lg mb-4 sm:mb-6">À propos de GEST'IMMO</h4>
                 <ul class="space-y-3">
                     <li>
                         <a href="{{ route("faq") }}" class="text-gray-500 hover:text-brand-blue transition text-sm font-medium text-left">
@@ -56,7 +56,7 @@
 
             <!-- Colonne Services -->
             <div>
-                <h4 class="font-heading font-bold text-gray-900 text-lg mb-6">Nos Services</h4>
+                <h4 class="font-heading font-bold text-gray-900 text-base sm:text-lg mb-4 sm:mb-6">Nos Services</h4>
                 <ul class="space-y-3">
                     <li>
                        <a href="{{ route("invest") }}" class="text-gray-500 hover:text-brand-blue transition text-sm font-medium text-left">
@@ -82,10 +82,10 @@
             </div>
 
             <!-- Colonne Rejoindre -->
-            <div>
-                <h4 class="font-heading font-bold text-gray-900 text-lg mb-6">Carrière</h4>
-                <p class="text-gray-500 text-sm mb-4">Changez de vie, rejoignez un réseau en pleine expansion.</p>
-                <a href="{{ route("join") }}" class="bg-brand-blue text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-blue-800 transition shadow-sm w-full md:w-auto text-center">
+            <div class="col-span-2 sm:col-span-1">
+                <h4 class="font-heading font-bold text-gray-900 text-base sm:text-lg mb-4 sm:mb-6">Carrière</h4>
+                <p class="text-gray-500 text-xs sm:text-sm mb-4">Changez de vie, rejoignez un réseau en pleine expansion.</p>
+                <a href="{{ route("join") }}" class="bg-brand-blue text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold text-xs sm:text-sm hover:bg-blue-800 transition shadow-sm inline-block text-center">
                     Devenir conseiller
                 </a>
             </div>

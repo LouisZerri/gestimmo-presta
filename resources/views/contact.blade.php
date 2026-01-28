@@ -3,12 +3,12 @@
 @section('title', 'Contactez-nous | GEST\'IMMO')
 
 @section('content')
-<div class="min-h-screen bg-gray-50 py-16">
+<div class="min-h-screen bg-gray-50 py-10 sm:py-12 md:py-16">
     <!-- Header Page Contact -->
-    <div class="text-center mb-16 px-4">
+    <div class="text-center mb-10 sm:mb-12 md:mb-16 px-4">
         <span class="text-brand-blue font-bold uppercase tracking-widest text-xs">Contact</span>
-        <h1 class="font-heading font-extrabold text-3xl md:text-5xl text-gray-900 mt-2">Contactez-nous</h1>
-        <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Choisissez le motif de votre demande pour être dirigé vers le bon interlocuteur.</p>
+        <h1 class="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 mt-2">Contactez-nous</h1>
+        <p class="text-gray-500 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base">Choisissez le motif de votre demande pour être dirigé vers le bon interlocuteur.</p>
     </div>
 
     @if(session('success'))
@@ -40,40 +40,40 @@
     @endif
 
     <!-- HUB DE CHOIX (Style iadfrance.fr) -->
-    <div id="contact-hub" class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
-        
+    <div id="contact-hub" class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
+
         <!-- Carte 1 : Projet Immo -->
-        <div class="bg-white rounded-2xl shadow-card hover:shadow-hover transition duration-300 p-8 flex flex-col items-center text-center group border-t-4 border-brand-blue">
-            <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
+        <div class="bg-white rounded-2xl shadow-card hover:shadow-hover transition duration-300 p-5 sm:p-6 md:p-8 flex flex-col items-center text-center group border-t-4 border-brand-blue sm:text-left sm:items-start md:items-center md:text-center">
+            <div class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                 <i class="fas fa-home"></i>
             </div>
-            <h3 class="font-heading font-bold text-xl text-gray-800 mb-3">J'ai un projet immobilier</h3>
-            <p class="text-gray-500 text-sm mb-8 leading-relaxed">Vous souhaitez vendre, acheter, louer ou faire gérer un bien ? Trouvez un conseiller près de chez vous.</p>
-            <a href="{{ route('advisors') }}" class="mt-auto bg-white border-2 border-brand-blue text-brand-blue px-6 py-3 rounded-full font-bold hover:bg-brand-blue hover:text-white transition w-full">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-gray-800 mb-2 sm:mb-3">J'ai un projet immobilier</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed">Vous souhaitez vendre, acheter, louer ou faire gérer un bien ? Trouvez un conseiller près de chez vous.</p>
+            <a href="{{ route('advisors') }}" class="mt-auto bg-white border-2 border-brand-blue text-brand-blue px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold hover:bg-brand-blue hover:text-white transition w-full text-sm sm:text-base">
                 Trouver un conseiller
             </a>
         </div>
 
         <!-- Carte 2 : Recrutement -->
-        <div class="bg-white rounded-2xl shadow-card hover:shadow-hover transition duration-300 p-8 flex flex-col items-center text-center group border-t-4 border-brand-accent">
-            <div class="w-20 h-20 bg-yellow-50 rounded-full flex items-center justify-center text-brand-accent text-3xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition">
+        <div class="bg-white rounded-2xl shadow-card hover:shadow-hover transition duration-300 p-5 sm:p-6 md:p-8 flex flex-col items-center text-center group border-t-4 border-brand-accent">
+            <div class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-yellow-50 rounded-full flex items-center justify-center text-brand-accent text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:bg-brand-accent group-hover:text-white transition">
                 <i class="fas fa-user-plus"></i>
             </div>
-            <h3 class="font-heading font-bold text-xl text-gray-800 mb-3">Je souhaite rejoindre GEST'IMMO</h3>
-            <p class="text-gray-500 text-sm mb-8 leading-relaxed">Vous envisagez une reconversion ou souhaitez booster votre carrière dans l'immobilier ?</p>
-            <a href="{{ route('join') }}" class="mt-auto bg-white border-2 border-brand-accent text-brand-accent px-6 py-3 rounded-full font-bold hover:bg-brand-accent hover:text-white transition w-full">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-gray-800 mb-2 sm:mb-3">Je souhaite rejoindre GEST'IMMO</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed">Vous envisagez une reconversion ou souhaitez booster votre carrière dans l'immobilier ?</p>
+            <a href="{{ route('join') }}" class="mt-auto bg-white border-2 border-brand-accent text-brand-accent px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold hover:bg-brand-accent hover:text-white transition w-full text-sm sm:text-base">
                 En savoir plus
             </a>
         </div>
 
         <!-- Carte 3 : Support / Autre (Ouvre le ticket form) -->
-        <div class="bg-white rounded-2xl shadow-card hover:shadow-hover transition duration-300 p-8 flex flex-col items-center text-center group border-t-4 border-gray-800">
-            <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 text-3xl mb-6 group-hover:bg-gray-800 group-hover:text-white transition">
+        <div class="bg-white rounded-2xl shadow-card hover:shadow-hover transition duration-300 p-5 sm:p-6 md:p-8 flex flex-col items-center text-center group border-t-4 border-gray-800 sm:col-span-2 md:col-span-1">
+            <div class="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 text-2xl sm:text-3xl mb-4 sm:mb-6 group-hover:bg-gray-800 group-hover:text-white transition">
                 <i class="fas fa-headset"></i>
             </div>
-            <h3 class="font-heading font-bold text-xl text-gray-800 mb-3">Support & Autres demandes</h3>
-            <p class="text-gray-500 text-sm mb-8 leading-relaxed">Une question administrative, un problème technique ou un partenariat ? Envoyez-nous une demande.</p>
-            <button onclick="showContactForm()" class="mt-auto bg-white border-2 border-gray-800 text-gray-800 px-6 py-3 rounded-full font-bold hover:bg-gray-800 hover:text-white transition w-full">
+            <h3 class="font-heading font-bold text-lg sm:text-xl text-gray-800 mb-2 sm:mb-3">Support & Autres demandes</h3>
+            <p class="text-gray-500 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed">Une question administrative, un problème technique ou un partenariat ? Envoyez-nous une demande.</p>
+            <button onclick="showContactForm()" class="mt-auto bg-white border-2 border-gray-800 text-gray-800 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold hover:bg-gray-800 hover:text-white transition w-full text-sm sm:text-base">
                 Envoyer une demande
             </button>
         </div>

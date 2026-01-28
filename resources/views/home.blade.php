@@ -5,39 +5,39 @@
 @section('content')
 
     {{-- HERO --}}
-    <div class="relative h-[650px] flex items-center">
+    <div class="relative min-h-[500px] sm:min-h-[550px] md:min-h-[650px] flex items-center py-12 md:py-0">
         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
             class="absolute inset-0 w-full h-full object-cover object-center" alt="Heureux propriétaires">
         <div class="absolute inset-0 hero-overlay"></div>
         <div class="max-w-7xl mx-auto px-4 relative z-10 w-full">
-            <div class="max-w-3xl text-white">
-                <h1 class="font-heading font-extrabold text-5xl md:text-6xl mb-6 leading-tight shadow-sm">
-                    Réalisez votre projet immobilier<br>
+            <div class="max-w-3xl text-white text-center md:text-left mx-auto md:mx-0">
+                <h1 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight shadow-sm">
+                    Réalisez votre projet immobilier<br class="hidden sm:block">
                     <span class="text-brand-accent">en toute confiance.</span>
                 </h1>
-                <p class="text-xl mb-10 text-white font-medium max-w-xl drop-shadow-md">
+                <p class="text-base sm:text-lg md:text-xl mb-6 sm:mb-10 text-white font-medium max-w-xl drop-shadow-md mx-auto md:mx-0">
                     Plus de 500 conseillers de proximité pour Vendre, Acheter, Louer et Gérer votre patrimoine.
                 </p>
                 <div
-                    class="bg-white p-4 rounded-xl shadow-floating flex flex-col md:flex-row gap-3 max-w-2xl transform hover:scale-[1.01] transition duration-300">
+                    class="bg-white p-3 sm:p-4 rounded-xl shadow-floating flex flex-col md:flex-row gap-2 sm:gap-3 max-w-2xl transform hover:scale-[1.01] transition duration-300">
                     <div class="flex-grow relative">
                         <i
                             class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-brand-blue text-lg"></i>
                         <input type="text" placeholder="Ville, Code postal ou Référence..."
-                            class="w-full pl-12 pr-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-blue focus:outline-none text-gray-800 font-medium">
+                            class="w-full pl-12 pr-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-brand-blue focus:outline-none text-gray-800 font-medium text-sm sm:text-base">
                     </div>
                     <div class="md:w-1/3">
                         <select
-                            class="w-full h-full px-4 bg-gray-50 border border-gray-200 rounded-lg focus:border-brand-blue focus:outline-none text-gray-700 font-bold cursor-pointer">
+                            class="w-full h-full px-4 py-3 md:py-0 bg-gray-50 border border-gray-200 rounded-lg focus:border-brand-blue focus:outline-none text-gray-700 font-bold cursor-pointer text-sm sm:text-base">
                             <option>Acheter</option>
                             <option>Louer</option>
                             <option>Vendre</option>
                             <option>Investir</option>
                         </select>
                     </div>
-                    <a href="{{ route('advisors') }}">
+                    <a href="{{ route('advisors') }}" class="w-full md:w-auto">
                         <button
-                            class="bg-brand-blue hover:bg-blue-800 text-white font-bold px-8 py-3 rounded-lg transition shadow-lg uppercase tracking-wide text-sm cursor-pointer">
+                            class="w-full md:w-auto bg-brand-blue hover:bg-blue-800 text-white font-bold px-6 sm:px-8 py-3 rounded-lg transition shadow-lg uppercase tracking-wide text-xs sm:text-sm cursor-pointer">
                             Rechercher
                         </button>
                     </a>
@@ -48,13 +48,13 @@
 
     {{-- LES 3 PILIERS --}}
     <div class="bg-gray-50 py-12 relative z-20">
-        <div class="max-w-7xl mx-auto px-4 -mt-24">
-            <div class="grid md:grid-cols-3 gap-6">
+        <div class="max-w-7xl mx-auto px-4 -mt-16 sm:-mt-20 md:-mt-24">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                 {{-- Investissement --}}
                 <a href="{{ route('invest') }}"
-                    class="bg-white rounded-xl p-8 shadow-floating hover:-translate-y-2 transition cursor-pointer group border-t-4 border-brand-blue">
+                    class="bg-white rounded-xl p-8 shadow-floating hover:-translate-y-2 transition cursor-pointer group border-t-4 border-brand-blue text-center sm:text-left">
                     <div
-                        class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
+                        class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition mx-auto sm:mx-0">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Investissement Locatif</h3>
@@ -64,9 +64,9 @@
 
                 {{-- Vendre --}}
                 <a href="{{ route('sell') }}"
-                    class="bg-white rounded-xl p-8 shadow-floating hover:-translate-y-2 transition cursor-pointer group border-t-4 border-brand-accent">
+                    class="bg-white rounded-xl p-8 shadow-floating hover:-translate-y-2 transition cursor-pointer group border-t-4 border-brand-accent text-center sm:text-left">
                     <div
-                        class="w-14 h-14 bg-yellow-50 rounded-full flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition">
+                        class="w-14 h-14 bg-yellow-50 rounded-full flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:bg-brand-accent group-hover:text-white transition mx-auto sm:mx-0">
                         <i class="fas fa-home"></i>
                     </div>
                     <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Vendre mon bien</h3>
@@ -76,9 +76,9 @@
 
                 {{-- Gérer --}}
                 <a href="{{ route('manage') }}"
-                    class="bg-white rounded-xl p-8 shadow-floating hover:-translate-y-2 transition cursor-pointer group border-t-4 border-gray-800">
+                    class="bg-white rounded-xl p-8 shadow-floating hover:-translate-y-2 transition cursor-pointer group border-t-4 border-gray-800 text-center sm:text-left">
                     <div
-                        class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 text-2xl mb-6 group-hover:bg-gray-800 group-hover:text-white transition">
+                        class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center text-gray-800 text-2xl mb-6 group-hover:bg-gray-800 group-hover:text-white transition mx-auto sm:mx-0">
                         <i class="fas fa-key"></i>
                     </div>
                     <h3 class="font-heading font-bold text-xl text-gray-800 mb-2">Gestion & Syndic</h3>
@@ -90,21 +90,21 @@
     </div>
 
     {{-- BLOC ASSURANCES --}}
-    <div class="bg-white py-16 border-b border-gray-100">
+    <div class="bg-white py-10 sm:py-12 md:py-16 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
             <div
-                class="flex flex-col md:flex-row items-center gap-12 bg-brand-light rounded-2xl p-10 border border-gray-200 shadow-sm">
-                <div class="md:w-1/2">
+                class="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-12 bg-brand-light rounded-2xl p-6 sm:p-8 md:p-10 border border-gray-200 shadow-sm">
+                <div class="md:w-1/2 text-center md:text-left">
                     <span class="text-brand-blue font-bold uppercase tracking-wider text-xs mb-2 block">
                         <i class="fas fa-shield-alt"></i> Pôle Protection
                     </span>
-                    <h2 class="font-heading font-bold text-3xl text-gray-900 mb-4">Sécurisez vos loyers et vos biens</h2>
+                    <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 mb-4">Sécurisez vos loyers et vos biens</h2>
                     <p class="text-gray-600 mb-6">
                         Parce que l'immobilier n'est pas sans risque, GEST'IMMO a négocié pour vous les meilleurs contrats
                         du marché.
                         Protégez votre patrimoine contre les impayés et les sinistres avec nos offres exclusives.
                     </p>
-                    <div class="flex flex-wrap gap-3 mb-8">
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
                         <span
                             class="bg-white px-4 py-2 rounded-full text-sm font-bold text-gray-600 shadow-sm border border-gray-100 flex items-center">
                             <i class="fas fa-check text-brand-blue mr-2"></i>GLI (Loyers Impayés)
@@ -132,23 +132,23 @@
     </div>
 
     {{-- TROUVER MON CONSEILLER --}}
-    <div class="bg-white py-20 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2">
+    <div class="bg-white py-12 sm:py-16 md:py-20 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div class="md:w-1/2 text-center md:text-left">
                 <span class="text-brand-blue font-bold uppercase tracking-wider text-xs">Proximité</span>
-                <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-900 mt-2 mb-6">Un conseiller GEST'IMMO près
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-gray-900 mt-2 mb-4 sm:mb-6">Un conseiller GEST'IMMO près
                     de chez vous</h2>
-                <p class="text-gray-600 mb-8 leading-relaxed">
+                <p class="text-gray-600 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                     Nos mandataires sont des experts locaux indépendants. Ils connaissent votre quartier, les écoles et les
                     prix du marché sur le bout des doigts.
                 </p>
-                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-sm">
-                    <label class="block font-bold text-gray-700 mb-3">Trouver un expert local</label>
-                    <div class="flex gap-2">
+                <div class="bg-gray-50 p-5 sm:p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm">
+                    <label class="block font-bold text-gray-700 mb-3 text-sm sm:text-base">Trouver un expert local</label>
+                    <div class="flex flex-col sm:flex-row gap-2">
                         <input type="text" placeholder="Code postal ou ville (ex: Bordeaux, 75001...)"
-                            class="flex-grow p-4 rounded-lg border border-gray-300 focus:border-brand-blue outline-none">
+                            class="flex-grow p-3 sm:p-4 rounded-lg border border-gray-300 focus:border-brand-blue outline-none text-sm sm:text-base">
                         <a href="{{ route('advisors') }}"
-                            class="bg-brand-blue text-white px-6 rounded-lg font-bold hover:bg-blue-800 transition flex items-center justify-center">
+                            class="bg-brand-blue text-white px-6 py-3 sm:py-0 rounded-lg font-bold hover:bg-blue-800 transition flex items-center justify-center">
                             <i class="fas fa-search text-xl"></i>
                         </a>
                     </div>
@@ -165,20 +165,20 @@
     </div>
 
     {{-- SECTION ACTUALITÉS --}}
-    <div class="bg-white py-20 border-t border-gray-100">
+    <div class="bg-white py-12 sm:py-16 md:py-20 border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-end mb-10">
-                <div>
+            <div class="flex flex-col sm:flex-row justify-between items-center sm:items-end mb-6 sm:mb-10 gap-4">
+                <div class="text-center sm:text-left">
                     <span class="text-brand-blue font-bold uppercase tracking-wider text-xs">Blog & Conseils</span>
-                    <h2 class="font-heading font-bold text-3xl text-gray-800 mt-2">L'actualité de l'immobilier</h2>
+                    <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800 mt-2">L'actualité de l'immobilier</h2>
                 </div>
                 <a href="{{ route('articles.index') }}"
-                    class="hidden md:block text-brand-blue font-bold hover:underline text-sm">
+                    class="text-brand-blue font-bold hover:underline text-sm">
                     Voir tous les articles &rarr;
                 </a>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 @foreach ($articles as $article)
                     <article
                         class="bg-white rounded-xl shadow-card hover:shadow-hover transition overflow-hidden border border-gray-100 group cursor-pointer h-full flex flex-col">
@@ -218,21 +218,21 @@
     </div>
 
     {{-- AVIS CLIENTS --}}
-    <div class="bg-gray-50 py-16 border-t border-gray-200">
+    <div class="bg-gray-50 py-10 sm:py-12 md:py-16 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-heading font-bold text-3xl text-gray-800 mb-4">Ce que nos clients disent de nous</h2>
-                <div class="inline-flex items-center bg-white px-6 py-2 rounded-full shadow-sm border border-gray-100">
-                    <span class="text-yellow-400 mr-2 text-lg">
+            <div class="text-center mb-8 sm:mb-12">
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800 mb-4">Ce que nos clients disent de nous</h2>
+                <div class="inline-flex flex-wrap items-center justify-center bg-white px-4 sm:px-6 py-2 rounded-full shadow-sm border border-gray-100 gap-1 sm:gap-0">
+                    <span class="text-yellow-400 mr-2 text-base sm:text-lg">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i>
                     </span>
-                    <span class="font-bold text-gray-700">4.9/5</span>
-                    <span class="text-gray-400 text-sm ml-2">(sur 2 850 avis vérifiés)</span>
+                    <span class="font-bold text-gray-700 text-sm sm:text-base">4.9/5</span>
+                    <span class="text-gray-400 text-xs sm:text-sm ml-2">(sur 2 850 avis vérifiés)</span>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 {{-- Avis 1 --}}
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
                     <i class="fas fa-quote-right absolute top-6 right-6 text-gray-100 text-4xl"></i>
@@ -282,15 +282,15 @@
     </div>
 
     {{-- REJOINDRE LE RÉSEAU --}}
-    <div class="bg-brand-blue py-20">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-10">
-            <div class="md:w-2/3">
-                <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Rejoignez le réseau GEST'IMMO</h2>
-                <p class="text-blue-100 text-lg mb-8 max-w-2xl">
+    <div class="bg-brand-blue py-12 sm:py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-10">
+            <div class="md:w-2/3 text-center md:text-left">
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4">Rejoignez le réseau GEST'IMMO</h2>
+                <p class="text-blue-100 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl">
                     Changez de vie et devenez votre propre patron. Profitez de la meilleure rémunération du marché (jusqu'à
                     85%) et de nos formations offertes.
                 </p>
-                <div class="flex flex-wrap gap-4">
+                <div class="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-4">
                     <span
                         class="bg-blue-800/40 backdrop-blur-sm text-white px-5 py-2 rounded-full text-sm font-bold border border-white/20 flex items-center">
                         <i class="fas fa-check mr-2 text-brand-cyan"></i> Formation incluse
@@ -305,9 +305,9 @@
                     </span>
                 </div>
             </div>
-            <div class="md:w-1/3 text-center md:text-right">
+            <div class="md:w-1/3 text-center md:text-right w-full md:w-auto">
                 <a href="{{ route('join') }}?source=conseiller"
-                    class="bg-white text-brand-blue font-bold px-8 py-4 rounded-full shadow-xl hover:bg-gray-100 transition transform hover:-translate-y-1 text-lg inline-block w-full md:w-auto">
+                    class="bg-white text-brand-blue font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-xl hover:bg-gray-100 transition transform hover:-translate-y-1 text-base sm:text-lg inline-block w-full sm:w-auto">
                     Devenir conseiller
                 </a>
             </div>
@@ -315,10 +315,10 @@
     </div>
 
     {{-- SECTION RÉGIONS --}}
-    <div class="bg-white py-16 border-t border-gray-100">
+    <div class="bg-white py-10 sm:py-12 md:py-16 border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="font-heading font-bold text-2xl text-gray-800">Investir dans toute la France</h2>
+            <div class="text-center mb-6 sm:mb-10">
+                <h2 class="font-heading font-bold text-xl sm:text-2xl text-gray-800">Investir dans toute la France</h2>
                 <p class="text-gray-500 mt-2">Découvrez nos opportunités région par région</p>
             </div>
             <div class="flex flex-wrap justify-center gap-3">

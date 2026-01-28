@@ -5,42 +5,42 @@
 @section('content')
 
 {{-- HERO --}}
-<div class="bg-brand-blue text-white py-12 text-center">
-    <div class="max-w-3xl mx-auto px-4">
-        <h1 class="font-heading font-bold text-3xl md:text-4xl mb-4">
+<div class="bg-brand-blue text-white py-8 sm:py-10 md:py-12 text-center px-4">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">
             <i class="fas fa-calculator mr-2"></i>Estimation gratuite de votre bien
         </h1>
-        <p class="text-blue-100 text-lg">
+        <p class="text-blue-100 text-base sm:text-lg">
             Remplissez ce formulaire et recevez une estimation personnalisée sous 24h.
         </p>
     </div>
 </div>
 
-{{-- Barre de progression --}}
-<div class="bg-white border-b border-gray-200 sticky top-20 z-30">
-    <div class="max-w-4xl mx-auto px-4 py-4">
+{{-- Barre de progression - Non sticky sur mobile --}}
+<div class="bg-white border-b border-gray-200 sm:sticky sm:top-20 z-30">
+    <div class="max-w-4xl mx-auto px-4 py-3 sm:py-4">
         <div class="flex items-center justify-between text-sm">
-            <div class="flex items-center gap-2 text-brand-blue font-bold" data-step="1">
-                <span class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center text-sm">1</span>
+            <div class="flex items-center gap-1.5 sm:gap-2 text-brand-blue font-bold" data-step="1">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs sm:text-sm">1</span>
                 <span class="hidden sm:inline">Le bien</span>
             </div>
-            <div class="h-0.5 flex-grow mx-4 bg-gray-200">
+            <div class="h-0.5 flex-grow mx-2 sm:mx-4 bg-gray-200">
                 <div class="h-full bg-brand-blue transition-all duration-500" style="width: 0%" id="progress-bar"></div>
             </div>
-            <div class="flex items-center gap-2 text-gray-400" data-step="2">
-                <span class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm">2</span>
+            <div class="flex items-center gap-1.5 sm:gap-2 text-gray-400" data-step="2">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs sm:text-sm">2</span>
                 <span class="hidden sm:inline">Caractéristiques</span>
             </div>
-            <div class="h-0.5 flex-grow mx-4 bg-gray-200"></div>
-            <div class="flex items-center gap-2 text-gray-400" data-step="3">
-                <span class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm">3</span>
+            <div class="h-0.5 flex-grow mx-2 sm:mx-4 bg-gray-200"></div>
+            <div class="flex items-center gap-1.5 sm:gap-2 text-gray-400" data-step="3">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-xs sm:text-sm">3</span>
                 <span class="hidden sm:inline">Vos coordonnées</span>
             </div>
         </div>
     </div>
 </div>
 
-<div class="bg-brand-light py-12">
+<div class="bg-brand-light py-8 sm:py-10 md:py-12">
     <div class="max-w-3xl mx-auto px-4">
 
         {{-- Message d'erreur global --}}
@@ -75,15 +75,15 @@
             @csrf
 
             {{-- ÉTAPE 1 : Le bien --}}
-            <div class="bg-white rounded-2xl shadow-sm p-8 border border-gray-100" id="step-1">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold">1</div>
-                    <h2 class="font-heading font-bold text-xl text-gray-800">Localisation et type de bien</h2>
+            <div class="bg-white rounded-2xl shadow-sm p-5 sm:p-6 md:p-8 border border-gray-100" id="step-1">
+                <div class="flex items-center gap-3 mb-5 sm:mb-6">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">1</div>
+                    <h2 class="font-heading font-bold text-lg sm:text-xl text-gray-800">Localisation et type de bien</h2>
                 </div>
 
                 {{-- Adresse --}}
-                <div class="mb-6">
-                    <label class="block font-bold text-gray-700 mb-2">Adresse du bien *</label>
+                <div class="mb-5 sm:mb-6">
+                    <label class="block font-bold text-gray-700 mb-2 text-sm sm:text-base">Adresse du bien *</label>
                     <div class="relative">
                         <i class="fas fa-map-marker-alt absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
                         <input type="text" 
@@ -97,26 +97,26 @@
                     @enderror
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-5 sm:mb-6">
                     <div>
-                        <label class="block font-bold text-gray-700 mb-2">Code postal *</label>
-                        <input type="text" 
-                               name="code_postal" 
+                        <label class="block font-bold text-gray-700 mb-2 text-sm sm:text-base">Code postal *</label>
+                        <input type="text"
+                               name="code_postal"
                                value="{{ old('code_postal') }}"
-                               placeholder="Ex: 75001" 
+                               placeholder="Ex: 75001"
                                maxlength="5"
-                               class="w-full p-4 bg-gray-50 rounded-xl border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none @error('code_postal') border-red-500 @enderror">
+                               class="w-full p-3 sm:p-4 bg-gray-50 rounded-xl border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm sm:text-base @error('code_postal') border-red-500 @enderror">
                         @error('code_postal')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div>
-                        <label class="block font-bold text-gray-700 mb-2">Ville *</label>
-                        <input type="text" 
-                               name="ville" 
+                        <label class="block font-bold text-gray-700 mb-2 text-sm sm:text-base">Ville *</label>
+                        <input type="text"
+                               name="ville"
                                value="{{ old('ville') }}"
-                               placeholder="Ex: Paris" 
-                               class="w-full p-4 bg-gray-50 rounded-xl border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none @error('ville') border-red-500 @enderror">
+                               placeholder="Ex: Paris"
+                               class="w-full p-3 sm:p-4 bg-gray-50 rounded-xl border transition focus:border-brand-blue focus:ring-2 focus:ring-blue-100 outline-none text-sm sm:text-base @error('ville') border-red-500 @enderror">
                         @error('ville')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
@@ -125,8 +125,8 @@
 
                 {{-- Type de bien --}}
                 <div>
-                    <label class="block font-bold text-gray-700 mb-3">Type de bien *</label>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <label class="block font-bold text-gray-700 mb-3 text-sm sm:text-base">Type de bien *</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                         @php
                             $typesBien = [
                                 'appartement' => ['icon' => 'fa-building', 'label' => 'Appartement'],
@@ -140,9 +140,9 @@
                         @foreach($typesBien as $value => $type)
                             <label class="cursor-pointer">
                                 <input type="radio" name="type_bien" value="{{ $value }}" class="peer sr-only" {{ old('type_bien') == $value ? 'checked' : '' }}>
-                                <div class="p-4 rounded-xl border-2 border-gray-200 text-center transition peer-checked:border-brand-blue peer-checked:bg-blue-50 hover:border-gray-300">
-                                    <i class="fas {{ $type['icon'] }} text-2xl mb-2 text-gray-500 peer-checked:text-brand-blue"></i>
-                                    <div class="font-bold text-sm text-gray-700">{{ $type['label'] }}</div>
+                                <div class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition peer-checked:border-brand-blue peer-checked:bg-blue-50 hover:border-gray-300">
+                                    <i class="fas {{ $type['icon'] }} text-xl sm:text-2xl mb-1.5 sm:mb-2 text-gray-500 peer-checked:text-brand-blue"></i>
+                                    <div class="font-bold text-xs sm:text-sm text-gray-700">{{ $type['label'] }}</div>
                                 </div>
                             </label>
                         @endforeach
@@ -154,13 +154,13 @@
             </div>
 
             {{-- ÉTAPE 2 : Caractéristiques --}}
-            <div class="bg-white rounded-2xl shadow-sm p-8 border border-gray-100" id="step-2">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold">2</div>
-                    <h2 class="font-heading font-bold text-xl text-gray-800">Caractéristiques du bien</h2>
+            <div class="bg-white rounded-2xl shadow-sm p-5 sm:p-6 md:p-8 border border-gray-100" id="step-2">
+                <div class="flex items-center gap-3 mb-5 sm:mb-6">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">2</div>
+                    <h2 class="font-heading font-bold text-lg sm:text-xl text-gray-800">Caractéristiques du bien</h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-5 sm:mb-6">
                     {{-- Surface --}}
                     <div>
                         <label class="block font-bold text-gray-700 mb-2">Surface habitable *</label>
@@ -246,9 +246,9 @@
                 </div>
 
                 {{-- DPE --}}
-                <div class="mb-6">
-                    <label class="block font-bold text-gray-700 mb-3">Diagnostic de Performance Énergétique (DPE)</label>
-                    <div class="flex flex-wrap gap-2">
+                <div class="mb-5 sm:mb-6">
+                    <label class="block font-bold text-gray-700 mb-3 text-sm sm:text-base">Diagnostic de Performance Énergétique (DPE)</label>
+                    <div class="flex flex-wrap gap-1.5 sm:gap-2">
                         @php
                             $dpeClasses = [
                                 'A' => 'bg-green-500',
@@ -263,20 +263,20 @@
                         @foreach($dpeClasses as $letter => $color)
                             <label class="cursor-pointer">
                                 <input type="radio" name="dpe" value="{{ $letter }}" class="peer sr-only" {{ old('dpe') == $letter ? 'checked' : '' }}>
-                                <div class="w-12 h-12 {{ $color }} rounded-lg flex items-center justify-center text-white font-bold text-lg transition opacity-50 peer-checked:opacity-100 peer-checked:ring-4 peer-checked:ring-offset-2 peer-checked:ring-gray-400 hover:opacity-75">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 {{ $color }} rounded-lg flex items-center justify-center text-white font-bold text-base sm:text-lg transition opacity-50 peer-checked:opacity-100 peer-checked:ring-4 peer-checked:ring-offset-2 peer-checked:ring-gray-400 hover:opacity-75">
                                     {{ $letter }}
                                 </div>
                             </label>
                         @endforeach
                         <label class="cursor-pointer">
                             <input type="radio" name="dpe" value="vierge" class="peer sr-only" {{ old('dpe') == 'vierge' ? 'checked' : '' }}>
-                            <div class="h-12 px-4 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 font-bold text-sm transition peer-checked:bg-gray-400 peer-checked:text-white hover:bg-gray-300">
+                            <div class="h-10 sm:h-12 px-3 sm:px-4 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 font-bold text-xs sm:text-sm transition peer-checked:bg-gray-400 peer-checked:text-white hover:bg-gray-300">
                                 Vierge
                             </div>
                         </label>
                         <label class="cursor-pointer">
                             <input type="radio" name="dpe" value="non_communique" class="peer sr-only" {{ old('dpe', 'non_communique') == 'non_communique' ? 'checked' : '' }}>
-                            <div class="h-12 px-4 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 font-bold text-sm transition peer-checked:bg-gray-400 peer-checked:text-white hover:bg-gray-300">
+                            <div class="h-10 sm:h-12 px-3 sm:px-4 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 font-bold text-xs sm:text-sm transition peer-checked:bg-gray-400 peer-checked:text-white hover:bg-gray-300">
                                 Je ne sais pas
                             </div>
                         </label>
@@ -285,8 +285,8 @@
 
                 {{-- Équipements --}}
                 <div>
-                    <label class="block font-bold text-gray-700 mb-3">Équipements</label>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <label class="block font-bold text-gray-700 mb-3 text-sm sm:text-base">Équipements</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                         @php
                             $equipements = [
                                 'cave' => ['icon' => 'fa-box', 'label' => 'Cave'],
@@ -300,9 +300,9 @@
                         @foreach($equipements as $name => $equip)
                             <label class="cursor-pointer">
                                 <input type="checkbox" name="{{ $name }}" value="1" class="peer sr-only" {{ old($name) ? 'checked' : '' }}>
-                                <div class="p-3 rounded-xl border-2 border-gray-200 flex items-center gap-3 transition peer-checked:border-brand-blue peer-checked:bg-blue-50 hover:border-gray-300">
-                                    <i class="fas {{ $equip['icon'] }} text-gray-400 peer-checked:text-brand-blue"></i>
-                                    <span class="text-sm font-medium text-gray-700">{{ $equip['label'] }}</span>
+                                <div class="p-2.5 sm:p-3 rounded-xl border-2 border-gray-200 flex items-center gap-2 sm:gap-3 transition peer-checked:border-brand-blue peer-checked:bg-blue-50 hover:border-gray-300">
+                                    <i class="fas {{ $equip['icon'] }} text-gray-400 peer-checked:text-brand-blue text-sm sm:text-base"></i>
+                                    <span class="text-xs sm:text-sm font-medium text-gray-700">{{ $equip['label'] }}</span>
                                 </div>
                             </label>
                         @endforeach
@@ -311,16 +311,16 @@
             </div>
 
             {{-- ÉTAPE 3 : Coordonnées --}}
-            <div class="bg-white rounded-2xl shadow-sm p-8 border border-gray-100" id="step-3">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold">3</div>
-                    <h2 class="font-heading font-bold text-xl text-gray-800">Votre situation et coordonnées</h2>
+            <div class="bg-white rounded-2xl shadow-sm p-5 sm:p-6 md:p-8 border border-gray-100" id="step-3">
+                <div class="flex items-center gap-3 mb-5 sm:mb-6">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">3</div>
+                    <h2 class="font-heading font-bold text-lg sm:text-xl text-gray-800">Votre situation et coordonnées</h2>
                 </div>
 
                 {{-- Situation --}}
-                <div class="mb-6">
-                    <label class="block font-bold text-gray-700 mb-3">Vous êtes *</label>
-                    <div class="grid md:grid-cols-2 gap-3">
+                <div class="mb-5 sm:mb-6">
+                    <label class="block font-bold text-gray-700 mb-3 text-sm sm:text-base">Vous êtes *</label>
+                    <div class="grid grid-cols-2 gap-2 sm:gap-3">
                         @php
                             $situations = [
                                 'proprietaire_occupant' => 'Propriétaire occupant',
@@ -332,8 +332,8 @@
                         @foreach($situations as $value => $label)
                             <label class="cursor-pointer">
                                 <input type="radio" name="situation" value="{{ $value }}" class="peer sr-only" {{ old('situation') == $value ? 'checked' : '' }}>
-                                <div class="p-4 rounded-xl border-2 border-gray-200 text-center transition peer-checked:border-brand-blue peer-checked:bg-blue-50 hover:border-gray-300">
-                                    <span class="font-bold text-gray-700">{{ $label }}</span>
+                                <div class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition peer-checked:border-brand-blue peer-checked:bg-blue-50 hover:border-gray-300">
+                                    <span class="font-bold text-gray-700 text-xs sm:text-sm">{{ $label }}</span>
                                 </div>
                             </label>
                         @endforeach
@@ -344,9 +344,9 @@
                 </div>
 
                 {{-- Projet de vente --}}
-                <div class="mb-6">
-                    <label class="block font-bold text-gray-700 mb-3">Votre projet de vente *</label>
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                <div class="mb-5 sm:mb-6">
+                    <label class="block font-bold text-gray-700 mb-3 text-sm sm:text-base">Votre projet de vente *</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
                         @php
                             $projets = [
                                 'moins_3_mois' => '< 3 mois',
@@ -359,8 +359,8 @@
                         @foreach($projets as $value => $label)
                             <label class="cursor-pointer">
                                 <input type="radio" name="projet_vente" value="{{ $value }}" class="peer sr-only" {{ old('projet_vente') == $value ? 'checked' : '' }}>
-                                <div class="p-3 rounded-xl border-2 border-gray-200 text-center transition peer-checked:border-brand-accent peer-checked:bg-yellow-50 hover:border-gray-300">
-                                    <span class="font-bold text-sm text-gray-700">{{ $label }}</span>
+                                <div class="p-2.5 sm:p-3 rounded-xl border-2 border-gray-200 text-center transition peer-checked:border-brand-accent peer-checked:bg-yellow-50 hover:border-gray-300">
+                                    <span class="font-bold text-xs sm:text-sm text-gray-700">{{ $label }}</span>
                                 </div>
                             </label>
                         @endforeach
@@ -371,7 +371,7 @@
                 </div>
 
                 {{-- Coordonnées --}}
-                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-5 sm:mb-6">
                     <div>
                         <label class="block font-bold text-gray-700 mb-2">Nom *</label>
                         <input type="text" 
