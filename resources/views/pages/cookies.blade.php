@@ -4,12 +4,12 @@
 
 @section('content')
 
-<div class="bg-brand-light py-16">
+<div class="bg-brand-light py-10 sm:py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4">
-        <h1 class="font-heading font-bold text-4xl text-gray-900 mb-8">Politique de Cookies</h1>
-        
-        <div class="bg-white rounded-2xl shadow-sm p-8 md:p-12">
-            <div class="prose prose-lg max-w-none">
+        <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-6 sm:mb-8">Politique de Cookies</h1>
+
+        <div class="bg-white rounded-2xl shadow-sm p-5 sm:p-8 md:p-12">
+            <div class="prose prose-sm sm:prose-base md:prose-lg max-w-none break-words">
                 
                 <h3>Qu'est-ce qu'un cookie ?</h3>
                 <p>
@@ -56,12 +56,12 @@
                     <li>Cliquer sur le bouton ci-dessous pour réinitialiser vos préférences</li>
                 </ul>
 
-                <div class="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200">
-                    <h4 class="text-lg font-bold text-gray-800 mb-4">Vos préférences actuelles</h4>
-                    <p class="text-sm text-gray-600 mb-4" id="cookie-status">
+                <div class="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-xl border border-gray-200">
+                    <h4 class="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4">Vos préférences actuelles</h4>
+                    <p class="text-sm text-gray-600 mb-3 sm:mb-4" id="cookie-status">
                         Chargement...
                     </p>
-                    <button onclick="resetCookieConsent()" class="bg-brand-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-800 transition">
+                    <button onclick="resetCookieConsent()" class="bg-brand-blue text-white font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg hover:bg-blue-800 transition text-sm sm:text-base w-full sm:w-auto">
                         Réinitialiser mes préférences
                     </button>
                 </div>

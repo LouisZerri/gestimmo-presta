@@ -4,23 +4,23 @@
 
 @section('content')
 
-<div class="bg-brand-light py-16">
+<div class="bg-brand-light py-10 sm:py-12 md:py-16">
     <div class="max-w-4xl mx-auto px-4">
-        <h1 class="font-heading font-bold text-4xl text-gray-900 mb-8">Politique de Confidentialité</h1>
-        
-        <div class="bg-white rounded-2xl shadow-sm p-8 md:p-12">
-            <div class="prose prose-lg max-w-none">
+        <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-6 sm:mb-8">Politique de Confidentialité</h1>
+
+        <div class="bg-white rounded-2xl shadow-sm p-5 sm:p-8 md:p-12">
+            <div class="prose prose-sm sm:prose-base md:prose-lg max-w-none break-words">
 
                 {{-- Introduction --}}
-                <div class="bg-brand-blue/5 border border-brand-blue/10 rounded-xl p-6 mb-8 not-prose">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-user-shield text-white text-xl"></i>
+                <div class="bg-brand-blue/5 border border-brand-blue/10 rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 not-prose">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 text-center sm:text-left">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-shield text-white text-lg sm:text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-heading font-bold text-lg text-gray-800 mb-2">Votre vie privée compte</h3>
-                            <p class="text-gray-600 text-sm">
-                                Chez GEST'IMMO, nous nous engageons à protéger vos données personnelles. 
+                            <h3 class="font-heading font-bold text-base sm:text-lg text-gray-800 mb-2">Votre vie privée compte</h3>
+                            <p class="text-gray-600 text-xs sm:text-sm">
+                                Chez GEST'IMMO, nous nous engageons à protéger vos données personnelles.
                                 Cette politique explique comment nous collectons, utilisons et protégeons vos informations.
                             </p>
                         </div>
@@ -30,12 +30,12 @@
                 {{-- 1. Responsable du traitement --}}
                 <h3>1. Responsable du traitement</h3>
                 <p>Le responsable du traitement des données personnelles est :</p>
-                <div class="bg-gray-50 rounded-xl p-6 my-6 not-prose">
-                    <div class="font-heading font-bold text-brand-blue mb-3">GEST'IMMO</div>
-                    <ul class="space-y-2 text-gray-600 text-sm">
-                        <li><i class="fas fa-map-marker-alt text-gray-400 mr-2 w-4"></i>35 rue Aliénor d'Aquitaine, 19360 Malemort, France</li>
-                        <li><i class="fas fa-phone text-gray-400 mr-2 w-4"></i><a href="tel:0613250596" class="text-brand-blue hover:underline">06 13 25 05 96</a></li>
-                        <li><i class="fas fa-envelope text-gray-400 mr-2 w-4"></i><a href="mailto:contact@gestimmo-presta.fr" class="text-brand-blue hover:underline">contact@gestimmo-presta.fr</a></li>
+                <div class="bg-gray-50 rounded-xl p-4 sm:p-6 my-4 sm:my-6 not-prose">
+                    <div class="font-heading font-bold text-brand-blue mb-3 text-sm sm:text-base">GEST'IMMO</div>
+                    <ul class="space-y-2 text-gray-600 text-xs sm:text-sm">
+                        <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><span>35 rue Aliénor d'Aquitaine, 19360 Malemort</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-phone text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><a href="tel:0613250596" class="text-brand-blue hover:underline">06 13 25 05 96</a></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-envelope text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><a href="mailto:contact@gestimmo-presta.fr" class="text-brand-blue hover:underline break-all">contact@gestimmo-presta.fr</a></li>
                     </ul>
                 </div>
 
@@ -43,11 +43,11 @@
                 <h3>2. Données personnelles collectées</h3>
                 <p>Dans le cadre de notre activité, nous sommes amenés à collecter les données suivantes :</p>
                 
-                <div class="grid md:grid-cols-2 gap-4 my-6 not-prose">
-                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                <div class="grid sm:grid-cols-2 gap-4 my-6 not-prose">
+                    <div class="bg-gray-50 rounded-xl p-4 sm:p-5 border border-gray-100">
                         <div class="flex items-center gap-2 mb-3">
                             <i class="fas fa-user text-brand-blue"></i>
-                            <span class="font-bold text-gray-800">Données d'identification</span>
+                            <span class="font-bold text-gray-800 text-sm sm:text-base">Données d'identification</span>
                         </div>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li>• Nom et prénom</li>
@@ -56,10 +56,10 @@
                             <li>• Adresse e-mail</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                    <div class="bg-gray-50 rounded-xl p-4 sm:p-5 border border-gray-100">
                         <div class="flex items-center gap-2 mb-3">
                             <i class="fas fa-home text-brand-blue"></i>
-                            <span class="font-bold text-gray-800">Données immobilières</span>
+                            <span class="font-bold text-gray-800 text-sm sm:text-base">Données immobilières</span>
                         </div>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li>• Adresse du bien</li>
@@ -68,10 +68,10 @@
                             <li>• Budget / Capacité financière</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                    <div class="bg-gray-50 rounded-xl p-4 sm:p-5 border border-gray-100">
                         <div class="flex items-center gap-2 mb-3">
                             <i class="fas fa-globe text-brand-blue"></i>
-                            <span class="font-bold text-gray-800">Données de navigation</span>
+                            <span class="font-bold text-gray-800 text-sm sm:text-base">Données de navigation</span>
                         </div>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li>• Adresse IP</li>
@@ -80,10 +80,10 @@
                             <li>• Date et heure de connexion</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                    <div class="bg-gray-50 rounded-xl p-4 sm:p-5 border border-gray-100">
                         <div class="flex items-center gap-2 mb-3">
                             <i class="fas fa-comments text-brand-blue"></i>
-                            <span class="font-bold text-gray-800">Données de communication</span>
+                            <span class="font-bold text-gray-800 text-sm sm:text-base">Données de communication</span>
                         </div>
                         <ul class="text-sm text-gray-600 space-y-1">
                             <li>• Messages via formulaires</li>
@@ -109,7 +109,27 @@
                 <h3>4. Base légale du traitement</h3>
                 <p>Le traitement de vos données repose sur les bases légales suivantes :</p>
                 
-                <div class="overflow-x-auto my-6">
+                {{-- Version mobile : liste --}}
+                <div class="sm:hidden my-4 space-y-2 not-prose">
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600 text-xs">Réponse à vos demandes</span>
+                        <span class="bg-blue-100 text-brand-blue px-2 py-1 rounded text-xs font-bold">Contractuelle</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600 text-xs">Envoi de newsletters</span>
+                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">Consentement</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600 text-xs">Analyse statistique</span>
+                        <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-bold">Intérêt légitime</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <span class="text-gray-600 text-xs">Conservation documents</span>
+                        <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-bold">Obligation légale</span>
+                    </div>
+                </div>
+                {{-- Version desktop : tableau --}}
+                <div class="hidden sm:block overflow-x-auto my-6">
                     <table class="w-full text-sm not-prose">
                         <thead>
                             <tr class="bg-gray-50">
@@ -142,33 +162,33 @@
                 <h3>5. Durée de conservation</h3>
                 <p>Vos données personnelles sont conservées pendant une durée limitée :</p>
                 
-                <div class="bg-gray-50 rounded-xl p-6 my-6 not-prose">
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-brand-blue/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-user text-brand-blue text-sm"></i>
+                <div class="bg-gray-50 rounded-xl p-4 sm:p-6 my-4 sm:my-6 not-prose">
+                    <ul class="space-y-3 sm:space-y-4">
+                        <li class="flex items-start gap-2 sm:gap-3">
+                            <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-user text-brand-blue text-xs sm:text-sm"></i>
                             </div>
                             <div>
-                                <span class="font-bold text-gray-800">Données clients</span>
-                                <p class="text-sm text-gray-600">10 ans après le dernier contact ou la fin de la relation commerciale</p>
+                                <span class="font-bold text-gray-800 text-sm sm:text-base">Données clients</span>
+                                <p class="text-xs sm:text-sm text-gray-600">10 ans après le dernier contact</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-brand-blue/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-envelope text-brand-blue text-sm"></i>
+                        <li class="flex items-start gap-2 sm:gap-3">
+                            <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-envelope text-brand-blue text-xs sm:text-sm"></i>
                             </div>
                             <div>
-                                <span class="font-bold text-gray-800">Prospects (formulaires)</span>
-                                <p class="text-sm text-gray-600">3 ans à compter de la collecte ou du dernier contact</p>
+                                <span class="font-bold text-gray-800 text-sm sm:text-base">Prospects</span>
+                                <p class="text-xs sm:text-sm text-gray-600">3 ans à compter de la collecte</p>
                             </div>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-brand-blue/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <i class="fas fa-chart-bar text-brand-blue text-sm"></i>
+                        <li class="flex items-start gap-2 sm:gap-3">
+                            <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-chart-bar text-brand-blue text-xs sm:text-sm"></i>
                             </div>
                             <div>
-                                <span class="font-bold text-gray-800">Données de navigation</span>
-                                <p class="text-sm text-gray-600">13 mois maximum (cookies)</p>
+                                <span class="font-bold text-gray-800 text-sm sm:text-base">Navigation</span>
+                                <p class="text-xs sm:text-sm text-gray-600">13 mois maximum (cookies)</p>
                             </div>
                         </li>
                     </ul>
@@ -202,66 +222,66 @@
                     vous disposez des droits suivants :
                 </p>
 
-                <div class="grid md:grid-cols-2 gap-4 my-6 not-prose">
-                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-eye text-white text-sm"></i>
+                <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 my-6 not-prose">
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-eye text-white text-xs sm:text-sm"></i>
                         </div>
                         <div>
-                            <span class="font-bold text-gray-800 text-sm">Droit d'accès</span>
+                            <span class="font-bold text-gray-800 text-xs sm:text-sm">Droit d'accès</span>
                             <p class="text-xs text-gray-600 mt-1">Obtenir la confirmation que vos données sont traitées et en recevoir une copie</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-edit text-white text-sm"></i>
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-edit text-white text-xs sm:text-sm"></i>
                         </div>
                         <div>
-                            <span class="font-bold text-gray-800 text-sm">Droit de rectification</span>
+                            <span class="font-bold text-gray-800 text-xs sm:text-sm">Droit de rectification</span>
                             <p class="text-xs text-gray-600 mt-1">Corriger des données inexactes ou compléter des données incomplètes</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-trash text-white text-sm"></i>
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-trash text-white text-xs sm:text-sm"></i>
                         </div>
                         <div>
-                            <span class="font-bold text-gray-800 text-sm">Droit à l'effacement</span>
+                            <span class="font-bold text-gray-800 text-xs sm:text-sm">Droit à l'effacement</span>
                             <p class="text-xs text-gray-600 mt-1">Demander la suppression de vos données (droit à l'oubli)</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-pause text-white text-sm"></i>
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-pause text-white text-xs sm:text-sm"></i>
                         </div>
                         <div>
-                            <span class="font-bold text-gray-800 text-sm">Droit à la limitation</span>
+                            <span class="font-bold text-gray-800 text-xs sm:text-sm">Droit à la limitation</span>
                             <p class="text-xs text-gray-600 mt-1">Geler temporairement l'utilisation de certaines données</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-exchange-alt text-white text-sm"></i>
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-exchange-alt text-white text-xs sm:text-sm"></i>
                         </div>
                         <div>
-                            <span class="font-bold text-gray-800 text-sm">Droit à la portabilité</span>
+                            <span class="font-bold text-gray-800 text-xs sm:text-sm">Droit à la portabilité</span>
                             <p class="text-xs text-gray-600 mt-1">Récupérer vos données dans un format structuré et lisible</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-ban text-white text-sm"></i>
+                    <div class="flex items-start gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg">
+                        <div class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-ban text-white text-xs sm:text-sm"></i>
                         </div>
                         <div>
-                            <span class="font-bold text-gray-800 text-sm">Droit d'opposition</span>
+                            <span class="font-bold text-gray-800 text-xs sm:text-sm">Droit d'opposition</span>
                             <p class="text-xs text-gray-600 mt-1">Vous opposer au traitement de vos données pour motif légitime</p>
                         </div>
                     </div>
                 </div>
 
                 {{-- Comment exercer vos droits --}}
-                <div class="bg-brand-blue text-white rounded-xl p-6 my-8 not-prose">
-                    <h4 class="font-heading font-bold text-lg mb-4 flex items-center gap-2">
+                <div class="bg-brand-blue text-white rounded-xl p-5 sm:p-6 my-6 sm:my-8 not-prose">
+                    <h4 class="font-heading font-bold text-base sm:text-lg mb-3 sm:mb-4 flex items-center gap-2">
                         <i class="fas fa-paper-plane"></i> Comment exercer vos droits ?
                     </h4>
                     <p class="text-blue-100 mb-4">
@@ -283,12 +303,12 @@
                 {{-- 9. Réclamation --}}
                 <h3>9. Réclamation auprès de la CNIL</h3>
                 <p>
-                    Si vous estimez que le traitement de vos données personnelles constitue une violation de vos droits, 
-                    vous pouvez introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) :
+                    Si vous estimez que le traitement de vos données constitue une violation de vos droits,
+                    vous pouvez introduire une réclamation auprès de la CNIL :
                 </p>
-                <div class="bg-gray-50 rounded-xl p-6 my-6 not-prose">
-                    <div class="font-bold text-gray-800 mb-2">CNIL</div>
-                    <ul class="text-gray-600 text-sm space-y-1">
+                <div class="bg-gray-50 rounded-xl p-4 sm:p-6 my-4 sm:my-6 not-prose">
+                    <div class="font-bold text-gray-800 mb-2 text-sm sm:text-base">CNIL</div>
+                    <ul class="text-gray-600 text-xs sm:text-sm space-y-1">
                         <li>3 Place de Fontenoy, TSA 80715</li>
                         <li>75334 Paris Cedex 07</li>
                         <li class="pt-2">
