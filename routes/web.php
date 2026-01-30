@@ -14,6 +14,10 @@ use App\Http\Controllers\{
     ManageController,
     SellController
 };
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Admin\AIController as AdminAIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,3 +128,23 @@ Route::view('/mentions-legales', 'pages.legal')->name('legal'); // Mentions lég
 Route::view('/confidentialite', 'pages.privacy')->name('privacy'); // Politique de confidentialité
 Route::view('/bareme-honoraires', 'pages.fees')->name('fees'); // Barème des honoraires
 
+/**
+ * Administration
+ */
+Route::prefix('admin')->name('admin.')->group(function () {
+    // Auth (sans middleware)
+    Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AdminAuthController::class, 'login']);
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+
+    // Routes protégées
+    Route::middleware('admin')->group(function () {
+        Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+        Route::resource('articles', AdminArticleController::class)->except(['show']);
+        Route::post('/upload-image', [AdminArticleController::class, 'uploadImage'])->name('upload.image');
+
+        // Génération IA
+        Route::get('/articles/ai/generate', [AdminAIController::class, 'create'])->name('articles.ai.create');
+        Route::post('/articles/ai/generate', [AdminAIController::class, 'generate'])->name('articles.ai.generate');
+    });
+});
