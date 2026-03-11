@@ -110,6 +110,14 @@
         </div>
     </div>
 
+    {{-- BOUTON TARIFS --}}
+    <div class="text-center mb-12 sm:mb-16 md:mb-20">
+        <button onclick="openTarifsModal('Assurance (GLI/PNO/MRI)')"
+            class="inline-flex items-center gap-2 bg-brand-accent text-brand-dark font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition shadow-md transform hover:-translate-y-0.5 cursor-pointer text-sm sm:text-base">
+            <i class="fas fa-tag"></i> Connaître nos tarifs
+        </button>
+    </div>
+
     {{-- FORMULAIRE DE CONTACT --}}
     <div id="insurance-contact" class="max-w-2xl mx-auto bg-white p-5 sm:p-8 md:p-10 rounded-2xl shadow-xl border-t-4 border-brand-blue">
         <div class="text-center mb-6 sm:mb-8">

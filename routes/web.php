@@ -5,6 +5,7 @@ use App\Http\Controllers\{
     AdvisorController,
     ArticleController,
     ContactController,
+    EdlController,
     EstimationController,
     FaqController,
     HomeController,
@@ -12,6 +13,8 @@ use App\Http\Controllers\{
     InvestController,
     JoinController,
     ManageController,
+    ProController,
+    RentalController,
     SellController
 };
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
@@ -36,16 +39,22 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
  * Section Investissement
  */
 Route::prefix('investir')->group(function () {
-    // Affiche le formulaire d'investissement
+    // Page investissement principale (ancien)
     Route::get('/', [InvestController::class, 'index'])->name('invest');
-    // Traite la soumission du formulaire d'investissement
     Route::post('/', [InvestController::class, 'submit'])->name('invest.submit');
+    // Immobilier neuf
+    Route::get('/neuf', fn () => view('invest.neuf'))->name('invest.neuf');
+    Route::post('/neuf', [\App\Http\Controllers\InvestNeufController::class, 'submit'])->name('invest.neuf.submit');
+    // Viager
+    Route::get('/viager', fn () => view('invest.viager'))->name('invest.viager');
+    Route::post('/viager', [\App\Http\Controllers\InvestViagerController::class, 'submit'])->name('invest.viager.submit');
 });
 
 /**
  * Section Vente
  */
 Route::get('/vendre', [SellController::class, 'index'])->name('sell');
+Route::post('/vendre', [SellController::class, 'submit'])->name('sell.submit');
 
 /**
  * FAQ (Foire aux questions)
@@ -53,13 +62,36 @@ Route::get('/vendre', [SellController::class, 'index'])->name('sell');
 Route::get('/aide', [FaqController::class, 'index'])->name('faq');
 
 /**
- * Section Gestion (location, etc.)
+ * Section Gestion (location, syndic)
  */
 Route::prefix('gerer')->group(function () {
-    // Page de gestion
+    // Page de gestion principale (syndic + gestion locative)
     Route::get('/', [ManageController::class, 'index'])->name('manage');
-    // Soumission du formulaire de contact gestion
     Route::post('/contact', [ManageController::class, 'submit'])->name('manage.submit');
+});
+
+/**
+ * Gestion Locative (3 offres)
+ */
+Route::prefix('gestion-locative')->group(function () {
+    Route::get('/', [RentalController::class, 'index'])->name('rental');
+    Route::get('/complete', [RentalController::class, 'complete'])->name('rental.complete');
+    Route::get('/technique', [RentalController::class, 'technical'])->name('rental.technical');
+    Route::get('/a-la-carte', [RentalController::class, 'alacarte'])->name('rental.alacarte');
+});
+
+/**
+ * État des Lieux
+ */
+Route::get('/etat-des-lieux', [EdlController::class, 'index'])->name('edl');
+Route::post('/etat-des-lieux', [EdlController::class, 'submit'])->name('edl.submit');
+
+/**
+ * Section PRO
+ */
+Route::prefix('pro')->group(function () {
+    Route::get('/etat-des-lieux', [ProController::class, 'edl'])->name('pro.edl');
+    Route::get('/nourrice-locative', [ProController::class, 'nourrice'])->name('pro.nourrice');
 });
 
 /**
@@ -119,6 +151,11 @@ Route::prefix('estimer')->group(function () {
  */
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('articles.show');
+
+/**
+ * Demande de tarifs (modale AJAX)
+ */
+Route::post('/tarifs', [\App\Http\Controllers\TarifsController::class, 'submit'])->name('tarifs.submit');
 
 /**
  * Pages statiques légales et informations

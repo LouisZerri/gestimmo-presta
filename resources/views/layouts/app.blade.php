@@ -70,9 +70,21 @@
             const menu = document.getElementById('mobile-menu');
             if (menu) menu.classList.toggle('hidden');
         }
+
+        function toggleMobileSubmenu(id) {
+            const submenu = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            if (submenu) {
+                submenu.classList.toggle('hidden');
+                if (icon) icon.classList.toggle('rotate-180');
+            }
+        }
     </script>
 
     @stack('scripts')
+
+    {{-- Modale Tarifs --}}
+    @include('partials.tarifs-modal')
 
     {{-- Cookie Banner --}}
     @include('partials.cookie-banner')

@@ -76,6 +76,160 @@
         </div>
     </div>
 
+    {{-- BOUTON TARIFS --}}
+    <div class="text-center py-6 bg-white border-b border-gray-100">
+        <button onclick="openTarifsModal('Estimation / Vente')"
+            class="inline-flex items-center gap-2 bg-brand-accent text-brand-dark font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition shadow-md transform hover:-translate-y-0.5 cursor-pointer text-sm sm:text-base">
+            <i class="fas fa-tag"></i> Connaître nos tarifs
+        </button>
+    </div>
+
+    {{-- FORMULAIRE ESTIMATION GRATUITE --}}
+    <div id="estimation-section" class="bg-white py-10 sm:py-12 md:py-16 border-b border-gray-100">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-6 sm:mb-8">
+                <span class="text-brand-blue font-bold uppercase tracking-wider text-xs sm:text-sm">Estimation gratuite</span>
+                <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-800 mt-2 mb-3">Estimez votre bien en quelques clics</h2>
+                <p class="text-gray-500 text-sm sm:text-base">Remplissez ce formulaire et recevez une estimation personnalisée sous 24h.</p>
+            </div>
+
+            @if(session('success'))
+                <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-start gap-3 animate-fade-in-up">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-check text-green-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-green-800">Demande envoyée !</h4>
+                        <p class="text-green-700 text-sm">{{ session('success') }}</p>
+                    </div>
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-exclamation-triangle text-red-600"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-red-800">Une erreur est survenue</h4>
+                        <p class="text-red-700 text-sm">{{ session('error') }}</p>
+                    </div>
+                </div>
+            @endif
+
+            @if($errors->any())
+                <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-exclamation-circle text-red-600"></i>
+                        <h4 class="font-bold text-red-800">Veuillez corriger les erreurs suivantes :</h4>
+                    </div>
+                    <ul class="list-disc list-inside text-red-700 text-sm space-y-1">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form method="POST" action="{{ route('sell.submit') }}" id="sell-estimation-form" class="bg-brand-light rounded-2xl p-5 sm:p-6 md:p-8 border border-gray-200">
+                @csrf
+
+                {{-- Bien --}}
+                <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-2 text-sm">Adresse du bien *</label>
+                        <input type="text" name="adresse" value="{{ old('adresse') }}" placeholder="Numéro et nom de rue" required
+                            class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition text-sm @error('adresse') border-red-500 @enderror">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-2 text-sm">Ville *</label>
+                        <input type="text" name="ville" value="{{ old('ville') }}" placeholder="Ex: Lyon" required
+                            class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition text-sm @error('ville') border-red-500 @enderror">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-4">
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-2 text-sm">Type de bien *</label>
+                        <select name="type_bien" required
+                            class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition appearance-none cursor-pointer text-sm @error('type_bien') border-red-500 @enderror">
+                            <option value="">Choisir...</option>
+                            <option value="Appartement" {{ old('type_bien') == 'Appartement' ? 'selected' : '' }}>Appartement</option>
+                            <option value="Maison" {{ old('type_bien') == 'Maison' ? 'selected' : '' }}>Maison</option>
+                            <option value="Immeuble" {{ old('type_bien') == 'Immeuble' ? 'selected' : '' }}>Immeuble</option>
+                            <option value="Terrain" {{ old('type_bien') == 'Terrain' ? 'selected' : '' }}>Terrain</option>
+                            <option value="Local commercial" {{ old('type_bien') == 'Local commercial' ? 'selected' : '' }}>Local commercial</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-2 text-sm">Surface *</label>
+                        <div class="relative">
+                            <input type="number" name="surface" value="{{ old('surface') }}" placeholder="Ex: 75" min="1" required
+                                class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition pr-10 text-sm @error('surface') border-red-500 @enderror">
+                            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs font-bold">m²</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-gray-700 mb-2 text-sm">Pièces *</label>
+                        <select name="nb_pieces" required
+                            class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition appearance-none cursor-pointer text-sm @error('nb_pieces') border-red-500 @enderror">
+                            <option value="">Nb...</option>
+                            @for($i = 1; $i <= 10; $i++)
+                                <option value="{{ $i }}" {{ old('nb_pieces') == $i ? 'selected' : '' }}>{{ $i }}</option>
+                            @endfor
+                        </select>
+                    </div>
+                </div>
+
+                {{-- Coordonnées --}}
+                <div class="border-t border-gray-200 pt-4 mt-4">
+                    <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
+                        <div>
+                            <label class="block font-bold text-gray-700 mb-2 text-sm">Nom *</label>
+                            <input type="text" name="nom" value="{{ old('nom') }}" placeholder="Votre nom" required
+                                class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition text-sm @error('nom') border-red-500 @enderror">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 mb-2 text-sm">Prénom *</label>
+                            <input type="text" name="prenom" value="{{ old('prenom') }}" placeholder="Votre prénom" required
+                                class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition text-sm @error('prenom') border-red-500 @enderror">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
+                        <div>
+                            <label class="block font-bold text-gray-700 mb-2 text-sm">Email *</label>
+                            <input type="email" name="email" value="{{ old('email') }}" placeholder="votre@email.fr" required
+                                class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition text-sm @error('email') border-red-500 @enderror">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-gray-700 mb-2 text-sm">Téléphone *</label>
+                            <input type="tel" name="telephone" value="{{ old('telephone') }}" placeholder="06 XX XX XX XX" required
+                                class="w-full p-3 bg-white rounded-lg border focus:border-brand-blue outline-none transition text-sm @error('telephone') border-red-500 @enderror">
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-400 mb-4">
+                    <i class="fas fa-lock mr-1"></i>
+                    Vos données sont protégées. Consultez notre <a href="{{ route('privacy') }}" class="text-brand-blue hover:underline">politique de confidentialité</a>.
+                </p>
+
+                <button type="submit" id="sell-submit-btn"
+                    class="w-full bg-brand-accent text-brand-dark font-bold py-4 rounded-lg hover:bg-yellow-400 transition shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
+                    <span id="sell-btn-text">Recevoir mon estimation gratuite</span>
+                    <span id="sell-btn-loading" class="hidden items-center gap-2">
+                        <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                        Envoi en cours...
+                    </span>
+                    <i class="fas fa-paper-plane" id="sell-btn-icon"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     {{-- BLOC RECHERCHE CONSEILLER --}}
     <div class="bg-white py-10 sm:py-12 md:py-16 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -252,3 +406,25 @@
     </div>
 
 @endsection
+
+@push('scripts')
+<script>
+    document.getElementById('sell-estimation-form')?.addEventListener('submit', function() {
+        const btn = document.getElementById('sell-submit-btn');
+        const btnText = document.getElementById('sell-btn-text');
+        const btnLoading = document.getElementById('sell-btn-loading');
+        const btnIcon = document.getElementById('sell-btn-icon');
+
+        btn.disabled = true;
+        btn.classList.add('opacity-75', 'cursor-not-allowed');
+        btnText.classList.add('hidden');
+        btnIcon.classList.add('hidden');
+        btnLoading.classList.remove('hidden');
+        btnLoading.classList.add('inline-flex');
+    });
+
+    @if(session('success') || session('error') || $errors->any())
+        document.getElementById('estimation-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    @endif
+</script>
+@endpush
