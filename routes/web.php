@@ -179,6 +179,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::resource('articles', AdminArticleController::class)->except(['show']);
+        Route::post('/articles/bulk', [AdminArticleController::class, 'bulkAction'])->name('articles.bulk');
         Route::post('/upload-image', [AdminArticleController::class, 'uploadImage'])->name('upload.image');
 
         // Génération IA

@@ -19,10 +19,30 @@ class ArticleController extends Controller
         'Autre' => 'bg-gray-500',
     ];
 
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate(15);
-        return view('admin.articles.index', compact('articles'));
+        $query = Article::orderBy('created_at', 'desc');
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('excerpt', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('category')) {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('is_published', $request->status === 'published');
+        }
+
+        $articles = $query->paginate(15)->withQueryString();
+        $categories = $this->categories;
+
+        return view('admin.articles.index', compact('articles', 'categories'));
     }
 
     public function create()
@@ -140,6 +160,39 @@ class ArticleController extends Controller
         return redirect()
             ->route('admin.articles.index')
             ->with('success', 'Article supprimé avec succès.');
+    }
+
+    public function bulkAction(Request $request)
+    {
+        $request->validate([
+            'action' => 'required|in:publish,unpublish,delete',
+            'ids' => 'required|array',
+            'ids.*' => 'exists:articles,id',
+        ]);
+
+        $articles = Article::whereIn('id', $request->ids);
+
+        switch ($request->action) {
+            case 'publish':
+                $articles->update(['is_published' => true, 'published_at' => now()]);
+                $message = count($request->ids) . ' article(s) publié(s).';
+                break;
+            case 'unpublish':
+                $articles->update(['is_published' => false]);
+                $message = count($request->ids) . ' article(s) dépublié(s).';
+                break;
+            case 'delete':
+                foreach ($articles->get() as $article) {
+                    if ($article->image && str_starts_with($article->image, '/storage/')) {
+                        Storage::disk('public')->delete(str_replace('/storage/', '', $article->image));
+                    }
+                    $article->delete();
+                }
+                $message = count($request->ids) . ' article(s) supprimé(s).';
+                break;
+        }
+
+        return redirect()->route('admin.articles.index')->with('success', $message);
     }
 
     public function uploadImage(Request $request)
