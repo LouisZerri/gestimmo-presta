@@ -1,6 +1,25 @@
 @extends('layouts.app')
 
-@section('title', "État des Lieux - GEST'IMMO")
+@section('title', "État des lieux d'entrée et de sortie - GEST'IMMO")
+@section('meta_description', 'État des lieux professionnel par GEST\'IMMO : entrée, sortie, pack complet. Rapport numérique détaillé, intervention rapide partout en France.')
+@section('keywords', 'état des lieux, état des lieux entrée, état des lieux sortie, EDL, diagnostic locatif, expert état des lieux')
+
+@push('schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "État des lieux",
+    "provider": {
+        "@type": "RealEstateAgent",
+        "name": "GEST'IMMO France"
+    },
+    "description": "État des lieux professionnel d'entrée et de sortie avec rapport numérique détaillé.",
+    "areaServed": {"@type": "Country", "name": "France"},
+    "serviceType": "État des lieux immobilier"
+}
+</script>
+@endpush
 
 @section('content')
 

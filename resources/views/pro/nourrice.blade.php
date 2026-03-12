@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Nourrice Locative - GEST'IMMO")
+@section('title', "Nourrice locative - GEST'IMMO")
+@section('meta_description', 'Service de nourrice locative GEST\'IMMO : portage de la carte G, gestion administrative des mandats locatifs pour les professionnels de l\'immobilier.')
+@section('keywords', 'nourrice locative, carte G, portage immobilier, mandataire gestion, gestion locative professionnelle')
 
 @section('content')
 

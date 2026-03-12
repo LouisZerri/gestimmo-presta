@@ -159,6 +159,11 @@ Route::get('/article/{article}', [ArticleController::class, 'show'])->name('arti
 Route::post('/tarifs', [\App\Http\Controllers\TarifsController::class, 'submit'])->name('tarifs.submit');
 
 /**
+ * Sitemap
+ */
+Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+
+/**
  * Pages statiques légales et informations
  */
 Route::view('/cookies', 'pages.cookies')->name('cookies'); // Politique cookies

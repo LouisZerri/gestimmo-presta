@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Assurances - GEST'IMMO")
+@section('title', "Assurances immobilières - GEST'IMMO")
+@section('meta_description', 'Protégez votre patrimoine avec les assurances GEST\'IMMO : GLI loyers impayés, PNO propriétaire non occupant, multirisques habitation. Devis gratuit.')
+@section('keywords', 'assurance immobilière, GLI, garantie loyers impayés, assurance PNO, assurance propriétaire, multirisques habitation')
 
 @section('content')
 

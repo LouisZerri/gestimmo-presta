@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Investir dans le Neuf - GEST'IMMO")
+@section('title', "Investissement immobilier neuf - GEST'IMMO")
+@section('meta_description', 'Investissez dans l\'immobilier neuf avec GEST\'IMMO : frais de notaire réduits, garanties constructeur, avantages fiscaux. Résidences tourisme, étudiantes, seniors.')
+@section('keywords', 'immobilier neuf, investissement neuf, résidence étudiante, résidence senior, Pinel, frais de notaire réduits')
 
 @section('content')
 

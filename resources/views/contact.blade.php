@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Contactez-nous | GEST\'IMMO')
+@section('meta_description', 'Contactez GEST\'IMMO France pour vos projets immobiliers : vente, achat, gestion locative, investissement. Réponse sous 24h.')
+@section('keywords', 'contact gestimmo, agence immobilière, conseil immobilier, devis gratuit')
 
 @section('content')
 <div class="min-h-screen bg-gray-50 py-10 sm:py-12 md:py-16">

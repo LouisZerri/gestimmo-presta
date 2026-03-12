@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "EDL Professionnel - GEST'IMMO")
+@section('title', "État des lieux professionnel - GEST'IMMO")
+@section('meta_description', 'Externalisez vos états des lieux avec GEST\'IMMO : service dédié aux agences, administrateurs de biens et gestionnaires. Tarifs dégressifs, intervention 48h.')
+@section('keywords', 'état des lieux professionnel, EDL externalisé, prestataire état des lieux, agence immobilière, tarif EDL')
 
 @section('content')
 

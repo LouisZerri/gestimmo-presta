@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Vendre - GEST'IMMO")
+@section('title', "Vendre votre bien immobilier - GEST'IMMO")
+@section('meta_description', 'Vendez votre bien immobilier au meilleur prix avec GEST\'IMMO. Estimation gratuite, accompagnement personnalisé et réseau d\'acheteurs qualifiés partout en France.')
+@section('keywords', 'vendre bien immobilier, estimation gratuite, vente maison, vente appartement, agent immobilier, estimation immobilière')
 
 @section('content')
 

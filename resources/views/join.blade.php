@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Nous Rejoindre - GEST'IMMO")
+@section('title', "Devenir conseiller immobilier - Rejoindre GEST'IMMO")
+@section('meta_description', 'Rejoignez le réseau GEST\'IMMO et devenez conseiller immobilier indépendant. Formation, outils, accompagnement et rémunération attractive.')
+@section('keywords', 'devenir agent immobilier, mandataire immobilier, rejoindre réseau immobilier, conseiller indépendant, carrière immobilier')
 
 @section('content')
 

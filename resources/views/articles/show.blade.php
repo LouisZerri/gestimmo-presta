@@ -2,9 +2,39 @@
 
 @section('title', ($article->meta_title ?: $article->title) . " - GEST'IMMO")
 @section('meta_description', $article->meta_description ?: $article->excerpt)
+@section('og_type', 'article')
+@if($article->image)
+    @section('og_image', url($article->image))
+@endif
 @if($article->keywords)
     @section('keywords', $article->keywords)
 @endif
+
+@push('schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ $article->meta_title ?: $article->title }}",
+    "description": "{{ $article->meta_description ?: $article->excerpt }}",
+    @if($article->image)"image": "{{ url($article->image) }}",@endif
+    "datePublished": "{{ $article->published_at->toIso8601String() }}",
+    "dateModified": "{{ $article->updated_at->toIso8601String() }}",
+    "author": {
+        "@type": "Organization",
+        "name": "GEST'IMMO France"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "GEST'IMMO France",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('images/logo3d.png') }}"
+        }
+    }
+}
+</script>
+@endpush
 
 @section('content')
 

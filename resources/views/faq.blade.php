@@ -1,6 +1,31 @@
 @extends('layouts.app')
 
 @section('title', 'Centre d\'aide - FAQ | GEST\'IMMO')
+@section('meta_description', 'Trouvez les réponses à vos questions sur les services GEST\'IMMO : gestion locative, vente, investissement, assurances, état des lieux.')
+@section('keywords', 'FAQ immobilier, aide gestion locative, questions fréquentes, aide investissement immobilier')
+
+@push('schema')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        @foreach(['seller', 'buyer', 'career'] as $cat)
+            @foreach($faqs[$cat] as $faq)
+            {
+                "@type": "Question",
+                "name": "{{ $faq['question'] }}",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{!! strip_tags($faq['answer']) !!}"
+                }
+            }@if(!$loop->last || !$loop->parent->last),@endif
+            @endforeach
+        @endforeach
+    ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- Hero Recherche FAQ (Style Zendesk) -->

@@ -35,13 +35,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', "GEST'IMMO | Le Réseau Immobilier Global")</title>
-    @hasSection('meta_description')
-        <meta name="description" content="@yield('meta_description')">
-    @endif
+    <meta name="description" content="@yield('meta_description', 'GEST\'IMMO France - Le premier réseau immobilier hybride : transaction, investissement locatif, gestion locative, syndic, assurances et état des lieux.')">
     @hasSection('keywords')
         <meta name="keywords" content="@yield('keywords')">
     @endif
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:title" content="@yield('title', 'GEST\'IMMO | Le Réseau Immobilier Global')">
+    <meta property="og:description" content="@yield('meta_description', 'GEST\'IMMO France - Le premier réseau immobilier hybride : transaction, investissement locatif, gestion locative, syndic, assurances et état des lieux.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="@yield('og_image', asset('images/logo3d.png'))">
+    <meta property="og:site_name" content="GEST'IMMO France">
+    <meta property="og:locale" content="fr_FR">
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'GEST\'IMMO | Le Réseau Immobilier Global')">
+    <meta name="twitter:description" content="@yield('meta_description', 'GEST\'IMMO France - Le premier réseau immobilier hybride.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/logo3d.png'))">
+
     @stack('meta')
+
+    {{-- Schema.org Organization --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "GEST'IMMO France",
+        "url": "https://www.gestimmo-france.fr",
+        "logo": "{{ asset('images/logo3d.png') }}",
+        "description": "Réseau immobilier hybride : transaction, investissement, gestion locative, syndic, assurances.",
+        "telephone": "+33428290028",
+        "email": "contact@gestimmo-france.fr",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "FR"
+        },
+        "sameAs": [
+            "https://www.facebook.com/gestimmofrance",
+            "https://www.instagram.com/gestimmo_france/",
+            "https://www.linkedin.com/company/gest-immo-presta/"
+        ],
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "priceRange": "$$"
+    }
+    </script>
+    @stack('schema')
+
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <!-- Tailwind CSS -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

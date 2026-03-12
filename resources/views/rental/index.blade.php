@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Gestion Locative - GEST'IMMO")
+@section('title', "Gestion Locative - Comparer les offres - GEST'IMMO")
+@section('meta_description', 'Comparez nos offres de gestion locative : complète à 7,5%, technique à 5% ou à la carte. GEST\'IMMO gère votre bien en toute sérénité.')
+@section('keywords', 'gestion locative, gestion complète, gestion technique, gestion à la carte, mandat de gestion, loyer')
 
 @section('content')
 

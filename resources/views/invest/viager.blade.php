@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Viager - GEST'IMMO")
+@section('title', "Investir en viager - GEST'IMMO")
+@section('meta_description', 'Investissez en viager avec GEST\'IMMO : achetez un bien à prix décoté, sans crédit bancaire. Viager occupé ou libre, accompagnement expert.')
+@section('keywords', 'viager, viager occupé, viager libre, investissement viager, bouquet viager, rente viagère')
 
 @section('content')
 

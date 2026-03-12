@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', "GEST'IMMO | Accueil - Le Réseau Immobilier Global")
+@section('meta_description', 'GEST\'IMMO France, réseau immobilier hybride : vente, investissement locatif, gestion locative, syndic, assurances et état des lieux partout en France.')
+@section('keywords', 'immobilier, gestion locative, investissement locatif, vente immobilière, syndic, assurance immobilière, état des lieux, GEST\'IMMO')
 
 @section('content')
 

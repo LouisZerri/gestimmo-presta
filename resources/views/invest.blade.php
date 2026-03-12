@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Investir - GEST'IMMO")
+@section('title', "Investissement immobilier locatif - GEST'IMMO")
+@section('meta_description', 'Investissez dans l\'immobilier locatif avec GEST\'IMMO : ancien, neuf, viager. Accompagnement complet, rentabilité optimisée et avantages fiscaux.')
+@section('keywords', 'investissement locatif, investissement immobilier, rendement locatif, immobilier ancien, déficit foncier, patrimoine immobilier')
 
 @section('content')
 

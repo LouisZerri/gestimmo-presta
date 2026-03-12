@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', "Gérer - GEST'IMMO")
+@section('title', "Gestion locative et syndic - GEST'IMMO")
+@section('meta_description', 'Confiez la gestion de votre bien à GEST\'IMMO : gestion locative complète dès 7,5%, gestion technique à 5%, syndic à la carte. Sérénité garantie.')
+@section('keywords', 'gestion locative, syndic copropriété, gestion immobilière, administrateur de biens, gestion technique, loyers impayés')
 
 @section('content')
 
