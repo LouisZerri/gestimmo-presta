@@ -76,7 +76,10 @@ L'article doit contenir :
 Retourne ta réponse au format JSON avec les clés suivantes :
 - title: le titre de l'article
 - excerpt: l'extrait/résumé
-- content: le contenu HTML complet";
+- content: le contenu HTML complet
+- meta_title: un titre SEO optimisé (max 60 caractères, incluant un mot-clé principal)
+- meta_description: une meta description SEO (max 155 caractères, incitative au clic)
+- keywords: une liste de 5-8 mots-clés séparés par des virgules (pertinents pour le référencement immobilier)";
 
             $response = $client->chat()->create([
                 'model' => 'gpt-4o',
@@ -103,6 +106,9 @@ Retourne ta réponse au format JSON avec les clés suivantes :
                 'title' => $data['title'],
                 'excerpt' => $data['excerpt'] ?? '',
                 'content' => $data['content'],
+                'meta_title' => $data['meta_title'] ?? '',
+                'meta_description' => $data['meta_description'] ?? '',
+                'keywords' => $data['keywords'] ?? '',
                 'category' => $request->category,
                 'category_color' => $this->categories[$request->category] ?? 'bg-gray-500',
                 'image' => '',

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', $article->title . " - GEST'IMMO")
+@section('title', ($article->meta_title ?: $article->title) . " - GEST'IMMO")
+@section('meta_description', $article->meta_description ?: $article->excerpt)
+@if($article->keywords)
+    @section('keywords', $article->keywords)
+@endif
 
 @section('content')
 

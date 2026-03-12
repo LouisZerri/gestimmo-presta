@@ -139,6 +139,28 @@
 
                 <div id="preview-body" class="prose prose-sm max-w-none max-h-96 overflow-y-auto"></div>
 
+                {{-- SEO Preview --}}
+                <div id="preview-seo" class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                    <h4 class="text-sm font-bold text-green-800 mb-3 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        SEO
+                    </h4>
+                    <div class="space-y-2">
+                        <div>
+                            <span class="text-xs text-green-600 font-medium">Titre SEO :</span>
+                            <p class="text-sm text-blue-700 font-medium" id="preview-meta-title"></p>
+                        </div>
+                        <div>
+                            <span class="text-xs text-green-600 font-medium">Meta description :</span>
+                            <p class="text-sm text-gray-600" id="preview-meta-description"></p>
+                        </div>
+                        <div>
+                            <span class="text-xs text-green-600 font-medium">Mots-clés :</span>
+                            <p class="text-sm text-gray-600" id="preview-keywords"></p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mt-6 pt-4 border-t border-gray-200 flex justify-end space-x-4">
                     <button
                         type="button"
@@ -180,6 +202,9 @@
         <input type="hidden" name="content" id="form-content">
         <input type="hidden" name="category" id="form-category">
         <input type="hidden" name="ai_image" id="form-image">
+        <input type="hidden" name="meta_title" id="form-meta-title">
+        <input type="hidden" name="meta_description" id="form-meta-description">
+        <input type="hidden" name="keywords" id="form-keywords">
         <input type="hidden" name="author" value="{{ Auth::user()->name }}">
         <input type="hidden" name="is_published" value="0">
     </form>
@@ -225,6 +250,9 @@
             document.getElementById('form-content').value = generatedData.content;
             document.getElementById('form-category').value = generatedData.category;
             document.getElementById('form-image').value = generatedData.image || '';
+            document.getElementById('form-meta-title').value = generatedData.meta_title || '';
+            document.getElementById('form-meta-description').value = generatedData.meta_description || '';
+            document.getElementById('form-keywords').value = generatedData.keywords || '';
             document.getElementById('create-article-form').submit();
         }
     });
@@ -282,6 +310,12 @@
             document.getElementById('preview-title').textContent = data.title;
             document.getElementById('preview-excerpt').textContent = data.excerpt;
             document.getElementById('preview-body').innerHTML = data.content;
+
+            // SEO fields
+            document.getElementById('preview-meta-title').textContent = data.meta_title || '';
+            document.getElementById('preview-meta-description').textContent = data.meta_description || '';
+            document.getElementById('preview-keywords').textContent = data.keywords || '';
+            document.getElementById('preview-seo').classList.toggle('hidden', !data.meta_title);
 
             // Handle image
             const imageContainer = document.getElementById('preview-image-container');
