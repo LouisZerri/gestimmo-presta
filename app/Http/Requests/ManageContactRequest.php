@@ -28,7 +28,7 @@ class ManageContactRequest extends FormRequest
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'telephone' => 'required|string|max:20',
-            'type_demande' => 'required|string|in:tarifs_unitaires,gestion_complete,devis_syndic',
+            'type_demande' => 'required|string|in:tarifs_unitaires,gestion_technique,gestion_complete,devis_syndic',
             'adresse_bien' => 'nullable|string|max:500',
             'type_bien' => 'nullable|string|max:100',
             'surface' => 'nullable|numeric|min:1',

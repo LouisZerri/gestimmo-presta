@@ -30,7 +30,7 @@
                     </div>
                     <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
                 </div>
-                <div class="md:w-2/3 p-5 sm:p-8 md:p-10 grid sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
+                <div class="md:w-2/3 p-5 sm:p-8 md:p-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                     {{-- Missions à la Carte --}}
                     <div class="bg-gray-50 p-5 sm:p-6 rounded-xl border border-gray-100 hover:shadow-md transition">
                         <h3 class="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
@@ -52,6 +52,29 @@
                         </button>
                     </div>
 
+                    {{-- Gestion Technique --}}
+                    <div class="bg-gray-50 p-5 sm:p-6 rounded-xl border border-gray-100 hover:shadow-md transition">
+                        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2 text-sm sm:text-base">
+                            <span class="w-2 h-6 sm:h-8 bg-amber-500 rounded-full"></span>Gestion Technique
+                        </h3>
+                        <div class="text-2xl sm:text-3xl font-bold text-amber-600 mb-3 sm:mb-4">5% <span
+                                class="text-xs sm:text-sm text-gray-400 font-normal">/ mois</span></div>
+                        <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-amber-500 mr-3"></i> Gestion
+                                technique & travaux</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-amber-500 mr-3"></i> Encaissement
+                                loyers & quittances</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-amber-500 mr-3"></i> Révision
+                                loyers & charges</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-amber-500 mr-3"></i> Espace
+                                client 24/7</li>
+                        </ul>
+                        <button onclick="openManageModal('gestion_technique')"
+                            class="w-full border border-amber-500 text-amber-600 font-bold py-3 rounded-lg hover:bg-amber-50 transition text-sm cursor-pointer">
+                            En savoir plus
+                        </button>
+                    </div>
+
                     {{-- Gestion Complète --}}
                     <div
                         class="bg-white p-5 sm:p-6 rounded-xl border-2 border-brand-blue shadow-lg relative sm:transform sm:-translate-y-2 md:-translate-y-4">
@@ -61,8 +84,9 @@
                         <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2 text-sm sm:text-base">
                             <span class="w-2 h-6 sm:h-8 bg-brand-blue rounded-full"></span>Gestion Complète
                         </h3>
-                        <div class="text-2xl sm:text-3xl font-bold text-brand-blue mb-3 sm:mb-4">5% <span
+                        <div class="text-2xl sm:text-3xl font-bold text-brand-blue mb-1">7,5% <span
                                 class="text-xs sm:text-sm text-gray-400 font-normal">/ mois</span></div>
+                        <p class="text-xs text-gray-400 mb-3 sm:mb-4">6,8% à partir de 3 lots</p>
                         <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
                             <li class="flex items-center"><i class="fas fa-check-circle text-brand-blue mr-3"></i>
                                 <strong>Tout inclus</strong> (Bail, EDL, Quittances...)
@@ -402,12 +426,20 @@
                 subtitle: 'Recevez notre grille tarifaire détaillée',
                 fields: 'gestion'
             },
+            gestion_technique: {
+                headerBg: 'bg-amber-600',
+                iconBg: 'bg-white/20',
+                icon: 'fa-tools',
+                title: 'Gestion Technique',
+                subtitle: 'Gestion technique de votre bien à 5%',
+                fields: 'gestion'
+            },
             gestion_complete: {
                 headerBg: 'bg-brand-blue',
                 iconBg: 'bg-white/20',
                 icon: 'fa-key',
                 title: 'Gestion Locative Complète',
-                subtitle: 'Démarrez la gestion de votre bien',
+                subtitle: 'Démarrez la gestion de votre bien (7,5% / 6,8% dès 3 lots)',
                 fields: 'gestion'
             },
             devis_syndic: {

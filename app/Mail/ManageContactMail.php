@@ -33,6 +33,7 @@ class ManageContactMail extends Mailable
     {
         $subjects = [
             'tarifs_unitaires' => '📋 Demande tarifs gestion à la carte',
+            'gestion_technique' => '🔧 Demande gestion technique',
             'gestion_complete' => '🔑 Demande gestion locative complète',
             'devis_syndic' => '🏢 Demande devis syndic',
         ];

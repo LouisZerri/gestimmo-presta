@@ -27,21 +27,24 @@
 
                 <!-- Réseaux sociaux -->
                 <div class="flex gap-3 sm:gap-4">
-                    <a href="https://www.facebook.com/share/19je7E8Fiw/?mibextid=wwXIfr" target="_blank" rel="noopener"
-                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition">
+                    <a href="https://www.facebook.com/gestimmofrance" target="_blank" rel="noopener"
+                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition"
+                        title="Facebook">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://www.instagram.com/gestimmo.fr?igsh=MWhkbzZmdGR0dmUwZw%3D%3D&utm_source=qr" target="_blank" rel="noopener"
-                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition">
+                    <a href="https://www.instagram.com/gestimmo_france/" target="_blank" rel="noopener"
+                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition"
+                        title="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://www.linkedin.com/company/gest-immo-presta/?viewAsMember=true" target="_blank" rel="noopener"
-                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition">
+                    <a href="https://www.linkedin.com/company/gest-immo-presta/" target="_blank" rel="noopener"
+                        class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition"
+                        title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://open.spotify.com/show/gestimmo" target="_blank" rel="noopener"
+                    <a href="https://open.spotify.com/show/6b0RBH7W6GuZ7v6HI8QBEY?si=7e62a22bbf164424" target="_blank" rel="noopener"
                         class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#1DB954] hover:text-white transition"
-                        title="Écoutez notre podcast sur Spotify">
+                        title="Podcast Paroles d'Entrepreneurs sur Spotify">
                         <i class="fab fa-spotify"></i>
                     </a>
                 </div>

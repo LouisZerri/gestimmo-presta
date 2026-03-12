@@ -14,12 +14,14 @@
                     @php
                         $typeColors = [
                             'tarifs_unitaires' => '#6b7280',
+                            'gestion_technique' => '#d97706',
                             'gestion_complete' => '#0054a6',
                             'devis_syndic' => '#1f2937',
                         ];
                         $typeLabels = [
                             'tarifs_unitaires' => '📋 Tarifs Gestion à la Carte',
-                            'gestion_complete' => '🔑 Gestion Locative Complète',
+                            'gestion_technique' => '🔧 Gestion Technique (5%)',
+                            'gestion_complete' => '🔑 Gestion Locative Complète (7,5%)',
                             'devis_syndic' => '🏢 Devis Syndic',
                         ];
                         $headerColor = $typeColors[$data['type_demande']] ?? '#0054a6';
