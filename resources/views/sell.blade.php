@@ -280,49 +280,23 @@
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 @php
-                    $avis = [
-                        [
-                            'initials' => 'TL',
-                            'color' => 'bg-brand-blue',
-                            'name' => 'Thomas L.',
-                            'location' => 'Vendeur à Lyon (69)',
-                            'text' =>
-                                'J\'avais besoin de vendre rapidement suite à une mutation. Mon conseiller a trouvé un investisseur en 48h qui a acheté sans condition de prêt. Efficacité redoutable.',
-                        ],
-                        [
-                            'initials' => 'MB',
-                            'color' => 'bg-brand-accent',
-                            'name' => 'Marie B.',
-                            'location' => 'Vendeuse à Nantes (44)',
-                            'text' =>
-                                'Un accompagnement humain avant tout. Dans le cadre d\'une succession compliquée, GEST\'IMMO a su gérer les relations avec les notaires et rassurer toute la famille.',
-                        ],
-                        [
-                            'initials' => 'JD',
-                            'color' => 'bg-gray-800',
-                            'name' => 'Jean D.',
-                            'location' => 'Vendeur à Bordeaux (33)',
-                            'text' =>
-                                'Estimation au juste prix. Pas de promesses en l\'air, mais un vrai dossier d\'étude de marché. Résultat : vendu au prix en moins de 3 semaines.',
-                        ],
-                    ];
+                    $colors = ['bg-brand-blue', 'bg-brand-accent', 'bg-gray-800'];
                 @endphp
-
-                @foreach ($avis as $a)
+                @foreach ($testimonials as $index => $testimonial)
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
                         <i class="fas fa-quote-right absolute top-6 right-6 text-gray-100 text-4xl"></i>
                         <div class="flex items-center gap-1 text-yellow-400 mb-4">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                            @for($i = 0; $i < $testimonial->rating; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
                         </div>
-                        <p class="text-gray-600 italic mb-6 leading-relaxed">"{{ $a['text'] }}"</p>
+                        <p class="text-gray-600 italic mb-6 leading-relaxed">"{{ $testimonial->content }}"</p>
                         <div class="flex items-center gap-3 border-t border-gray-50 pt-4">
-                            <div
-                                class="w-10 h-10 {{ $a['color'] }} text-white rounded-full flex items-center justify-center font-bold">
-                                {{ $a['initials'] }}</div>
+                            <div class="w-10 h-10 {{ $colors[$index % 3] }} text-white rounded-full flex items-center justify-center font-bold">
+                                {{ $testimonial->initials }}</div>
                             <div>
-                                <div class="font-bold text-gray-800 text-sm">{{ $a['name'] }}</div>
-                                <div class="text-xs text-gray-400">{{ $a['location'] }}</div>
+                                <div class="font-bold text-gray-800 text-sm">{{ $testimonial->name }}</div>
+                                <div class="text-xs text-gray-400">{{ $testimonial->location }}</div>
                             </div>
                         </div>
                     </div>

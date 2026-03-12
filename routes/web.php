@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\AIController as AdminAIController;
+use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -183,5 +184,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Génération IA
         Route::get('/articles/ai/generate', [AdminAIController::class, 'create'])->name('articles.ai.create');
         Route::post('/articles/ai/generate', [AdminAIController::class, 'generate'])->name('articles.ai.generate');
+
+        // Avis clients
+        Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
+        Route::post('/testimonials/{testimonial}/reformulate', [AdminTestimonialController::class, 'reformulate'])->name('testimonials.reformulate');
     });
 });

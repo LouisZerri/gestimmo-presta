@@ -5,25 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ManageContactRequest;
 use App\Mail\ManageContactMail;
 use App\Models\Article;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Mail;
 
 class ManageController extends Controller
 {
-    /**
-     * Affiche la page de gestion avec :
-     * - Les 3 derniers articles publiés dans les catégories Juridique, Fiscalité, Copro
-     *
-     * @return \Illuminate\View\View
-     */
     public function index()
     {
-        // Récupérer les articles des catégories pertinentes pour la gestion
         $articles = Article::published()
             ->whereIn('category', ['Juridique', 'Fiscalité', 'Copro'])
             ->take(3)
             ->get();
-        
-        return view('manage', compact('articles'));
+
+        $testimonials = Testimonial::published()->forPage('manage')->get();
+
+        return view('manage', compact('articles', 'testimonials'));
     }
 
     /**

@@ -194,38 +194,16 @@
                 </div>
             </div>
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-                @php
-                    $avisGestion = [
-                        [
-                            'name' => 'Aurélie D.',
-                            'location' => 'Expatriée à Londres',
-                            'text' =>
-                                'Je vis à l\'étranger et GEST\'IMMO gère mes 3 appartements à Paris. Zéro vacance locative en 2 ans et une communication parfaite.',
-                        ],
-                        [
-                            'name' => 'Marc P.',
-                            'location' => 'Président Conseil Syndical',
-                            'text' =>
-                                'L\'offre syndic à la carte nous a sauvé la vie ! Notre petite copro était mal gérée, maintenant tout est clair et carré pour pas cher.',
-                        ],
-                        [
-                            'name' => 'Jean-François',
-                            'location' => 'Investisseur Multi-propriétaire',
-                            'text' =>
-                                'Leur assurance loyers impayés (GLI) est vraiment compétitive. J\'ai eu un souci une fois, pris en charge immédiatement sans frais.',
-                        ],
-                    ];
-                @endphp
-
-                @foreach ($avisGestion as $avis)
+                @foreach ($testimonials as $testimonial)
                     <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
                         <div class="flex text-yellow-400 text-xs mb-3">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                            @for($i = 0; $i < $testimonial->rating; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
                         </div>
-                        <p class="text-gray-600 text-sm italic mb-4">"{{ $avis['text'] }}"</p>
-                        <div class="font-bold text-gray-800 text-sm">{{ $avis['name'] }}</div>
-                        <div class="text-xs text-gray-400">{{ $avis['location'] }}</div>
+                        <p class="text-gray-600 text-sm italic mb-4">"{{ $testimonial->content }}"</p>
+                        <div class="font-bold text-gray-800 text-sm">{{ $testimonial->name }}</div>
+                        <div class="text-xs text-gray-400">{{ $testimonial->location }}</div>
                     </div>
                 @endforeach
             </div>

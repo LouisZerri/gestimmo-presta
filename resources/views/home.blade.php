@@ -233,50 +233,21 @@
             </div>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-                {{-- Avis 1 --}}
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
-                    <i class="fas fa-quote-right absolute top-6 right-6 text-gray-100 text-4xl"></i>
-                    <div class="text-yellow-400 mb-4 text-sm">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
+                @foreach($testimonials as $testimonial)
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                        <i class="fas fa-quote-right absolute top-6 right-6 text-gray-100 text-4xl"></i>
+                        <div class="text-yellow-400 mb-4 text-sm">
+                            @for($i = 0; $i < $testimonial->rating; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
+                        </div>
+                        <p class="text-gray-600 italic mb-6 leading-relaxed">
+                            "{{ $testimonial->content }}"
+                        </p>
+                        <div class="font-bold text-gray-800">{{ $testimonial->name }}</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wide">{{ $testimonial->location }}</div>
                     </div>
-                    <p class="text-gray-600 italic mb-6 leading-relaxed">
-                        "Une équipe réactive et très professionnelle. Mon appartement a été vendu en 2 semaines au prix
-                        estimé. Je recommande vivement !"
-                    </p>
-                    <div class="font-bold text-gray-800">Sophie Martin</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide">Vendeuse à Bordeaux</div>
-                </div>
-
-                {{-- Avis 2 --}}
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
-                    <i class="fas fa-quote-right absolute top-6 right-6 text-gray-100 text-4xl"></i>
-                    <div class="text-yellow-400 mb-4 text-sm">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6 leading-relaxed">
-                        "Excellent accompagnement pour mon premier investissement locatif. Les conseils fiscaux m'ont fait
-                        économiser beaucoup d'argent."
-                    </p>
-                    <div class="font-bold text-gray-800">Thomas Durand</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide">Investisseur à Lyon</div>
-                </div>
-
-                {{-- Avis 3 --}}
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative">
-                    <i class="fas fa-quote-right absolute top-6 right-6 text-gray-100 text-4xl"></i>
-                    <div class="text-yellow-400 mb-4 text-sm">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-6 leading-relaxed">
-                        "Gestion locative au top. Plus aucun souci d'impayés grâce à leur assurance GLI. C'est une sérénité
-                        totale pour nous."
-                    </p>
-                    <div class="font-bold text-gray-800">Julie & Marc</div>
-                    <div class="text-xs text-gray-400 uppercase tracking-wide">Propriétaires à Paris</div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

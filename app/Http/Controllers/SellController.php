@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SellEstimationRequest;
 use App\Mail\SellEstimationMail;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Mail;
 
 class SellController extends Controller
 {
     public function index()
     {
-        return view('sell');
+        $testimonials = Testimonial::published()->forPage('sell')->get();
+        return view('sell', compact('testimonials'));
     }
 
     public function submit(SellEstimationRequest $request)
