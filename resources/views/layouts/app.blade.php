@@ -61,7 +61,7 @@
     {{-- Schema.org Organization --}}
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "RealEstateAgent",
         "name": "GEST'IMMO France",
         "url": "https://www.gestimmo-france.fr",

@@ -13,7 +13,7 @@
 @push('schema')
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@@context": "https://schema.org",
     "@type": "Article",
     "headline": "{{ $article->meta_title ?: $article->title }}",
     "description": "{{ $article->meta_description ?: $article->excerpt }}",
