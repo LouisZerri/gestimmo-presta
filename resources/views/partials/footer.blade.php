@@ -27,7 +27,7 @@
 
                 <!-- Réseaux sociaux -->
                 <div class="flex gap-3 sm:gap-4">
-                    <a href="https://www.facebook.com/gestimmofrance" target="_blank" rel="noopener"
+                    <a href="https://www.facebook.com/profile.php?id=61583293786788" target="_blank" rel="noopener"
                         class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-brand-blue hover:text-white transition"
                         title="Facebook">
                         <i class="fab fa-facebook-f"></i>

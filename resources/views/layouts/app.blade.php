@@ -74,7 +74,7 @@
             "addressCountry": "FR"
         },
         "sameAs": [
-            "https://www.facebook.com/gestimmofrance",
+            "https://www.facebook.com/profile.php?id=61583293786788",
             "https://www.instagram.com/gestimmo_france/",
             "https://www.linkedin.com/company/gest-immo-presta/"
         ],
