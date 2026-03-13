@@ -37,6 +37,10 @@
 
             <a href="{{ route('sell') }}" class="nav-link {{ request()->routeIs('sell') ? 'active' : '' }}">Vendre</a>
 
+            <a href="{{ route('insurance') }}" class="nav-link {{ request()->routeIs('insurance') ? 'active' : '' }}">Assurances</a>
+
+            <a href="{{ route('edl') }}" class="nav-link {{ request()->routeIs('edl') ? 'active' : '' }}">EDL</a>
+
             {{-- GESTION (dropdown) --}}
             <div class="relative group">
                 <button class="nav-link flex items-center gap-1 {{ request()->routeIs('manage*') || request()->routeIs('rental*') ? 'active' : '' }}">
@@ -55,16 +59,13 @@
                             <i class="fas fa-list-check text-brand-blue w-5"></i> Gestion à la Carte
                         </a>
                         <div class="border-t border-gray-100 my-2"></div>
+                        <span class="dropdown-label">Syndic</span>
                         <a href="{{ route('manage') }}" class="dropdown-link">
-                            <i class="fas fa-building text-brand-blue w-5"></i> Syndic
+                            <i class="fas fa-building text-brand-blue w-5"></i> Syndic de copropriété
                         </a>
                     </div>
                 </div>
             </div>
-
-            <a href="{{ route('insurance') }}" class="nav-link {{ request()->routeIs('insurance') ? 'active' : '' }}">Assurances</a>
-
-            <a href="{{ route('edl') }}" class="nav-link {{ request()->routeIs('edl') ? 'active' : '' }}">EDL</a>
 
             {{-- PRO (dropdown) --}}
             <div class="relative group">
@@ -116,6 +117,9 @@
 
             <a href="{{ route('sell') }}" class="mobile-link">Vendre</a>
 
+            <a href="{{ route('insurance') }}" class="mobile-link">Assurances</a>
+            <a href="{{ route('edl') }}" class="mobile-link">État des Lieux</a>
+
             {{-- Gestion --}}
             <button onclick="toggleMobileSubmenu('mobile-gestion')" class="mobile-link flex justify-between items-center w-full">
                 <span>Gestion</span>
@@ -127,11 +131,9 @@
                 <a href="{{ route('rental.technical') }}" class="mobile-sublink">Gestion Technique</a>
                 <a href="{{ route('rental.alacarte') }}" class="mobile-sublink">Gestion à la Carte</a>
                 <div class="border-t border-gray-200 my-1"></div>
-                <a href="{{ route('manage') }}" class="mobile-sublink">Syndic</a>
+                <span class="text-[10px] uppercase tracking-wider text-gray-400 font-bold py-1 block">Syndic</span>
+                <a href="{{ route('manage') }}" class="mobile-sublink">Syndic de copropriété</a>
             </div>
-
-            <a href="{{ route('insurance') }}" class="mobile-link">Assurances</a>
-            <a href="{{ route('edl') }}" class="mobile-link">État des Lieux</a>
 
             {{-- PRO --}}
             <button onclick="toggleMobileSubmenu('mobile-pro')" class="mobile-link flex justify-between items-center w-full">
