@@ -7,6 +7,7 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use OpenAI;
 
 class ArticleController extends Controller
 {
@@ -117,6 +118,7 @@ class ArticleController extends Controller
             'author' => 'required|string|max:255',
             'author_role' => 'nullable|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'ai_image' => 'nullable|string',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
         ]);
@@ -134,7 +136,15 @@ class ArticleController extends Controller
 
             $path = $request->file('image')->store('articles', 'public');
             $validated['image'] = '/storage/' . $path;
+        } elseif (!empty($request->ai_image)) {
+            if ($article->image && str_starts_with($article->image, '/storage/')) {
+                $oldPath = str_replace('/storage/', '', $article->image);
+                Storage::disk('public')->delete($oldPath);
+            }
+            $validated['image'] = $request->ai_image;
         }
+
+        unset($validated['ai_image']);
 
         if (empty($validated['published_at']) && $validated['is_published'] && !$article->published_at) {
             $validated['published_at'] = now();
@@ -193,6 +203,45 @@ class ArticleController extends Controller
         }
 
         return redirect()->route('admin.articles.index')->with('success', $message);
+    }
+
+    public function generateImage(Request $request)
+    {
+        $request->validate(['title' => 'required|string|max:255']);
+
+        $apiKey = config('services.openai.api_key');
+        if (empty($apiKey)) {
+            return response()->json(['success' => false, 'error' => 'Clé API OpenAI non configurée.']);
+        }
+
+        try {
+            $client = OpenAI::client($apiKey);
+
+            $imgResponse = $client->images()->create([
+                'model' => 'dall-e-3',
+                'prompt' => "Professional real estate photography for article: {$request->title}. Modern, clean, no text, warm lighting, high quality.",
+                'n' => 1,
+                'size' => '1792x1024',
+                'quality' => 'standard',
+            ]);
+
+            $imageUrl = $imgResponse->data[0]->url;
+            $imageContent = file_get_contents($imageUrl);
+
+            if ($imageContent) {
+                $filename = 'articles/ai-' . uniqid() . '.png';
+                Storage::disk('public')->put($filename, $imageContent);
+
+                return response()->json([
+                    'success' => true,
+                    'image_url' => '/storage/' . $filename,
+                ]);
+            }
+
+            return response()->json(['success' => false, 'error' => 'Impossible de télécharger l\'image.']);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'error' => 'Erreur : ' . $e->getMessage()]);
+        }
     }
 
     public function uploadImage(Request $request)

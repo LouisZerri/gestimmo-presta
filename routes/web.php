@@ -186,6 +186,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('articles', AdminArticleController::class)->except(['show']);
         Route::post('/articles/bulk', [AdminArticleController::class, 'bulkAction'])->name('articles.bulk');
         Route::post('/upload-image', [AdminArticleController::class, 'uploadImage'])->name('upload.image');
+        Route::post('/articles/generate-image', [AdminArticleController::class, 'generateImage'])->name('articles.generate-image');
 
         // Génération IA
         Route::get('/articles/ai/generate', [AdminAIController::class, 'create'])->name('articles.ai.create');

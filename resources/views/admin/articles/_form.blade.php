@@ -43,8 +43,6 @@
                 @enderror
             </div>
         </div>
-    </div>
-
         <!-- SEO -->
         <div class="bg-white rounded-lg shadow p-6">
             <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center gap-2">
@@ -187,24 +185,54 @@
 
             @if(isset($article) && $article->image)
                 <div class="mb-4">
-                    <img src="{{ $article->image }}" alt="Image actuelle" class="w-full h-32 object-cover rounded-lg">
+                    <img src="{{ $article->image }}" alt="Image actuelle" class="w-full h-32 object-cover rounded-lg" id="current-image">
+                </div>
+            @else
+                <div class="mb-4 hidden" id="ai-image-preview-wrapper">
+                    <img src="" alt="Image générée" class="w-full h-32 object-cover rounded-lg" id="ai-image-preview">
                 </div>
             @endif
 
-            <div>
-                <label for="image" class="block text-sm font-medium text-gray-700 mb-2">
-                    {{ isset($article) && $article->image ? 'Changer l\'image' : 'Ajouter une image' }}
-                </label>
-                <input
-                    type="file"
-                    name="image"
-                    id="image"
-                    accept="image/*"
-                    class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-brand-blue file:text-white hover:file:bg-opacity-90"
-                >
-                @error('image')
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                @enderror
+            <div class="space-y-3">
+                <div>
+                    <label for="image" class="block text-sm font-medium text-gray-700 mb-2">
+                        {{ isset($article) && $article->image ? 'Changer l\'image' : 'Ajouter une image' }}
+                    </label>
+                    <input
+                        type="file"
+                        name="image"
+                        id="image"
+                        accept="image/*"
+                        class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-brand-blue file:text-white hover:file:bg-opacity-90"
+                    >
+                    @error('image')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="border-t border-gray-200 pt-3">
+                    <input type="hidden" name="ai_image" id="ai_image_input" value="">
+                    <button
+                        type="button"
+                        id="generate-ai-image-btn"
+                        onclick="generateAiImage()"
+                        class="w-full flex items-center justify-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition text-sm font-medium"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        Générer avec IA
+                    </button>
+                    <p class="mt-1 text-xs text-gray-400 text-center">Génère une image via DALL-E basée sur le titre</p>
+                    <div id="ai-image-loading" class="hidden mt-2 text-center">
+                        <div class="inline-flex items-center gap-2 text-sm text-purple-600">
+                            <svg class="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Génération en cours...
+                        </div>
+                    </div>
+                    <div id="ai-image-error" class="hidden mt-2 text-sm text-red-600 text-center"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -257,5 +285,61 @@
         images_reuse_filename: true,
         content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 16px; line-height: 1.6; }'
     });
+
+    function generateAiImage() {
+        const title = document.getElementById('title').value;
+        if (!title) {
+            alert('Veuillez d\'abord saisir un titre pour l\'article.');
+            return;
+        }
+
+        const btn = document.getElementById('generate-ai-image-btn');
+        const loading = document.getElementById('ai-image-loading');
+        const errorDiv = document.getElementById('ai-image-error');
+
+        btn.disabled = true;
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
+        loading.classList.remove('hidden');
+        errorDiv.classList.add('hidden');
+
+        fetch('{{ route("admin.articles.generate-image") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+            },
+            body: JSON.stringify({ title: title }),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('ai_image_input').value = data.image_url;
+
+                // Mettre à jour l'aperçu
+                const currentImg = document.getElementById('current-image');
+                const previewWrapper = document.getElementById('ai-image-preview-wrapper');
+                const previewImg = document.getElementById('ai-image-preview');
+
+                if (currentImg) {
+                    currentImg.src = data.image_url;
+                } else if (previewWrapper && previewImg) {
+                    previewImg.src = data.image_url;
+                    previewWrapper.classList.remove('hidden');
+                }
+            } else {
+                errorDiv.textContent = data.error || 'Erreur lors de la génération.';
+                errorDiv.classList.remove('hidden');
+            }
+        })
+        .catch(() => {
+            errorDiv.textContent = 'Erreur de connexion.';
+            errorDiv.classList.remove('hidden');
+        })
+        .finally(() => {
+            btn.disabled = false;
+            btn.classList.remove('opacity-50', 'cursor-not-allowed');
+            loading.classList.add('hidden');
+        });
+    }
 </script>
 @endpush
