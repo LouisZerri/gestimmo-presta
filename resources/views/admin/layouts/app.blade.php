@@ -25,7 +25,7 @@
 <body class="bg-gray-100">
     <div class="min-h-screen flex">
         <!-- Sidebar -->
-        <aside class="w-64 bg-brand-blue text-white flex-shrink-0">
+        <aside class="w-64 bg-brand-blue text-white flex-shrink-0 fixed inset-y-0 left-0 overflow-y-auto">
             <div class="p-6">
                 <h1 class="text-xl font-bold">GEST'IMMO</h1>
                 <p class="text-sm text-gray-300">Administration</p>
@@ -85,7 +85,7 @@
         </aside>
 
         <!-- Main content -->
-        <main class="flex-1 overflow-x-hidden">
+        <main class="flex-1 overflow-x-hidden ml-64">
             <!-- Top bar -->
             <header class="bg-white shadow-sm">
                 <div class="px-6 py-4">
