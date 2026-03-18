@@ -20,8 +20,8 @@
                     <a href="mailto:contact@gestimmo-france.fr" class="flex items-center gap-2 text-gray-500 hover:text-brand-blue transition text-xs sm:text-sm">
                         <i class="fas fa-envelope text-brand-blue w-4"></i> contact@gestimmo-france.fr
                     </a>
-                    <a href="tel:+33428290028" class="flex items-center gap-2 text-gray-500 hover:text-brand-blue transition text-xs sm:text-sm">
-                        <i class="fas fa-phone text-brand-blue w-4"></i> 04 28 29 00 28
+                    <a href="tel:+33649505250" class="flex items-center gap-2 text-gray-500 hover:text-brand-blue transition text-xs sm:text-sm">
+                        <i class="fas fa-phone text-brand-blue w-4"></i> 06 49 50 52 50
                     </a>
                 </div>
 

@@ -67,10 +67,13 @@
         "url": "https://www.gestimmo-france.fr",
         "logo": "{{ asset('images/logo3d.png') }}",
         "description": "Réseau immobilier hybride : transaction, investissement, gestion locative, syndic, assurances.",
-        "telephone": "+33428290028",
+        "telephone": "+33649505250",
         "email": "contact@gestimmo-france.fr",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "30 Rue Joseph Bonnet",
+            "postalCode": "33100",
+            "addressLocality": "Bordeaux",
             "addressCountry": "FR"
         },
         "sameAs": [
