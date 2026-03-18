@@ -186,13 +186,13 @@
                     </p>
 
                     <div class="space-y-3">
-                        <a href="tel:0613250596" class="flex items-center hover:opacity-80 transition">
+                        <a href="tel:0649505250" class="flex items-center hover:opacity-80 transition">
                             <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-800 flex items-center justify-center mr-3 text-brand-cyan flex-shrink-0">
                                 <i class="fas fa-phone-alt text-sm"></i>
                             </div>
                             <div>
                                 <div class="text-xs text-gray-400 uppercase">Téléphone</div>
-                                <div class="font-bold text-sm">06 13 25 05 96</div>
+                                <div class="font-bold text-sm">06 49 50 52 50</div>
                             </div>
                         </a>
                         <a href="mailto:contact@gestimmo-presta.fr" class="flex items-center hover:opacity-80 transition">

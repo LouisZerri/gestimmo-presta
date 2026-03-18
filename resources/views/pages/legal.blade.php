@@ -28,7 +28,7 @@
                         </li>
                         <li class="flex items-start gap-2">
                             <i class="fas fa-map-marker-alt text-gray-400 mt-1 w-4 flex-shrink-0"></i>
-                            <span class="break-words"><strong>Siège social :</strong> 35 rue Aliénor d'Aquitaine, 19360 Malemort</span>
+                            <span class="break-words"><strong>Siège social :</strong> 30 Rue Joseph Bonnet, 33100 Bordeaux</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <i class="fas fa-id-card text-gray-400 mt-1 w-4 flex-shrink-0"></i>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="min-w-0">
                                 <div class="text-xs text-gray-400 uppercase tracking-wide">Adresse postale</div>
-                                <div class="font-medium text-sm sm:text-base break-words">35 Rue Aliénor d'Aquitaine, 19360 Malemort</div>
+                                <div class="font-medium text-sm sm:text-base break-words">30 Rue Joseph Bonnet, 33100 Bordeaux</div>
                             </div>
                         </li>
                         <li class="flex items-center gap-3">
@@ -115,7 +115,7 @@
                             </div>
                             <div>
                                 <div class="text-xs text-gray-400 uppercase tracking-wide">Téléphone</div>
-                                <a href="tel:0613250596" class="font-medium text-brand-blue hover:underline text-sm sm:text-base">06 13 25 05 96</a>
+                                <a href="tel:0649505250" class="font-medium text-brand-blue hover:underline text-sm sm:text-base">06 49 50 52 50</a>
                             </div>
                         </li>
                         <li class="flex items-center gap-3">

@@ -64,8 +64,8 @@
         {{-- Contact --}}
         <div class="mt-12 pt-8 border-t border-gray-200">
             <p class="text-gray-500 text-sm mb-3">Une question urgente ?</p>
-            <a href="tel:0613250596" class="inline-flex items-center gap-2 text-brand-blue font-bold text-lg hover:underline">
-                <i class="fas fa-phone"></i> 06 13 25 05 96
+            <a href="tel:0649505250" class="inline-flex items-center gap-2 text-brand-blue font-bold text-lg hover:underline">
+                <i class="fas fa-phone"></i> 06 49 50 52 50
             </a>
         </div>
     </div>

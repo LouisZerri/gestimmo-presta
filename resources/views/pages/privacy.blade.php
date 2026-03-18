@@ -33,8 +33,8 @@
                 <div class="bg-gray-50 rounded-xl p-4 sm:p-6 my-4 sm:my-6 not-prose">
                     <div class="font-heading font-bold text-brand-blue mb-3 text-sm sm:text-base">GEST'IMMO</div>
                     <ul class="space-y-2 text-gray-600 text-xs sm:text-sm">
-                        <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><span>35 rue Aliénor d'Aquitaine, 19360 Malemort</span></li>
-                        <li class="flex items-start gap-2"><i class="fas fa-phone text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><a href="tel:0613250596" class="text-brand-blue hover:underline">06 13 25 05 96</a></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><span>30 Rue Joseph Bonnet, 33100 Bordeaux</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-phone text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><a href="tel:0649505250" class="text-brand-blue hover:underline">06 49 50 52 50</a></li>
                         <li class="flex items-start gap-2"><i class="fas fa-envelope text-gray-400 w-4 flex-shrink-0 mt-0.5"></i><a href="mailto:contact@gestimmo-presta.fr" class="text-brand-blue hover:underline break-all">contact@gestimmo-presta.fr</a></li>
                     </ul>
                 </div>
@@ -291,8 +291,8 @@
                         <a href="mailto:contact@gestimmo-presta.fr" class="inline-flex items-center justify-center gap-2 bg-white text-brand-blue font-bold px-5 py-3 rounded-lg hover:bg-gray-100 transition">
                             <i class="fas fa-envelope"></i> contact@gestimmo-presta.fr
                         </a>
-                        <a href="tel:0613250596" class="inline-flex items-center justify-center gap-2 bg-white/20 text-white font-bold px-5 py-3 rounded-lg hover:bg-white/30 transition border border-white/30">
-                            <i class="fas fa-phone"></i> 06 13 25 05 96
+                        <a href="tel:0649505250" class="inline-flex items-center justify-center gap-2 bg-white/20 text-white font-bold px-5 py-3 rounded-lg hover:bg-white/30 transition border border-white/30">
+                            <i class="fas fa-phone"></i> 06 49 50 52 50
                         </a>
                     </div>
                     <p class="text-blue-200 text-sm mt-4">
