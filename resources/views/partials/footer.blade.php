@@ -47,6 +47,9 @@
                         title="Podcast Paroles d'Entrepreneurs sur Spotify">
                         <i class="fab fa-spotify"></i>
                     </a>
+                    <a href="https://www.snpi.fr" target="_blank" rel="noopener" title="Membre agréé SNPI">
+                        <img src="{{ asset('images/snpi.png') }}" alt="Membre agréé SNPI" class="h-12 w-auto">
+                    </a>
                 </div>
             </div>
 

@@ -37,32 +37,45 @@
 
             <a href="{{ route('sell') }}" class="nav-link {{ request()->routeIs('sell') ? 'active' : '' }}">Vendre</a>
 
-            <a href="{{ route('insurance') }}" class="nav-link {{ request()->routeIs('insurance') ? 'active' : '' }}">Assurances</a>
-
-            <a href="{{ route('edl') }}" class="nav-link {{ request()->routeIs('edl') ? 'active' : '' }}">EDL</a>
-
-            {{-- GESTION (dropdown) --}}
+            {{-- NOS SERVICES (dropdown avec sous-menu Gestion) --}}
             <div class="relative group">
-                <button class="nav-link flex items-center gap-1 {{ request()->routeIs('manage*') || request()->routeIs('rental*') ? 'active' : '' }}">
-                    Gestion <i class="fas fa-chevron-down text-[8px] transition-transform group-hover:rotate-180"></i>
+                <button class="nav-link flex items-center gap-1 {{ request()->routeIs('insurance') || request()->routeIs('edl') || request()->routeIs('manage*') || request()->routeIs('rental*') ? 'active' : '' }}">
+                    Nos Services <i class="fas fa-chevron-down text-[8px] transition-transform group-hover:rotate-180"></i>
                 </button>
                 <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div class="bg-white rounded-xl shadow-floating border border-gray-100 py-2 min-w-[220px]">
-                        <span class="dropdown-label">Gestion Locative</span>
-                        <a href="{{ route('rental.complete') }}" class="dropdown-link">
-                            <i class="fas fa-key text-brand-blue w-5"></i> Gestion Complète
+                    <div class="bg-white rounded-xl shadow-floating border border-gray-100 py-2 min-w-[240px]">
+                        <a href="{{ route('insurance') }}" class="dropdown-link">
+                            <i class="fas fa-shield-alt text-brand-blue w-5"></i> Assurances
                         </a>
-                        <a href="{{ route('rental.technical') }}" class="dropdown-link">
-                            <i class="fas fa-wrench text-brand-blue w-5"></i> Gestion Technique
-                        </a>
-                        <a href="{{ route('rental.alacarte') }}" class="dropdown-link">
-                            <i class="fas fa-list-check text-brand-blue w-5"></i> Gestion à la Carte
+                        <a href="{{ route('edl') }}" class="dropdown-link">
+                            <i class="fas fa-clipboard-check text-brand-blue w-5"></i> État des Lieux
                         </a>
                         <div class="border-t border-gray-100 my-2"></div>
-                        <span class="dropdown-label">Syndic</span>
-                        <a href="{{ route('manage') }}" class="dropdown-link">
-                            <i class="fas fa-building text-brand-blue w-5"></i> Syndic de copropriété
-                        </a>
+                        {{-- Sous-menu Gestion --}}
+                        <div class="relative group/gestion">
+                            <div class="dropdown-link cursor-pointer !justify-between">
+                                <span class="flex items-center gap-3"><i class="fas fa-cogs text-brand-blue w-5"></i> Gestion</span>
+                                <i class="fas fa-chevron-right text-[8px] text-gray-400"></i>
+                            </div>
+                            <div class="absolute left-full top-0 opacity-0 invisible group-hover/gestion:opacity-100 group-hover/gestion:visible transition-all duration-200">
+                                <div class="bg-white rounded-xl shadow-floating border border-gray-100 py-2 min-w-[220px]">
+                                    <span class="dropdown-label">Gestion Locative</span>
+                                    <a href="{{ route('rental.complete') }}" class="dropdown-link">
+                                        <i class="fas fa-key text-brand-blue w-5"></i> Gestion Complète
+                                    </a>
+                                    <a href="{{ route('rental.technical') }}" class="dropdown-link">
+                                        <i class="fas fa-wrench text-brand-blue w-5"></i> Gestion Technique
+                                    </a>
+                                    <a href="{{ route('rental.alacarte') }}" class="dropdown-link">
+                                        <i class="fas fa-list-check text-brand-blue w-5"></i> Gestion à la Carte
+                                    </a>
+                                    <div class="border-t border-gray-100 my-2"></div>
+                                    <a href="{{ route('manage') }}" class="dropdown-link">
+                                        <i class="fas fa-building text-brand-blue w-5"></i> Syndic
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,22 +130,28 @@
 
             <a href="{{ route('sell') }}" class="mobile-link">Vendre</a>
 
-            <a href="{{ route('insurance') }}" class="mobile-link">Assurances</a>
-            <a href="{{ route('edl') }}" class="mobile-link">État des Lieux</a>
-
-            {{-- Gestion --}}
-            <button onclick="toggleMobileSubmenu('mobile-gestion')" class="mobile-link flex justify-between items-center w-full">
-                <span>Gestion</span>
-                <i class="fas fa-chevron-down text-xs transition-transform" id="mobile-gestion-icon"></i>
+            {{-- Nos Services --}}
+            <button onclick="toggleMobileSubmenu('mobile-services')" class="mobile-link flex justify-between items-center w-full">
+                <span>Nos Services</span>
+                <i class="fas fa-chevron-down text-xs transition-transform" id="mobile-services-icon"></i>
             </button>
-            <div id="mobile-gestion" class="hidden pl-4 space-y-1 border-l-2 border-brand-blue ml-3">
-                <span class="text-[10px] uppercase tracking-wider text-gray-400 font-bold py-1 block">Gestion Locative</span>
-                <a href="{{ route('rental.complete') }}" class="mobile-sublink">Gestion Complète</a>
-                <a href="{{ route('rental.technical') }}" class="mobile-sublink">Gestion Technique</a>
-                <a href="{{ route('rental.alacarte') }}" class="mobile-sublink">Gestion à la Carte</a>
+            <div id="mobile-services" class="hidden pl-4 space-y-1 border-l-2 border-brand-blue ml-3">
+                <a href="{{ route('insurance') }}" class="mobile-sublink">Assurances</a>
+                <a href="{{ route('edl') }}" class="mobile-sublink">État des Lieux</a>
                 <div class="border-t border-gray-200 my-1"></div>
-                <span class="text-[10px] uppercase tracking-wider text-gray-400 font-bold py-1 block">Syndic</span>
-                <a href="{{ route('manage') }}" class="mobile-sublink">Syndic de copropriété</a>
+                {{-- Sous-menu Gestion --}}
+                <button onclick="event.stopPropagation(); toggleMobileSubmenu('mobile-gestion')" class="mobile-sublink flex justify-between items-center w-full">
+                    <span>Gestion</span>
+                    <i class="fas fa-chevron-down text-[10px] transition-transform" id="mobile-gestion-icon"></i>
+                </button>
+                <div id="mobile-gestion" class="hidden pl-4 space-y-1 border-l-2 border-brand-accent ml-3">
+                    <span class="text-[10px] uppercase tracking-wider text-gray-400 font-bold py-1 block">Gestion Locative</span>
+                    <a href="{{ route('rental.complete') }}" class="mobile-sublink">Gestion Complète</a>
+                    <a href="{{ route('rental.technical') }}" class="mobile-sublink">Gestion Technique</a>
+                    <a href="{{ route('rental.alacarte') }}" class="mobile-sublink">Gestion à la Carte</a>
+                    <div class="border-t border-gray-200 my-1"></div>
+                    <a href="{{ route('manage') }}" class="mobile-sublink">Syndic</a>
+                </div>
             </div>
 
             {{-- PRO --}}
