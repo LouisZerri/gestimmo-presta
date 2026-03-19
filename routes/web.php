@@ -15,7 +15,8 @@ use App\Http\Controllers\{
     ManageController,
     ProController,
     RentalController,
-    SellController
+    SellController,
+    ChatbotController
 };
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -162,6 +163,11 @@ Route::post('/tarifs', [\App\Http\Controllers\TarifsController::class, 'submit']
  * Sitemap
  */
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+
+/**
+ * Chatbot IA
+ */
+Route::post('/chatbot', [ChatbotController::class, 'chat'])->name('chatbot');
 
 /**
  * Pages statiques légales et informations

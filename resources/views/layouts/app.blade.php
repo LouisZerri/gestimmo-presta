@@ -143,6 +143,9 @@
 
     {{-- Cookie Banner --}}
     @include('partials.cookie-banner')
+
+    {{-- Chatbot IA --}}
+    @include('partials.chatbot')
 </body>
 
 </html>
