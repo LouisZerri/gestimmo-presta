@@ -155,7 +155,8 @@ Retourne au format JSON : title, excerpt, content, meta_title, meta_description,
                         'quality' => 'standard',
                     ]);
 
-                    $imageContent = file_get_contents($imgResponse->data[0]->url);
+                    $ctx = stream_context_create(['http' => ['timeout' => 30]]);
+                    $imageContent = file_get_contents($imgResponse->data[0]->url, false, $ctx);
                     if ($imageContent) {
                         $filename = 'articles/ai-' . uniqid() . '.png';
                         Storage::disk('public')->put($filename, $imageContent);

@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SellEstimationRequest;
 use App\Mail\SellEstimationMail;
 use App\Models\Testimonial;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 
 class SellController extends Controller
 {
     public function index()
     {
-        $testimonials = Testimonial::published()->forPage('sell')->get();
+        $testimonials = Cache::remember('sell_testimonials', 3600, fn () => Testimonial::published()->forPage('sell')->get());
         return view('sell', compact('testimonials'));
     }
 

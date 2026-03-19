@@ -134,8 +134,9 @@ class TestimonialController extends Controller
                 'original_content' => $testimonial->original_content,
             ]);
         } catch (\Exception $e) {
+            report($e);
             return response()->json([
-                'error' => 'Erreur IA : ' . $e->getMessage()
+                'error' => 'Erreur lors de la reformulation. Veuillez réessayer.'
             ], 500);
         }
     }

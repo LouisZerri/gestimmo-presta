@@ -192,12 +192,15 @@ class ArticleController extends Controller
                 $message = count($request->ids) . ' article(s) dépublié(s).';
                 break;
             case 'delete':
-                foreach ($articles->get() as $article) {
-                    if ($article->image && str_starts_with($article->image, '/storage/')) {
-                        Storage::disk('public')->delete(str_replace('/storage/', '', $article->image));
-                    }
-                    $article->delete();
+                $toDelete = $articles->get();
+                $images = $toDelete->filter(fn ($a) => $a->image && str_starts_with($a->image, '/storage/'))
+                    ->map(fn ($a) => str_replace('/storage/', '', $a->image))
+                    ->toArray();
+
+                if ($images) {
+                    Storage::disk('public')->delete($images);
                 }
+                Article::whereIn('id', $toDelete->pluck('id'))->delete();
                 $message = count($request->ids) . ' article(s) supprimé(s).';
                 break;
         }
@@ -226,7 +229,8 @@ class ArticleController extends Controller
             ]);
 
             $imageUrl = $imgResponse->data[0]->url;
-            $imageContent = file_get_contents($imageUrl);
+            $ctx = stream_context_create(['http' => ['timeout' => 30]]);
+            $imageContent = file_get_contents($imageUrl, false, $ctx);
 
             if ($imageContent) {
                 $filename = 'articles/ai-' . uniqid() . '.png';
@@ -240,7 +244,8 @@ class ArticleController extends Controller
 
             return response()->json(['success' => false, 'error' => 'Impossible de télécharger l\'image.']);
         } catch (\Exception $e) {
-            return response()->json(['success' => false, 'error' => 'Erreur : ' . $e->getMessage()]);
+            report($e);
+            return response()->json(['success' => false, 'error' => 'Erreur lors de la génération. Veuillez réessayer.']);
         }
     }
 

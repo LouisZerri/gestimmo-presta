@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
             ['email' => 'admin@gestimmo-france.fr'],
             [
                 'name' => 'Admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('ByroN.GESTIMMO2005'),
                 'is_admin' => true,
             ]
         );

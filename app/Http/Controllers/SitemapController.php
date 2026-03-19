@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 
 class SitemapController extends Controller
 {
     public function index(): Response
     {
-        $articles = Article::published()->get();
+        $articles = Cache::remember('sitemap_articles', 3600, fn () => Article::published()->get());
 
         $staticPages = [
             ['url' => route('home'), 'priority' => '1.0', 'changefreq' => 'weekly'],

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Testimonial extends Model
 {
@@ -24,6 +25,14 @@ class Testimonial extends Model
         'is_published' => 'boolean',
         'rating' => 'integer',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saved(fn () => Cache::forget('home_testimonials') || Cache::forget('sell_testimonials') || Cache::forget('manage_testimonials'));
+        static::deleted(fn () => Cache::forget('home_testimonials') || Cache::forget('sell_testimonials') || Cache::forget('manage_testimonials'));
+    }
 
     public function scopePublished($query)
     {

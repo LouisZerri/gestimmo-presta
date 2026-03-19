@@ -72,7 +72,7 @@
 
     {{-- Contenu Riche --}}
     <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-        {!! $article->content !!}
+        {!! \App\Helpers\HtmlSanitizer::clean($article->content) !!}
     </div>
 
     {{-- Auteur & Partage --}}

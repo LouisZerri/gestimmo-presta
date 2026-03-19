@@ -6,18 +6,19 @@ use App\Http\Requests\ManageContactRequest;
 use App\Mail\ManageContactMail;
 use App\Models\Article;
 use App\Models\Testimonial;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 
 class ManageController extends Controller
 {
     public function index()
     {
-        $articles = Article::published()
+        $articles = Cache::remember('manage_articles', 3600, fn () => Article::published()
             ->whereIn('category', ['Juridique', 'Fiscalité', 'Copro'])
             ->take(3)
-            ->get();
+            ->get());
 
-        $testimonials = Testimonial::published()->forPage('manage')->get();
+        $testimonials = Cache::remember('manage_testimonials', 3600, fn () => Testimonial::published()->forPage('manage')->get());
 
         return view('manage', compact('articles', 'testimonials'));
     }

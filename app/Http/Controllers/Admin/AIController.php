@@ -122,15 +122,16 @@ Retourne ta réponse au format JSON avec les clés suivantes :
                         $result['image'] = $imageUrl;
                     }
                 } catch (\Exception $e) {
-                    $result['image_error'] = 'Erreur génération image : ' . $e->getMessage();
+                    $result['image_error'] = 'Erreur lors de la génération de l\'image.';
                 }
             }
 
             return response()->json($result);
 
         } catch (\Exception $e) {
+            report($e);
             return response()->json([
-                'error' => 'Erreur lors de la génération : ' . $e->getMessage()
+                'error' => 'Erreur lors de la génération. Veuillez réessayer.'
             ], 500);
         }
     }
@@ -155,7 +156,8 @@ Warm and inviting atmosphere, natural lighting.";
         $imageUrl = $response->data[0]->url;
 
         // Télécharger et sauvegarder l'image localement
-        $imageContent = file_get_contents($imageUrl);
+        $ctx = stream_context_create(['http' => ['timeout' => 30]]);
+        $imageContent = file_get_contents($imageUrl, false, $ctx);
         if ($imageContent) {
             $filename = 'articles/ai-' . uniqid() . '.png';
             Storage::disk('public')->put($filename, $imageContent);

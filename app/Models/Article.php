@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class Article extends Model
@@ -48,6 +49,9 @@ class Article extends Model
                 $article->published_at = now();
             }
         });
+
+        static::saved(fn () => Cache::forget('home_articles') || Cache::forget('manage_articles') || Cache::forget('sitemap_articles'));
+        static::deleted(fn () => Cache::forget('home_articles') || Cache::forget('manage_articles') || Cache::forget('sitemap_articles'));
     }
 
     /**
