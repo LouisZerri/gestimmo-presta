@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\AIController as AdminAIController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
+use App\Http\Controllers\Admin\EdlyaController as AdminEdlyaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -201,5 +202,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Avis clients
         Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
         Route::post('/testimonials/{testimonial}/reformulate', [AdminTestimonialController::class, 'reformulate'])->name('testimonials.reformulate');
+
+        // Edlya - Codes d'activation
+        Route::get('/edlya', [AdminEdlyaController::class, 'index'])->name('edlya.index');
+        Route::post('/edlya/create-code', [AdminEdlyaController::class, 'createCode'])->name('edlya.create-code');
     });
 });

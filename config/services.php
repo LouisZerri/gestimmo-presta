@@ -39,4 +39,9 @@ return [
         'api_key' => env('OPENAI_API_KEY'),
     ],
 
+    'edlya' => [
+        'api_url' => env('EDLYA_API_URL', 'https://api.edlya.fr'),
+        'admin_api_key' => env('EDLYA_ADMIN_API_KEY'),
+    ],
+
 ];
