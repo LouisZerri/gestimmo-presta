@@ -69,92 +69,93 @@
         @else
             <form id="bulk-form" method="POST" action="{{ route('admin.articles.bulk') }}">
                 @csrf
-                {{-- Barre d'actions en masse --}}
-                <div id="bulk-bar" class="hidden px-6 py-3 bg-blue-50 border-b border-blue-200 flex items-center justify-between">
-                    <span class="text-sm text-blue-700">
-                        <strong id="selected-count">0</strong> article(s) sélectionné(s)
-                    </span>
-                    <div class="flex gap-2">
-                        <button type="submit" name="action" value="publish"
-                                class="bg-green-600 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-green-700 transition">
-                            Publier
-                        </button>
-                        <button type="submit" name="action" value="unpublish"
-                                class="bg-yellow-500 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-yellow-600 transition">
-                            Dépublier
-                        </button>
-                        <button type="submit" name="action" value="delete"
-                                onclick="return confirm('Supprimer les articles sélectionnés ?')"
-                                class="bg-red-600 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-red-700 transition">
-                            Supprimer
-                        </button>
-                    </div>
-                </div>
-
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left">
-                                    <input type="checkbox" id="select-all" class="h-4 w-4 text-brand-blue rounded">
-                                </th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Titre</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Catégorie</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SEO</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            @foreach($articles as $article)
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-6 py-4">
-                                        <input type="checkbox" name="ids[]" value="{{ $article->id }}" class="article-checkbox h-4 w-4 text-brand-blue rounded">
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-sm font-medium text-gray-900">{{ Str::limit($article->title, 50) }}</div>
-                                        <div class="text-xs text-gray-400">{{ $article->author }}</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="inline-block px-2 py-1 text-xs rounded {{ $article->category_color }} text-white">
-                                            {{ $article->category }}
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        @if($article->meta_title && $article->meta_description && $article->keywords)
-                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Complet</span>
-                                        @elseif($article->meta_title || $article->meta_description || $article->keywords)
-                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Partiel</span>
-                                        @else
-                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-500">Aucun</span>
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        @if($article->is_published)
-                                            <span class="inline-block px-2 py-1 text-xs rounded bg-green-100 text-green-800">Publié</span>
-                                        @else
-                                            <span class="inline-block px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-800">Brouillon</span>
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-500">
-                                        {{ $article->created_at->format('d/m/Y') }}
-                                    </td>
-                                    <td class="px-6 py-4 text-right text-sm font-medium space-x-2">
-                                        <a href="{{ route('articles.show', $article) }}" target="_blank" class="text-gray-600 hover:text-gray-900">Voir</a>
-                                        <a href="{{ route('admin.articles.edit', $article) }}" class="text-brand-blue hover:underline">Modifier</a>
-                                        <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" class="inline" onsubmit="return confirm('Supprimer cet article ?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-900">Supprimer</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
             </form>
+
+            {{-- Barre d'actions en masse --}}
+            <div id="bulk-bar" class="hidden px-6 py-3 bg-blue-50 border-b border-blue-200 flex items-center justify-between">
+                <span class="text-sm text-blue-700">
+                    <strong id="selected-count">0</strong> article(s) sélectionné(s)
+                </span>
+                <div class="flex gap-2">
+                    <button type="submit" form="bulk-form" name="action" value="publish"
+                            class="bg-green-600 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-green-700 transition">
+                        Publier
+                    </button>
+                    <button type="submit" form="bulk-form" name="action" value="unpublish"
+                            class="bg-yellow-500 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-yellow-600 transition">
+                        Dépublier
+                    </button>
+                    <button type="submit" form="bulk-form" name="action" value="delete"
+                            onclick="return confirm('Supprimer les articles sélectionnés ?')"
+                            class="bg-red-600 text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-red-700 transition">
+                        Supprimer
+                    </button>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left">
+                                <input type="checkbox" id="select-all" class="h-4 w-4 text-brand-blue rounded">
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Titre</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Catégorie</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SEO</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        @foreach($articles as $article)
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" form="bulk-form" name="ids[]" value="{{ $article->id }}" class="article-checkbox h-4 w-4 text-brand-blue rounded">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm font-medium text-gray-900">{{ Str::limit($article->title, 50) }}</div>
+                                    <div class="text-xs text-gray-400">{{ $article->author }}</div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block px-2 py-1 text-xs rounded {{ $article->category_color }} text-white">
+                                        {{ $article->category }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if($article->meta_title && $article->meta_description && $article->keywords)
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Complet</span>
+                                    @elseif($article->meta_title || $article->meta_description || $article->keywords)
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Partiel</span>
+                                    @else
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-500">Aucun</span>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if($article->is_published)
+                                        <span class="inline-block px-2 py-1 text-xs rounded bg-green-100 text-green-800">Publié</span>
+                                    @else
+                                        <span class="inline-block px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-800">Brouillon</span>
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-500">
+                                    {{ $article->created_at->format('d/m/Y') }}
+                                </td>
+                                <td class="px-6 py-4 text-right text-sm font-medium space-x-2">
+                                    <a href="{{ route('articles.show', $article) }}" target="_blank" class="text-gray-600 hover:text-gray-900">Voir</a>
+                                    <a href="{{ route('admin.articles.edit', $article) }}" class="text-brand-blue hover:underline">Modifier</a>
+                                    <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" class="inline" onsubmit="return confirm('Supprimer cet article ?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-900">Supprimer</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
             <div class="px-6 py-4 border-t border-gray-200">
                 {{ $articles->links() }}

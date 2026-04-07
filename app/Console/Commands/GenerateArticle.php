@@ -166,7 +166,6 @@ Retourne au format JSON : title, excerpt, content, meta_title, meta_description,
                     $imageContent = curl_exec($ch);
                     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                     $curlError = curl_error($ch);
-                    curl_close($ch);
 
                     if ($imageContent && $httpCode === 200) {
                         $filename = 'articles/ai-' . uniqid() . '.png';
