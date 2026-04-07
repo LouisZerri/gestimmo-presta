@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Article;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use OpenAI;
@@ -155,16 +156,31 @@ Retourne au format JSON : title, excerpt, content, meta_title, meta_description,
                         'quality' => 'standard',
                     ]);
 
-                    $ctx = stream_context_create(['http' => ['timeout' => 30]]);
-                    $imageContent = file_get_contents($imgResponse->data[0]->url, false, $ctx);
-                    if ($imageContent) {
+                    $imageUrl = $imgResponse->data[0]->url;
+
+                    $ch = curl_init($imageUrl);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+                    $imageContent = curl_exec($ch);
+                    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                    $curlError = curl_error($ch);
+                    curl_close($ch);
+
+                    if ($imageContent && $httpCode === 200) {
                         $filename = 'articles/ai-' . uniqid() . '.png';
                         Storage::disk('public')->put($filename, $imageContent);
                         $articleData['image'] = '/storage/' . $filename;
                         $this->info('Image générée.');
+                    } else {
+                        $msg = "Téléchargement image échoué (HTTP {$httpCode}) : {$curlError}";
+                        $this->warn($msg);
+                        Log::warning('GenerateArticle : ' . $msg);
                     }
                 } catch (\Exception $e) {
                     $this->warn('Erreur image : ' . $e->getMessage());
+                    report($e);
                 }
             }
 
