@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\Admin\AIController as AdminAIController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\Admin\EdlyaController as AdminEdlyaController;
+use App\Http\Controllers\Admin\LeadController as AdminLeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -206,5 +207,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Edlya - Codes d'activation
         Route::get('/edlya', [AdminEdlyaController::class, 'index'])->name('edlya.index');
         Route::post('/edlya/create-code', [AdminEdlyaController::class, 'createCode'])->name('edlya.create-code');
+
+        // Leads (landing pages)
+        Route::get('/leads', [AdminLeadController::class, 'index'])->name('leads.index');
+        Route::get('/leads/{lead}', [AdminLeadController::class, 'show'])->name('leads.show');
+        Route::patch('/leads/{lead}/statut', [AdminLeadController::class, 'updateStatut'])->name('leads.statut');
+        Route::get('/leads-export', [AdminLeadController::class, 'export'])->middleware('throttle:3,1')->name('leads.export');
+
+        // Rappels chatbot
+        Route::get('/callbacks', [AdminLeadController::class, 'callbacks'])->name('callbacks.index');
+        Route::patch('/callbacks/{callbackRequest}/statut', [AdminLeadController::class, 'updateCallbackStatut'])->name('callbacks.statut');
     });
 });

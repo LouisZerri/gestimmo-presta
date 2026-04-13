@@ -71,6 +71,26 @@
                     </svg>
                     Edlya
                 </a>
+
+                <div class="mt-4 px-6 py-2">
+                    <p class="text-xs uppercase tracking-wider text-gray-400">Landing Pages</p>
+                </div>
+
+                <a href="{{ route('admin.leads.index') }}"
+                   class="flex items-center px-6 py-3 hover:bg-white/10 transition-colors {{ request()->routeIs('admin.leads.*') ? 'bg-white/10 border-r-4 border-brand-accent' : '' }}">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Leads
+                </a>
+
+                <a href="{{ route('admin.callbacks.index') }}"
+                   class="flex items-center px-6 py-3 hover:bg-white/10 transition-colors {{ request()->routeIs('admin.callbacks.*') ? 'bg-white/10 border-r-4 border-brand-accent' : '' }}">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Rappels
+                </a>
             </nav>
 
             <div class="absolute bottom-0 w-64 p-6 border-t border-white/10">
